@@ -19,7 +19,8 @@ navmenu navbutton {
     font-size: 30px;
     text-align: center;
     
-    transition: 0.5s width cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s background-color linear;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+        background-color 0.5s linear;
 }
 navmenu navbutton:hover {
     width: 80%;
@@ -30,14 +31,15 @@ navmenu navbutton:hover {
 /* popup boxes */
 .popup-wrapper {
     margin: auto;
-    margin-top: 15%;
+    margin-top: 15vh;
     width: max-content;
     height: max-content;
 
     background-color: #112;
     box-shadow: 0px 0px 5px #151530;
 
-    transition: background-color .2s ease, box-shadow .2s ease;
+    transition: background-color .2s ease, 
+        box-shadow .2s ease;
     animation: popup-animate-in 1s ease;
 }
 .popup-wrapper:hover {
@@ -54,7 +56,8 @@ navmenu navbutton:hover {
     height: 4px;
     width: 0;
 
-    animation: bar-blink 2s 1.5s ease-in-out infinite, bar-animate-in 1s .5s ease forwards;
+    animation: bar-blink 2s 1.5s ease-in-out infinite, 
+        bar-animate-in 1s .5s ease forwards;
 }
 .popup-wrapper .info {
     background-color: #25A;
@@ -102,7 +105,7 @@ navmenu navbutton:hover {
 }
 .popup-content p {
     padding: 5px;
-    padding-left: 25px;
+    margin-left: 20px;
 
     font-family: monospace;
     color: white;
@@ -110,7 +113,30 @@ navmenu navbutton:hover {
     font-size: 15px;
     font-weight: 400;
 }
-.popup-content button {
+.popup-content a {
+    padding: 5px;
+    margin-left: 20px;
+
+    font-family: monospace;
+    color: #25A;
+    text-shadow: 0 0 1px #25A;
+    font-size: 15px;
+    font-weight: 400;
+
+    transition: margin-left .5s ease,
+        color .5s ease;
+}
+.popup-content a:hover {
+    margin-left: 25px;
+
+    color: #25C;
+    text-shadow: 0 0 1px #25C;
+}
+.button-wrapper {
+    margin-left: 20px;
+    padding: 5px;
+}
+.button-wrapper button {
     padding: 5px;
 
     font-family: monospace;
@@ -121,25 +147,37 @@ navmenu navbutton:hover {
 
     border: 2px solid;
 
-    transition: filter .2s ease;
+    transition: background-color .2s ease,
+        box-shadow .2s ease;
 }
-.popup-content .red {
+.button-wrapper .red {
     background-color: #A22;
     box-shadow: #A22;
     border-color: #B22;
 }
-.popup-content .red:hover {
+.button-wrapper .red:hover {
     background-color: #C22;
     box-shadow: #C22;
-    border-color: #D22;
 }
-.popup-content .green {
+.button-wrapper .green {
     background-color: #292;
     box-shadow: #292;
     border-color: #2A2;
 }
-.popup-content .green:hover {
+.button-wrapper .green:hover {
     background-color: #2B2;
     box-shadow: #2B2;
-    border-color: #2C2;
+}
+
+/* reactive CSS */
+@media (max-width: 1000px) {
+    .popup-wrapper {
+        width: 75vw;
+        height: max-content;
+    }
+}
+@media (max-height: 500px) {
+    .popup-wrapper {
+        margin-top: 5vh;
+    }
 }
