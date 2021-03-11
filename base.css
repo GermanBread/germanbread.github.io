@@ -10,7 +10,7 @@ body {
     display: block;
 }
 .noanim {
-    animation: none;
+    animation: none !important /* hacky fix */;
 }
 
 #repos {
