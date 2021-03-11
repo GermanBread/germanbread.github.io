@@ -1,7 +1,3 @@
-@import 'popups.css';
-@import 'panels.css';
-@import 'navmenu.css';
-
 body {
     background-color: #050510;
     scroll-behavior: smooth;
