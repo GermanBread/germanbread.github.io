@@ -12,7 +12,7 @@ function recreatePanels() {
     }
 }
 
-// Some basic scrolling stuff
+// Some basic scrolling stuff, might be used sometime
 /*window.addEventListener("scroll", function handlescrolling() {
     console.log(window.scrollY);
     if (window.scrollY >= 50) {
@@ -33,33 +33,30 @@ function fetchRepos() {
         if (!response.ok) {
             throw "Failed to fetch: " + response.status;
         }
+        _root.innerHTML = "Fetching, please wait";
         response.json().then(function (json) {
+            _root.innerHTML = "";
             for (let index = 0; index < json.length; index++) {
                 const element = json[index];
                 createRepoPanel(element, _root, index);
             }
         });
-    }).catch(function (error) {
-        // Something went wrong, log it
-        console.log(error);
-        
-        // Create a fake entry that contains the error
-        var _error = document.createElement("div");
-        _error.classList.add("panel-element");
-        _error.style.width = "90%";
-        _error.style.margin = "auto";
-        
-        var _title = document.createElement("h2");
-        _title.innerText = "Failed to fetch repos";
-        
-        var _message = document.createElement("p");
-        _message.innerText = error;
-        
-        _error.append(_title);
-        _error.append(_message);
-        
-        _root.append(_error);
-    });
+    }).catch(message => error(message, _root));
+
+    // Then for some specific repos
+    // Redefine root
+    var _croot = document.getElementById("contributions");
+    fetch('https://api.github.com/repos/Lightcord/Lightcord').then(function (response) {
+        // Everything was ok
+        if (!response.ok) {
+            throw "Failed to fetch: " + response.status;
+        }
+        _croot.innerHTML = "Fetching, please wait";
+        response.json().then(function (json) {
+            _croot.innerHTML = "";
+            createRepoPanel(json, _croot, 0);
+        });
+    }).catch(function (message) { error(message, _croot) });
 }
 function createRepoPanel(repo, root, index) {
     var _panel = document.createElement("a");
@@ -80,7 +77,7 @@ function createRepoPanel(repo, root, index) {
     }
     
     var _title = document.createElement("h2");
-    _title.innerText = repo.name;
+    _title.innerText = repo.name + (repo.archived ? " (archived)" : "");
     
     var _message = document.createElement("p");
     _message.innerText = repo.description;
@@ -93,4 +90,26 @@ function createRepoPanel(repo, root, index) {
     _panel.append(_attributes);
     
     root.append(_panel);
+}
+
+function error(message, root) {
+    // Something went wrong, log it
+    console.log(message);
+    
+    // Create a fake entry that contains the error
+    var _error = document.createElement("div");
+    _error.classList.add("panel-element");
+    _error.style.width = "90%";
+    _error.style.margin = "auto";
+    
+    var _title = document.createElement("h2");
+    _title.innerText = "Failed to fetch";
+    
+    var _message = document.createElement("p");
+    _message.innerText = error;
+    
+    _error.append(_title);
+    _error.append(_message);
+    
+    root.append(_error);
 }

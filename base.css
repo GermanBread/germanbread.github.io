@@ -13,7 +13,7 @@ body {
     animation: none !important /* hacky fix */;
 }
 
-#repos {
+#repos, #contributions, #projects {
     display: flex;
     flex-wrap: wrap;
 }

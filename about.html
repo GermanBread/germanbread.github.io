@@ -11,9 +11,11 @@
   <body onload="recreatePanels(); fetchRepos();">
     <main class="flex"> <!-- The navigation menu will always be on the top-left side -->
       <div class="navmenu">
-        <a href="https://github.com/GermanBread">Back</a>
+        <a onclick="window.history.back();">Back</a>
         <a href="#about">About</a>
         <a href="#repos-collection">Repos</a>
+        <a href="#contributions-collection">Contributions</a>
+        <a href="#projects-collection">Projects</a>
       </div>
       <div id="panels">
         <div class="panel-wrapper noanim" id="about">
@@ -25,7 +27,7 @@
               <div>
                 <h2>Some stuff about me</h2>
                 <p>
-                  I am a very passionate coder. I've been coding for a year and a half now and I code with joy.<br> <!-- No, I will not use <pre> -->
+                  I am a very passionate coder. I've been coding for a year and a half now and I do so with joy.<br> <!-- No, I will not use <pre> -->
                   I have yet to "git gud", but I recon that's part of the learning process.<br>
                   Side node: I adore good and beautiful design.<br>
                   <br>
@@ -50,6 +52,29 @@
             <h1>My repositories</h1>
             <div id="repos">
               <!-- Repos go here -->
+            </div>
+          </div>
+        </div>
+        <div class="panel-wrapper noanim" id="contributions-collection">
+          <div class="top-bar info"></div>
+          <div class="panel-content">
+            <h1>Stuff I contribute in</h1>
+            <div id="contributions">
+              <!-- Contributions go here -->
+            </div>
+          </div>
+        </div>
+        <div class="panel-wrapper noanim" id="projects-collection">
+          <div class="top-bar error"></div>
+          <div class="panel-content">
+            <h1>What I currently work on</h1>
+            <div id="projects">
+              <!-- Projects go here -->
+              <a href="notaproject.html" class="panel-element" style="animation-delay: 0s; border-right-color: rgb(34, 85, 170);">
+                <h2>Pipelang</h2>
+                <p>A simple, interpreted scripting language</p>
+                <p>Not uploaded to Github yet</p>
+              </a>
             </div>
           </div>
         </div>
