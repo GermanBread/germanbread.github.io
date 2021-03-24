@@ -86,3 +86,19 @@ button {
     background-color: #2B2;
     box-shadow: #2B2;
 }
+
+@media (max-width: 300px) {
+    body::before {
+        font-family: monospace;
+        text-shadow: 0px 0px 1px white;
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+        word-wrap: break-word;
+        
+        content: 'This width ain\'t cutting it';
+    }
+    body * {
+        display: none;
+    }
+}

@@ -97,10 +97,8 @@
     height: 50px;
 }
 .panel-content .panel-element {
-    width: 40%;
-    margin: 20px;
-    margin-right: auto;
-
+    width: calc(50% - 45px);
+    margin-bottom: 20px;
     opacity: 0;
 
     border-right: 4px solid white;
@@ -115,8 +113,7 @@
 }
 .panel-content .panel-element:hover {
     /* because I have declared that a elements move. In this case we don't want that */
-    margin: 20px;
-    margin-right: auto;
+    margin-left: 20px;
     
     background-color: #252550;
     box-shadow: 0 0 5px #252550;
@@ -131,7 +128,7 @@
 }
 
 /* reactive CSS */
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
     .panel-wrapper {
         width: calc(100vw - 46px);
     }
@@ -139,6 +136,22 @@
         padding: 5px;
     }
     .panel-content .panel-element {
-        width: 90%;
+        margin: 5px !important;
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+@media (max-width: 600px) {
+    .panel-content div.flex {
+        display: block;
+    }
+    .avatar {
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px !important;
+        height: 200px !important;
+    }
+    h1, h2 {
+        word-wrap: break-word;
     }
 }

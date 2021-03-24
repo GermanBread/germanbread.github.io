@@ -56,7 +56,7 @@
     border-left-color: #25C;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
     .navmenu {
         display: none;
     }
