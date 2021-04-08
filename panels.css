@@ -112,7 +112,7 @@
     animation: panel-element-animate-in 1s ease forwards;
 }
 .panel-content .panel-element:hover {
-    /* because I have declared that a elements move. In this case we don't want that */
+    /* because I have declared that <a> elements move. In this case we don't want that */
     margin-left: 20px;
     
     background-color: #252550;
