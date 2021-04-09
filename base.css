@@ -124,3 +124,14 @@ button {
         display: none;
     }
 }
+
+/* a div which hides the white flash that occurs when before loading css */
+.loading-cover {
+    animation: cover-go-away .5s forwards;
+    pointer-events: none;
+}
+@keyframes cover-go-away {
+    to {
+        opacity: 0;
+    }
+}
