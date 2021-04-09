@@ -39,17 +39,21 @@
         font-weight: 700;
       }
     </style>
+    <script>
+      window.location.replace('about.html');
+    </script>
   </head>
   <body>
-    <header><div class="stripes"><h1>Warning</h1></div></header>
+    <header><div class="stripes">
+      <h1>You are being redirected</h1>
+    </div></header>
     <main>
       <div class="popup-wrapper">
         <div class="top-bar error"></div>
         <div class="popup-content">
-          <h1>This homepage is currently under heavy development</h1>
+          <h1>Did it not work?</h1>
           <div class="button-wrapper">
-            <button onclick="window.location.href = 'about.html'" class="green">Got it</button>
-            <button onclick="window.location.href = 'https://github.com/GermanBread'" class="red">Back to the .... uh .. Github!</button>
+            <button onclick="window.location.href = 'about.html'" class="green">Yes, it did not</button>
           </div>
         </div>
       </div>

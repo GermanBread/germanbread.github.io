@@ -2,6 +2,28 @@ body {
     background-color: #050510;
     scroll-behavior: smooth;
 }
+body::before {
+    content : "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    
+    background: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F5%2Fa%2F2%2F398038.jpg&f=1&nofb=1');
+    opacity : 0;
+    /* Just in case */
+    pointer-events: none;
+    
+    animation: background-fade-in 1s .2s linear forwards;
+}
+@keyframes background-fade-in {
+    to {
+        opacity: 0.05;
+    }
+}
 
 .flex {
     display: flex;
