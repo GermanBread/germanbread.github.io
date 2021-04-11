@@ -130,7 +130,7 @@
 /* reactive CSS */
 @media (max-width: 1250px) {
     .panel-wrapper {
-        width: calc(100vw - 46px);
+        width: calc(100vw - 50px);
     }
     .panel-content {
         padding: 5px;
@@ -153,5 +153,23 @@
     }
     h1, h2 {
         word-wrap: break-word;
+    }
+    .panel-content h1 {
+        padding: 2px;
+        font-size: 25px;
+    }
+    .panel-content h2 {
+        padding: 2px;
+        font-size: 15px;
+    }
+    .panel-content p {
+        padding: 2px;
+        font-size: 10px;
+        margin-left: 10px;
+    }
+    .panel-content a {
+        padding: 2px;
+        font-size: 10px;
+        margin-left: 8px;
     }
 }
