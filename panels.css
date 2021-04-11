@@ -160,16 +160,16 @@
     }
     .panel-content h2 {
         padding: 2px;
-        font-size: 15px;
+        font-size: 18px;
     }
     .panel-content p {
         padding: 2px;
-        font-size: 10px;
-        margin-left: 10px;
+        font-size: 14px;
+        margin-left: 4px;
     }
     .panel-content a {
         padding: 2px;
-        font-size: 10px;
-        margin-left: 8px;
+        font-size: 12px;
+        margin-left: 4px;
     }
 }

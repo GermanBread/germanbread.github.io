@@ -14,8 +14,7 @@ body::before {
     z-index: -1;
     opacity : 0;
     
-    background: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F5%2Fa%2F2%2F398038.jpg&f=1&nofb=1');
-    background-position: center;
+    background: url(background.webp) center;
     background-size: cover;
     
     /* Just in case */
