@@ -117,6 +117,10 @@ button {
         font-weight: 700;
         font-size: 15px;
         word-wrap: break-word;
+
+        opacity: 1;
+        background: none;
+        animation: none;
         
         content: 'This width ain\'t cutting it';
     }
