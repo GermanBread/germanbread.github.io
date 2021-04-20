@@ -33,7 +33,7 @@
     margin-top: 0;
     padding: 10px;
 
-    font-family: monospace;
+    font-family: Helvetica, Arial;
     color: white;
     text-shadow: 0 0 1px white;
     text-align: center;
@@ -44,7 +44,7 @@
     padding: 5px;
     margin-left: 20px;
 
-    font-family: monospace;
+    font-family: Helvetica, Arial;
     color: white;
     text-shadow: 0 0 1px white;
     font-size: 15px;
@@ -54,7 +54,7 @@
     padding: 5px;
     margin-left: 20px;
 
-    font-family: monospace;
+    font-family: Helvetica, Arial;
     color: #25AA;
     text-shadow: 0 0 1px #25AA;
     font-size: 15px;
@@ -96,4 +96,37 @@
     .popup-wrapper {
         margin-top: 5vh;
     }
+}
+
+header .stripes {
+    box-shadow: 0 0 5px orange;
+
+    background: repeating-linear-gradient(
+        45deg,
+        #ffae00,
+        #ffae00 20px,
+        #ff7b00 20px,
+        #ff7b00 40px
+        );
+
+        background-size: 150%;
+        background-position-x: -10px;
+
+        animation: stripes-animate 1s linear infinite;
+    }
+    @keyframes stripes-animate {
+    from {
+        background-position-x: -66px;
+    }
+}
+.stripes h1 {
+    margin: 0;
+    padding: 10px;
+
+    font-family: Helvetica, Arial;
+    color: white;
+    text-shadow: 0 0 5px white;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
 }
