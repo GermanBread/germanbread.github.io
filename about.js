@@ -18,7 +18,7 @@ function fetchRepos() {
     fetch('https://api.github.com/users/GermanBread/repos').then(function (response) {
         // Everything was ok
         if (!response.ok) {
-            throw "Failed to fetch: " + response.status;
+            throw "Server returned: " + response.status;
         }
         _root.innerHTML = "Fetching, please wait";
         response.json().then(function (json) {
@@ -36,7 +36,7 @@ function fetchRepos() {
     fetch('https://api.github.com/repos/Lightcord/Lightcord').then(function (response) {
         // Everything was ok
         if (!response.ok) {
-            throw "Failed to fetch: " + response.status;
+            throw "Server returned: " + response.status;
         }
         _croot.innerHTML = "Fetching, please wait";
         response.json().then(function (json) {
@@ -88,12 +88,13 @@ function error(message, root) {
     _error.classList.add("panel-element");
     _error.style.width = "90%";
     _error.style.margin = "auto";
+    _error.style.borderRightColor = "#F05050";
     
     var _title = document.createElement("h2");
     _title.innerText = "Failed to fetch";
     
     var _message = document.createElement("p");
-    _message.innerText = error;
+    _message.innerText = message;
     
     _error.append(_title);
     _error.append(_message);
