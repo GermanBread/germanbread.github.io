@@ -33,18 +33,22 @@ function fetchRepos() {
     // Then for some specific repos
     // Redefine root
     var _croot = document.getElementById("contributions");
-    fetch('https://api.github.com/repos/Lightcord/Lightcord').then(function (response) {
+    _croot.innerHTML = "";
+    createFakePanel('https://api.github.com/repos/Lightcord/Lightcord', _croot, 0);
+    createFakePanel('https://api.github.com/repos/Lightcord/lc-installer-linux', _croot, 1);
+}
+function createFakePanel(url, root, index) {
+    fetch(url).then(function (response) {
         // Everything was ok
         if (!response.ok) {
             throw "Server returned: " + response.status;
         }
-        _croot.innerHTML = "Fetching, please wait";
         response.json().then(function (json) {
-            _croot.innerHTML = "";
-            createRepoPanel(json, _croot, 0);
+            createRepoPanel(json, root, index);
         });
-    }).catch(function (message) { error(message, _croot) });
+    }).catch(function (message) { error(message, root) });
 }
+
 function createRepoPanel(repo, root, index) {
     var _panel = document.createElement("a");
     _panel.href = repo.html_url;
