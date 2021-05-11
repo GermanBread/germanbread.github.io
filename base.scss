@@ -2,26 +2,26 @@ body {
     background-color: #050510;
     scroll-behavior: smooth;
     
-}
-body::before {
-    content : "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    z-index: -1;
-    opacity : 0;
-    
-    background: url(background.webp) center;
-    background-size: cover;
-    
-    /* Just in case */
-    pointer-events: none;
-    
-    animation: background-fade-in 1s .2s linear forwards;
+    &::before {
+        content : "";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        z-index: -1;
+        opacity : 0;
+        
+        background: url('background.webp') center;
+        background-size: cover;
+        
+        /* Just in case */
+        pointer-events: none;
+        
+        animation: background-fade-in 1s .2s linear forwards;
+    }
 }
 @keyframes background-fade-in {
     to {
@@ -76,10 +76,6 @@ body::before {
 }
 
 /* buttons */
-.button-wrapper {
-    margin-left: 20px;
-    padding: 5px;
-}
 button {
     padding: 5px;
 
@@ -94,23 +90,30 @@ button {
     transition: background-color .2s ease,
         box-shadow .2s ease;
 }
-.button-wrapper .red {
-    background-color: #A22;
-    box-shadow: #A22;
-    border-color: #B22;
-}
-.button-wrapper .red:hover {
-    background-color: #C22;
-    box-shadow: #C22;
-}
-.button-wrapper .green {
-    background-color: #292;
-    box-shadow: #292;
-    border-color: #2A2;
-}
-.button-wrapper .green:hover {
-    background-color: #2B2;
-    box-shadow: #2B2;
+.button-wrapper {
+    margin-left: 20px;
+    padding: 5px;
+
+    .red {
+        background-color: #A22;
+        box-shadow: #A22;
+        border-color: #B22;
+    
+        &:hover {
+            background-color: #C22;
+            box-shadow: #C22;
+        }
+    }
+    .green {
+        background-color: #292;
+        box-shadow: #292;
+        border-color: #2A2;
+    
+        &:hover {
+            background-color: #2B2;
+            box-shadow: #2B2;
+        }
+    }
 }
 
 @media (max-width: 250px) {

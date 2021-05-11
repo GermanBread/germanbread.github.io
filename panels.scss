@@ -11,10 +11,11 @@
     transition: background-color .2s ease, 
         box-shadow .2s ease;
     animation: panel-animate-in 1s ease forwards;
-}
-.panel-wrapper:hover {
-    background-color: #151530A0;
-    box-shadow: 0px 0px 5px #224A;
+
+    &:hover {
+        background-color: #151530A0;
+        box-shadow: 0px 0px 5px #224A;
+    }
 }
 @keyframes panel-animate-in {
     from {
@@ -30,93 +31,102 @@
     border-top: none;
 
     padding: 20px;
-}
-.panel-content h1 {
-    margin-top: 0;
-    padding: 10px;
 
-    font-family: Helvetica, Arial;
-    color: white;
-    text-shadow: 0 0 2px white;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-}
-.panel-content h2 {
-    margin: 10px;
-    margin-bottom: 0;
-    padding: 5px;
-
-    font-family: Helvetica, Arial;
-    color: white;
-    text-shadow: 0 0 1px white;
-    font-size: 20px;
-    font-weight: 600;
-}
-.panel-content p {
-    padding: 5px;
-    margin-left: 20px;
-
-    font-family: Helvetica, Arial;
-    color: white;
-    text-shadow: 0 0 1px white;
-    font-size: 15px;
-    font-weight: 400;
-}
-.panel-content a {
-    padding: 5px;
-    margin-left: 20px;
-
-    font-family: Helvetica, Arial;
-    color: #25A;
-    text-shadow: 0 0 1px #25A;
-    font-size: 15px;
-    font-weight: 400;
-
-    transition: margin-left .5s ease,
-        color .5s ease;
-}
-.panel-content a:hover {
-    margin-left: 25px;
-
-    color: #25C;
-    text-shadow: 0 0 1px #25C;
-}
-.panel-content .avatar {
-    border: 2px solid #25A;
-    box-shadow: 0 0 5px #25A;
-
-    width: 150px;
-    height: 150px;
-}
-.panel-content .small-avatar {
-    border: 2px solid #25A;
-    box-shadow: 0 0 5px #25A;
-
-    width: 50px;
-    height: 50px;
-}
-.panel-content .panel-element {
-    width: calc(50% - 45px);
-    margin-bottom: 20px;
-    opacity: 0;
-
-    border-right: 4px solid white;
-    background-color: #224;
-    box-shadow: 0 0 5px #224;
-
-    text-decoration: none;
-
-    transition: background-color .2s ease, 
-        box-shadow .2s ease;
-    animation: panel-element-animate-in 1s ease forwards;
-}
-.panel-content .panel-element:hover {
-    /* because I have declared that <a> elements move. In this case we don't want that */
-    margin-left: 20px;
+    h1 {
+        margin-top: 0;
+        padding: 10px;
     
-    background-color: #252550;
-    box-shadow: 0 0 5px #252550;
+        font-family: Helvetica, Arial;
+        color: white;
+        text-shadow: 0 0 2px white;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    h2 {
+        margin: 10px;
+        margin-bottom: 0;
+        padding: 5px;
+    
+        font-family: Helvetica, Arial;
+        color: white;
+        text-shadow: 0 0 1px white;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    p {
+        padding: 5px;
+        margin-left: 20px;
+    
+        font-family: Helvetica, Arial;
+        color: white;
+        text-shadow: 0 0 1px white;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    a {
+        padding: 5px;
+        margin-left: 20px;
+    
+        font-family: Helvetica, Arial;
+        color: #25A;
+        text-shadow: 0 0 1px #25A;
+        font-size: 15px;
+        font-weight: 400;
+    
+        transition: margin-left .5s ease,
+            color .5s ease;
+
+        &:hover {
+            margin-left: 25px;
+        
+            color: #25C;
+            text-shadow: 0 0 1px #25C;
+        }
+    }
+
+    .avatar {
+        border: 2px solid #25A;
+        box-shadow: 0 0 5px #25A;
+    
+        width: 150px;
+        height: 150px;
+    }
+    
+    .small-avatar {
+        border: 2px solid #25A;
+        box-shadow: 0 0 5px #25A;
+    
+        width: 50px;
+        height: 50px;
+    }
+
+    .panel-element {
+        width: calc(50% - 45px);
+        margin-bottom: 20px;
+        opacity: 0;
+    
+        border-right: 4px solid white;
+        background-color: #224;
+        box-shadow: 0 0 5px #224;
+    
+        text-decoration: none;
+    
+        transition: background-color .2s ease, 
+            box-shadow .2s ease;
+        animation: panel-element-animate-in 1s ease forwards;
+    
+        &:hover {
+            /* because I have declared that <a> elements move. In this case we don't want that */
+            margin-left: 20px;
+            
+            background-color: #252550;
+            box-shadow: 0 0 5px #252550;
+        }
+    }
 }
 @keyframes panel-element-animate-in {
     from {
@@ -134,16 +144,41 @@
     }
     .panel-content {
         padding: 5px;
-    }
-    .panel-content .panel-element {
-        margin: 5px !important;
-        width: 100%;
-        overflow-x: hidden;
+
+        .panel-element {
+            margin: 5px !important;
+            width: 100%;
+            overflow-x: hidden;
+        }
     }
 }
 @media (max-width: 600px) {
-    .panel-content div.flex {
-        display: block;
+    .panel-content {
+        div.flex {
+            display: block;
+        }
+
+        h1 {
+            padding: 2px;
+            font-size: 25px;
+        }
+
+        h2 {
+            padding: 2px;
+            font-size: 18px;
+        }
+
+        p {
+            padding: 2px;
+            font-size: 14px;
+            margin-left: 4px;
+        }
+
+        a {
+            padding: 2px;
+            font-size: 12px;
+            margin-left: 4px;
+        }
     }
     .avatar {
         margin-right: auto;
@@ -153,23 +188,5 @@
     }
     h1, h2 {
         word-wrap: break-word;
-    }
-    .panel-content h1 {
-        padding: 2px;
-        font-size: 25px;
-    }
-    .panel-content h2 {
-        padding: 2px;
-        font-size: 18px;
-    }
-    .panel-content p {
-        padding: 2px;
-        font-size: 14px;
-        margin-left: 4px;
-    }
-    .panel-content a {
-        padding: 2px;
-        font-size: 12px;
-        margin-left: 4px;
     }
 }
