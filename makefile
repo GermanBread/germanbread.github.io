@@ -1,18 +1,21 @@
-source := $(wildcard *.scss)
-files := $(foreach file,$(source),$(file))
+files := $(wildcard *.scss)
+output := $(foreach file,$(files),$(shell basename -s .scss $(file)))
 
 all:
-	@echo Compiling
-	@make $(files)
+	@echo Compiling scss to css
+	@echo =====================
+	@make $(output)
+	@echo ====================
+	@echo Compilation complete
 
-$(files):
-	sassc
+$(output):
+	@echo $@.scss to $@.css
+	@sassc -t compressed $@.scss > $@.css
 
 push:
-	make fetch
 	make all
-	pit push
+	git push
 
 fetch:
 	git fetch
-	pit pull
+	git pull
