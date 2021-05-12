@@ -36,6 +36,7 @@ function fetchRepos() {
     _croot.innerHTML = "";
     createFakePanel('https://api.github.com/repos/Lightcord/Lightcord', _croot, 0);
     createFakePanel('https://api.github.com/repos/Lightcord/lc-installer-linux', _croot, 1);
+    createFakePanel('https://api.github.com/repos/arch-community/qbot', _croot, 2);
 }
 function createFakePanel(url, root, index) {
     fetch(url).then(function (response) {
