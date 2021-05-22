@@ -45,6 +45,7 @@ function createFakePanel(url, root, index) {
             throw "Server returned: " + response.status;
         }
         response.json().then(function (json) {
+            console.log(json);
             createRepoPanel(json, root, index);
         });
     }).catch(function (message) { error(message, root) });
@@ -69,7 +70,7 @@ function createRepoPanel(repo, root, index) {
     }
     
     var _title = document.createElement("h2");
-    _title.innerText = repo.name + (repo.archived ? " (archived)" : "");
+    _title.innerText = repo.name + (repo.archived ? " (archived)" : "") + (repo.fork ? " (forked)" : "");
     
     var _message = document.createElement("p");
     _message.innerText = repo.description;

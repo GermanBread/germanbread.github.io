@@ -10,11 +10,30 @@
 
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="panels.css">
+    <link rel="stylesheet" href="popups.css">
     <link rel="stylesheet" href="navmenu.css">
     <script src="about.js"></script>
   </head>
   <body onload="recreatePanels(); fetchRepos();">
     <div class="loading-cover" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: #050510; z-index: 100;"></div>
+    
+    <!-- I'd prefer to not display a broken site -->
+    <noscript>
+      <style>
+        main.flex {
+          display: none;
+        }
+      </style>
+      <header><div class="stripes"><h1>Warning</h1></div></header>
+      <div class="popup-wrapper">
+        <div class="top-bar error"></div>
+        <div class="popup-content">
+          <h1>Bruh. Unblock Javascript.</h1>
+          <p>I don't like it either but I need it for the fancy stuff :(</p>
+        </div>
+      </div>
+    </noscript>
+    
     <main class="flex"> <!-- The navigation menu will always be on the top-left side -->
       <div class="navmenu">
         <a href="https://github.com/GermanBread">Back</a>
