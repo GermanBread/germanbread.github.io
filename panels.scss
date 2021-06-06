@@ -140,13 +140,13 @@
 /* reactive CSS */
 @media (max-width: 1250px) {
     .panel-wrapper {
-        width: calc(100vw - 50px);
+        width: calc(100vw - 60px);
     }
     .panel-content {
         padding: 5px;
 
         .panel-element {
-            margin: 5px !important;
+            margin: 5px;
             width: 100%;
             overflow-x: hidden;
         }
