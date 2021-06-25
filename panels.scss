@@ -95,6 +95,21 @@
         width: 150px;
         height: 150px;
     }
+
+    .server-banner {
+        width: 65ch;
+        margin-left: 0px;
+
+        img {
+            margin-top: 5px;
+            border: 2px solid #25A;
+            box-shadow: 0 0 5px #25A;
+        }
+        
+        &:hover {
+            margin-left: 5px;
+        }
+    }
     
     .small-avatar {
         border: 2px solid #25A;
@@ -149,6 +164,21 @@
             margin: 5px;
             width: 100%;
             overflow-x: hidden;
+
+            &:hover {
+                /* because I have declared that <a> elements move. In this case we don't want that */
+                margin-left: 5px;
+            }
+        }
+    }
+    .server-banner {
+        img {
+            width: calc(100% - 10px);
+        }
+        
+        &:hover {
+            /* Why does !important work? */
+            margin-left: 0px !important;
         }
     }
 }
