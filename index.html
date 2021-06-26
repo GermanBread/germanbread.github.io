@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="navmenu.css">
     <script src="about.js"></script>
   </head>
-  <body onload="recreatePanels(); fetchRepos();">
+  <body onload="fetchRepos(); recreatePanels(); rebuildMenu();">
     <div class="loading-cover" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: #050510; z-index: 100;"></div>
     
     <!-- I'd prefer to not display a broken site -->
@@ -36,10 +36,11 @@
     
     <main class="flex"> <!-- The navigation menu will always be on the top-left side -->
       <div class="navmenu">
-        <a href="https://github.com/GermanBread">Back</a>
-        <a href="#about">About</a>
-        <a href="#repos-collection">Repos</a>
-        <a href="#contributions-collection">Contributions</a>
+        <a href="https://github.com/GermanBread" class="noanim">Back</a>
+        <a href="#about" class="noanim">About</a>
+        <a href="#external-links" class="noanim">External links</a>
+        <a href="#repos-collection" class="noanim">Repos</a>
+        <a href="#contributions-collection" class="noanim">Contributions</a>
         <!--<a href="#projects-collection">Projects</a>-->
       </div>
       <div id="panels">
@@ -58,16 +59,14 @@
                     <br>
                     IDE is VS Code<br>
                     <br>
-                    I have a Discord server where you can hang out! (click on the image below)<br>
-                    <a href="https://discord.gg/ednPDFtkk8" class="server-banner"><img src="discordserver.gif" alt="Epic discord server banner"></a><br>
                   </p>
                 </div>
                 <div>
                   <h2>Linux stuff</h2>
                   <p>
-                    HEY GUYS DID YOU KNOW THAT I USE ARCH (BTW) !!??11?!!1!??!1?!!?!!?<br>
+                    I use Arch (btw) on my main rig<br>
                     <i>And NixOS on my laptop because I like it</i><br>
-                    Zsh and KDE Plasma on both.<br>
+                    KDE Plasma on both.<br>
                   </p>
                 </div>
                 <div>
@@ -83,6 +82,18 @@
                   <p>C++ and Java</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-wrapper noanim" id="external-links">
+          <div class="top-bar error"></div>
+          <div class="panel-content">
+            <h1>External links</h1>
+            <div id="links">
+              <a href="https://discord.gg/ednPDFtkk8" class="panel-element block" style="border-right-color: #25A;">
+                <h2>Click here to join my Discord server</h2>
+                <p>... and enjoy your stay!</p>
+              </a>
             </div>
           </div>
         </div>
@@ -109,12 +120,12 @@
           <div class="panel-content">
             <h1>What I currently work on</h1>
             <div id="projects">
-              <! -- Projects go here -- >
-              <a href="notaproject.html" class="panel-element" style="border-right-color: #25A;">
+              <!-- Projects go here -->
+              <!--<a href="notaproject.html" class="panel-element" style="border-right-color: #25A;">
                 <h2>Nothing</h2>
                 <p>Foobar</p>
                 <p>Not uploaded to Github yet</p>
-              </a>
+              </a>-- >
             </div>
           </div>
         </div>-->
