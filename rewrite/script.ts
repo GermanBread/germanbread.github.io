@@ -8,7 +8,6 @@ function init() {
 
     window.addEventListener("scroll", handlescroll)
     window.addEventListener("scroll", hidescrollhint)
-    window.addEventListener("resize", handleresize)
 }
 
 function handlescroll() {
@@ -18,26 +17,22 @@ function handlescroll() {
         nav.classList.remove("attached")
     }
 }
-function handleresize() {
-    if (window.innerWidth < 380) {
-        hint.classList.add("hidden")
-        var elements = document.body.getElementsByTagName("window")
-        for (let index = 0; index < elements.length; index++) {
-            const element = elements[index];
-            element.classList.remove("hidden")
-        }
-        window.removeEventListener("resize", handleresize)
-    }
-}
+
 function hidescrollhint() {
     if (window.scrollY > 50) {
         hint.classList.add("hidden")
         var elements = document.body.getElementsByTagName("window")
-        for (let index = 0; index < elements.length; index++) {
+        for (let index = 1; index < elements.length; index++) {
             const element = elements[index];
             element.classList.remove("hidden")
         }
-        document.getElementById("about")
-        window.removeEventListener("scroll", hidescrollhint)
+        //window.removeEventListener("scroll", hidescrollhint)
+    } else {
+        hint.classList.remove("hidden")
+        var elements = document.body.getElementsByTagName("window")
+        for (let index = 1; index < elements.length; index++) {
+            const element = elements[index];
+            element.classList.add("hidden")
+        }
     }
 }
