@@ -14,7 +14,7 @@ window {
     display: block;
     background-color: #444;
 
-    font-size: clamp(5px, 3vw, 25px);
+    font-size: clamp(5px, 3vw, 20px);
     color: #DDD;
 
     transition: all ease-out .5s;
@@ -62,7 +62,7 @@ window {
         height: 1.5em;
         padding-top: .5em;
 
-        font-size: clamp(0px, 3vw, 40px);
+        font-size: clamp(10px, 3vw, 40px);
         color: #999;
 
         text-align: center;
@@ -100,14 +100,14 @@ window {
     pointer-events: none;
 
     img {
-        width: clamp(30px, 3vw, 3vw);
-        height: clamp(20px, 2vw, 2vw);
+        width: clamp(30px, 3vw, 60px);
+        height: clamp(20px, 2vw, 40px);
     }
 
     span {
         color: #DDD;
-        padding: clamp(1px, .25vw, .25vw);
-        font-size: clamp(12px, 1vw, 1vw);
+        padding: clamp(1px, .25vw, 5px);
+        font-size: clamp(12px, 1vw, 24px);
     }
 
     &.hidden {
@@ -141,6 +141,26 @@ window {
 
         &:hover {
             color: #555;
+        }
+    }
+}
+
+#repos-list, #contributions-list {
+    .list-panel {
+        display: block;
+        padding: 2.5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-bottom: 1%;
+
+        text-decoration: none;
+        color: #DDD;
+        background-color: #555;
+        box-shadow: #222 0 0 5%;
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 2%;
         }
     }
 }
