@@ -1,5 +1,4 @@
-var nav : HTMLElement
-var hint : HTMLElement
+var nav : HTMLElement, hint : HTMLElement
 
 function init() {
     nav = document.getElementById("navmenu")
@@ -39,59 +38,47 @@ function hidescrollhint() {
 
 function fetchpersonalrepos(root : HTMLElement) {
     fetch('https://api.github.com/users/GermanBread/repos')
-        .then(function name(response : Response) {
+        .then(response => {
             if (!response.ok) {
                 throw "Github responded with " + response.status;
             }
-            response.json().then(function name(data) {
+            response.json().then(data => {
                 root.innerHTML = ""
                 for (let index = 0; index < data.length; index++) {
-                    const element = data[index];
-                    root.appendChild(createpanel(element))
+                    const json = data[index];
+                    root.appendChild(createpanel(json))
                 }
             })
-        }).catch(function name(error) {
-            root.innerHTML = error
-        })
+        }).catch(error => root.innerHTML = error)
 }
 function fetchcontibutionrepos(root : HTMLElement) {
+    const fetchrepo = (url : string) => {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw "Github responded with " + response.status;
+                }
+                response.json().then(json => {
+                    root.appendChild(createpanel(json))
+                })
+            })
+            .catch(error => root.innerHTML = error)
+    }
+    
     root.innerHTML = ""
 
-    fetch('https://api.github.com/repos/Lightcord/Lightcord')
-        .then(function name(response : Response) {
-            if (!response.ok) {
-                throw "Github responded with " + response.status;
-            }
-            response.json().then(function name(data) {
-                root.appendChild(createpanel(data))
-            })
-        }).catch(function name(error) {
-            root.innerHTML = error
-        })
-    
-    fetch('https://api.github.com/repos/arch-community/qbot')
-        .then(function name(response : Response) {
-            if (!response.ok) {
-                throw "Github responded with " + response.status;
-            }
-            response.json().then(function name(data) {
-                root.appendChild(createpanel(data))
-            })
-        }).catch(function name(error) {
-            root.innerHTML = error
-        })
-
-    
+    fetchrepo('https://api.github.com/repos/arch-community/qbot')
+    fetchrepo('https://api.github.com/repos/Lightcord/Lightcord')
 }
-function createpanel(data) : HTMLElement {
+function createpanel({ name, description, archived, fork, html_url }) : HTMLElement {
     var panel : HTMLAnchorElement = document.createElement("a")
     var header : HTMLElement = document.createElement("h3")
     var content : HTMLElement = document.createElement("p")
     
-    panel.href = data.html_url
+    panel.href = html_url
     panel.classList.add("list-panel")
-    header.innerHTML = data.name + (data.archived ? " (archived)" : "") + (data.fork ? " (forked)" : "")
-    content.innerHTML = data.description ?? "No description provided"
+    header.innerHTML = name + (archived ? " (archived)" : "") + (fork ? " (forked)" : "")
+    content.innerHTML = description ?? "No description provided"
     
     panel.appendChild(header)
     panel.appendChild(document.createElement("hr"))
