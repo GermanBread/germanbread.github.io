@@ -23,3 +23,8 @@ $(output_scss):
 $(output_ts):
 	@echo Processing $@
 	tsc --outFile compiled/$@.js $@.ts
+
+deploy: all
+	cp -r compiled docs/compiled
+	cp -r resources docs/resources
+	cp *.html docs/
