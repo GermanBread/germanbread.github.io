@@ -1,36 +1,52 @@
-var nav, hint;
+var about, about_content, repos, repos_content;
+var about_rect, repos_rect;
+var transition_offset = 40 * (window.innerHeight / 100);
+var transition_smoothness = 40 * (window.innerHeight / 100);
+var parallax_multiplier = 1 * (window.innerHeight / 100);
+var values_initialised = false;
 function init() {
-    nav = document.getElementById("navmenu");
-    hint = document.getElementById("scroll-hint");
+    if (!values_initialised) {
+        about = document.getElementById("section-about");
+        about_content = document.getElementById("section-about-content");
+        about_rect = about.getBoundingClientRect();
+        repos = document.getElementById("section-repos");
+        repos_content = document.getElementById("section-repos-content");
+        repos_rect = repos.getBoundingClientRect();
+        values_initialised = true;
+    }
     handlescroll();
     window.addEventListener("scroll", handlescroll);
-    window.addEventListener("scroll", hidescrollhint);
+    document.getElementById("repos-list").innerHTML = "";
+    document.getElementById("contributions-list").innerHTML = "";
     fetchpersonalrepos(document.getElementById("repos-list"));
     fetchcontibutionrepos(document.getElementById("contributions-list"));
 }
-function handlescroll() {
-    var elements = document.body.getElementsByTagName("window");
-    if (window.scrollY > 50) {
-        nav.classList.add("attached");
-        for (var index = 1; index < elements.length; index++) {
-            var element = elements[index];
-            element.classList.remove("hidden");
-        }
-    }
-    else {
-        nav.classList.remove("attached");
-        for (var index = 1; index < elements.length; index++) {
-            var element = elements[index];
-            element.classList.add("hidden");
-        }
-    }
+// Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
+function clamp(num, min, max) {
+    return num <= min
+        ? min
+        : num >= max
+            ? max
+            : num;
 }
-function hidescrollhint() {
-    if (window.scrollY > 50) {
-        hint.classList.add("hidden");
+function handlescroll() {
+    // About section
+    {
+        var bounds = about_rect;
+        var computed_opacity = clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
+            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
+        var computed_offset = (window.scrollY - bounds.top) / parallax_multiplier;
+        about.style.opacity = computed_opacity.toString();
+        about_content.style.transform = "translateY(" + -computed_offset + "px)";
     }
-    else {
-        hint.classList.remove("hidden");
+    // Repos section
+    {
+        var bounds = repos_rect;
+        var computed_opacity = clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
+            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
+        var computed_offset = (window.scrollY - bounds.top) / parallax_multiplier;
+        repos.style.opacity = computed_opacity.toString();
+        repos_content.style.transform = "translateY(" + -computed_offset + "px)";
     }
 }
 function fetchpersonalrepos(root) {
