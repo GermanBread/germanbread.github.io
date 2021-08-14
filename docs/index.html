@@ -5,119 +5,114 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="GermanBread">
-    <meta name="title" content="A homepage of a guy">
-    <meta name="description" content="Come on, I know you want to visit me">
+    <meta name="title" content="The best looking homepage you have ever seen">
+    <meta name="description" content="I know you want to visit me">
 
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="panels.css">
-    <link rel="stylesheet" href="popups.css">
-    <link rel="stylesheet" href="navmenu.css">
-    <script src="about.js"></script>
-  </head>
-  <body onload="fetchRepos(); recreatePanels(); rebuildMenu();">
-    <div class="loading-cover" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: #050510; z-index: 100;"></div>
-    
-    <!-- I'd prefer to not display a broken site -->
+    <link rel="stylesheet" href="compiled/style.css">
+    <script src="compiled/script.js"></script>
+
     <noscript>
       <style>
-        main.flex {
+        #logo-captions, #section-about, #section-repos {
           display: none;
         }
       </style>
-      <header><div class="stripes"><h1>Warning</h1></div></header>
-      <div class="popup-wrapper">
-        <div class="top-bar error"></div>
-        <div class="popup-content">
-          <h1>Bruh. Unblock Javascript.</h1>
-          <p>I don't like it either but I need it for the fancy stuff :(</p>
-        </div>
-      </div>
     </noscript>
-    
-    <main class="flex"> <!-- The navigation menu will always be on the top-left side -->
-      <div class="navmenu">
-        <a href="https://github.com/GermanBread" class="noanim">Back</a>
-        <a href="#about" class="noanim">About</a>
-        <a href="#external-links" class="noanim">External links</a>
-        <a href="#repos-collection" class="noanim">Repos</a>
-        <a href="#contributions-collection" class="noanim">Contributions</a>
-        <!--<a href="#projects-collection">Projects</a>-->
+  </head>
+  <body onload="init();">
+    <div id="section-logo">
+      <pre id="logo">
+    ____                      __
+   / __ )________  ____ _____/ /
+  / __  / ___/ _ \/ __ `/ __  / 
+ / /_/ / /  /  __/ /_/ / /_/ /  
+/_____/_/   \___/\__,_/\__,_/
+<noscript>Cool kids enable Javascript</noscript>
+      </pre>
+      <div id="logo-captions">
+        <span>The next Bill Gates</span>
+        <span>The best programmer the world has ever seen</span>
+        <span>What's a bug?</span>
       </div>
-      <div id="panels">
-        <div class="panel-wrapper noanim" id="about">
-          <div class="top-bar ok"></div>
-          <div class="panel-content">
-            <h1>About me</h1>
-            <div class="flex">
-              <img class="avatar" src="github_pfp.webp" alt="My current profile picture on Github goes here.">
-              <div>
-                <div>
-                  <h2>Some stuff about me</h2>
-                  <p>
-                    I code a lot.<br> <!-- No, I will not use <pre> -->
-                    Aand I love beautiful design.<br>
-                    <br>
-                    IDE is VS Code<br>
-                    <br>
-                  </p>
-                </div>
-                <div>
-                  <h2>Linux stuff</h2>
-                  <p>
-                    I use Arch (btw) on my main rig<br>
-                    <i>And NixOS on my laptop because I like it</i><br>
-                    KDE Plasma on both.<br>
-                  </p>
-                </div>
-                <div>
-                  <h2 style="display: flex;">I<div class="heart-blink"><3</div></h2>
-                  <p>C#, C++, Bash, HTML and SCSS</p>
-                </div>
-                <div>
-                  <h2>I hate</h2>
-                  <p>Javascript. I don't think I have to explain why</p>
-                </div>
-                <div>
-                  <h2>Currently learning</h2>
-                  <p>C++ and Java</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <span id="scroll-hint" style="opacity: 0;">scroll – down</span>
+    </div>
+    <div id="spacer" style="height: 25vh;"></div>
+    <div id="section-about" style="opacity: 0;">
+      <div id="section-about-content">
+        <div id="loading"></div>
+        <div>
+          <h1>About me</h1>
+          <p>I am 3L33T H4XX0R</p>
+          <hr>
+          <h2>Skills</h2>
+          <h3>Programming</h3>
+          <p>C#, C++, GLSL, HTML, TS, SCSS, Bash and Nix</p>
+          <h3>Other</h3>
+          <p>Deep understanding of Linux (I love LVM [Btrfs too!])</p>
+          <h2>OS</h2>
+          <p>Arch Linux / NixOS</p>
+          <h2>Desktop</h2>
+          <p>KDE Plasma</p>
+          <h2>IDE</h2>
+          <p>VSCode</p>
+          <h2>Background story</h2>
+          <p>Look, I'm not here to tell a 5 page story but I do think that I should tell a bit more about myself.</p>
+          <br>
+          <p>I was raised in Hessen, Germany, am 17 years old (as of writing this)</p>
+          <p>I am what is considered as a "code monkey"</p>
+          <p>A in computer science</p>
+          <p>I manage the entire home network all by myself</p>
+          <br>
+          <p>Before when I was in 7th grade my brother introduced me to python. I hacked together some GUI apps and never touched Python again (he even installed Anaconda for me...)</p>
+          <p>In 7th grade I had an internship at a software company (whose name I will not tell [privacy reasons]). There I was confronted with Dataflex, the loveliest language.</p>
+          <p>I had a lot of fun there and learned a very useful skill, debugging (yay!)</p>
+          <p>An employee there also told me to try out Scratch. I was sceptical at first, but ended up creating a lot of projects (and had a lot of fun of course!)</p>
+          <br>
+          <p>Then a long period of nothing came.</p>
+          <br>
+          <p>In 2019 I decided to pick up C#, went to learn Unity to ditch it in 2020.</p>
+          <p>Unfortunately, in Q2 2020 my father's brother died to cancer.</p>
+          <p>My father had a lot of unsorted images of his brother on his harddrives so I proposed that I would write a small app which would collect and sort said images (a big project for me at the time).</p>
+          <p>And thus my first project, FileFinderGit was born!</p>
+          <p>I learned how to use libraries and rapidly learned C# while rewriting said app.</p>
+          <p>In Q1 2020 I also fully switched to Linux and ditched Windows (losing some savegames in the process, RIP)</p>
+          <br>
+          <p>At one point I have gotten so proficient with C# that I decided to try out other languages.</p>
+          <p>This language was C++</p>
+          <p>Then came computer science class, which taught me mainly HTML and CSS.</p>
+          <p>As of now we are learning Java (It's a downgrade compared to C#).</p>
+          <p>I work on my own little game engine and enjoy playing osu! (and of course watching anime).</p>
+          <br>
+          <p>To this day I think of the internship and of the people that supported me on my journey. I am extremely grateful for the support I've been recieving from my family and friends (both IRL and online)</p>
+          <p>May my father's brother rest in piece. I wish his family the best.</p>
         </div>
-        <div class="panel-wrapper noanim" id="repos-collection">
-          <div class="top-bar info"></div>
-          <div class="panel-content">
-            <h1>My repositories</h1>
-            <div id="repos">
-              <!-- Repos go here -->
-            </div>
-          </div>
-        </div>
-        <div class="panel-wrapper noanim" id="contributions-collection">
-          <div class="top-bar info"></div>
-          <div class="panel-content">
-            <h1>Stuff I contribute in</h1>
-            <div id="contributions">
-              <!-- Contributions go here -->
-            </div>
-          </div>
-        </div>
-        <!--<div class="panel-wrapper noanim" id="projects-collection">
-          <div class="top-bar error"></div>
-          <div class="panel-content">
-            <h1>What I currently work on</h1>
-            <div id="projects">
-              <!-- Projects go here -->
-              <!--<a href="notaproject.html" class="panel-element" style="border-right-color: #25A;">
-                <h2>Nothing</h2>
-                <p>Foobar</p>
-                <p>Not uploaded to Github yet</p>
-              </a>-- >
-            </div>
-          </div>
-        </div>-->
       </div>
-    </main>
+    </div>
+    <div id="spacer" style="height: 25vh;"></div>
+    <div id="section-repos" style="opacity: 0;">
+      <div id="section-repos-content">
+        <h1>Personal repositories</h1>
+        <hr>
+        <div id="repos-list">
+
+        </div>
+        <h1>Repositories I contribute in</h1>
+        <hr>
+        <div id="contributions-list">
+          
+        </div>
+        <span>This part looks best if your browser supports css:backdrop-filter (which most do). <a href="https://stackoverflow.com/a/66554016">However, on firefox this is disabled by default.</a></span>
+      </div>
+    </div>
+    <div id="spacer" style="height: 25vh;"></div>
+    <div id="section-credits" style="opacity: 0;">
+      <div id="section-credits-content">
+        <h1 id="author">Made with <div id="blinking-heart"><3</div> by <a href="https://github.com/GermanBread">GermanBread</a></h1>
+        <hr>
+        <h2>Cool people</h2>
+        <a href="https://github.com/Reimnop">Reimnop</a>
+      </div>
+    </div>
+    <div id="spacer" style="height: 25vh;"></div>
   </body>
 </html>

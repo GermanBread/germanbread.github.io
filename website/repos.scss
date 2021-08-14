@@ -49,39 +49,42 @@
             box-shadow: var(--text-dark) 1px 1px 1px;
         }
 
+        a {
+            color: var(--text-dark);
+        }
+        
         div {
             padding: 4%;
 
             @media (max-width: 400px) {
                 padding: 2%;
             }
-        }
-        
-        a {
-            display: block;
-            text-decoration: none;
-            word-wrap: break-word;
-            
-            padding: 2em;
-            background-color: var(--glass-panel-element);
-            box-shadow: var(--glass-panel-element-shadow-light) -5px -5px 15px,
-                var(--glass-panel-element-shadow) 5px 5px 15px;
 
-            border-radius: 2.5em;
-            margin-bottom: 2em;
-            
-            color: var(--text-dark);
-            transition: all .5s ease-in-out;
-            
-            &:hover {
-                background-color: var(--glass-panel-bg);
-                box-shadow: var(--glass-panel-shadow-light) -5px -5px 15px,
-                    var(--glass-panel-shadow) 5px 5px 15px;
-                transform: scale(105%);
-            }
-
-            @media (max-width: 400px) {
-                padding: 1em;
+            a {
+                display: block;
+                word-wrap: break-word;
+                text-decoration: none;
+                
+                padding: 2em;
+                background-color: var(--glass-panel-element);
+                box-shadow: var(--glass-panel-element-shadow-light) -5px -5px 15px,
+                    var(--glass-panel-element-shadow) 5px 5px 15px;
+    
+                border-radius: 2.5em;
+                margin-bottom: 2em;
+                
+                transition: all .5s ease-in-out;
+                
+                &:hover {
+                    background-color: var(--glass-panel-bg);
+                    box-shadow: var(--glass-panel-shadow-light) -5px -5px 15px,
+                        var(--glass-panel-shadow) 5px 5px 15px;
+                    transform: scale(105%);
+                }
+    
+                @media (max-width: 400px) {
+                    padding: 1em;
+                }
             }
         }
 
