@@ -36,11 +36,11 @@
         }
 
         &:hover {
-            background-size: 160% 100%;
+            background-size: 150% 100%;
             animation-duration: 1.5s;
             background-image: repeating-linear-gradient(45deg, 
-                var(--logo-bg) 0em 45em,
-                var(--logo-shine) 45em 50em
+                var(--logo-bg) 0em 50em,
+                var(--logo-shine) 50em 55em
             );
         }
     }
