@@ -1,4 +1,4 @@
-var about, repos, credits;
+var about, repos, credits, scroll_hint;
 var about_rect, repos_rect, credits_rect;
 var parallax_multiplier = 0 * (window.innerHeight / 1000);
 var values_initialised = false;
@@ -6,36 +6,23 @@ function init() {
     about = document.getElementById("section-about");
     repos = document.getElementById("section-repos");
     credits = document.getElementById("section-credits");
+    scroll_hint = document.getElementById("scroll-hint");
     document.getElementById("repos-list").innerHTML = "";
     document.getElementById("contributions-list").innerHTML = "";
     fetchpersonalrepos(document.getElementById("repos-list"));
     fetchcontibutionrepos(document.getElementById("contributions-list"));
     handlescroll();
+    hidescrollhint();
     window.addEventListener("scroll", handlescroll);
+    window.addEventListener("scroll", hidescrollhint);
 }
-// Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
-function clamp(num, min, max) {
-    return ((num <= min) ? min : ((num >= max) ? max : num));
-}
-function clamp01(num) {
-    return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
-}
-function getprogress(num, start, stop) {
-    return (num - start) / (stop - start);
+function hidescrollhint() {
+    if (window.scrollY <= about_rect.top)
+        scroll_hint.style.opacity = clamp01(getprogress(window.scrollY, about_rect.top, 0)).toString();
+    else
+        scroll_hint.style.opacity = "0";
 }
 function handlescroll() {
-    function calculate_opacity(bounds) {
-        var progress = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY);
-        var in_bounds = progress >= 0 && progress <= 1;
-        if (progress >= 0 && progress <= 1)
-            return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
-        else
-            return 0;
-    }
-    // I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
-    function calculate_transform(bounds) {
-        return (window.scrollY - bounds.top + window.scrollY) * parallax_multiplier;
-    }
     about_rect = about.getBoundingClientRect();
     repos_rect = repos.getBoundingClientRect();
     credits_rect = credits.getBoundingClientRect();
@@ -54,6 +41,29 @@ function handlescroll() {
         var computed_opacity = calculate_opacity(credits_rect);
         credits.style.opacity = computed_opacity.toString();
     }
+}
+//#region helper functions
+// Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
+function clamp(num, min, max) {
+    return ((num <= min) ? min : ((num >= max) ? max : num));
+}
+function clamp01(num) {
+    return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
+}
+function getprogress(num, start, stop) {
+    return (num - start) / (stop - start);
+}
+function calculate_opacity(bounds) {
+    var progress = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY);
+    var in_bounds = progress >= 0 && progress <= 1;
+    if (progress >= 0 && progress <= 1)
+        return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
+    else
+        return 0;
+}
+// I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
+function calculate_transform(bounds) {
+    return (window.scrollY - bounds.top + window.scrollY) * parallax_multiplier;
 }
 function fetchpersonalrepos(root) {
     fetch('https://api.github.com/users/GermanBread/repos')
@@ -100,3 +110,4 @@ function createpanel(_a) {
     panel.appendChild(content);
     return panel;
 }
+//#endregion
