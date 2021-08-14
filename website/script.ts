@@ -42,26 +42,13 @@ function handlescroll() {
     credits_rect = credits.getBoundingClientRect()
 
     // About section
-    {
-        var computed_opacity : number = calculate_opacity(about_rect)
-        
-        about.style.opacity = computed_opacity.toString()
-    }
+    about.style.opacity = calculate_opacity(about_rect).toString()
     
     // Repos section
-    {
-        var computed_opacity : number = calculate_opacity(repos_rect)
-        
-        repos.style.opacity = computed_opacity.toString()
-    }
+    repos.style.opacity = calculate_opacity(repos_rect).toString()
 
     // Credits section
-    {
-        var computed_opacity : number = calculate_opacity(credits_rect)
-        
-        credits.style.opacity = computed_opacity.toString()
-    }
-
+    credits.style.opacity = calculate_opacity(credits_rect).toString()
 }
 
 //#region helper functions
@@ -79,7 +66,6 @@ function getprogress(num : number, start : number, stop : number) : number {
 
 function calculate_opacity(bounds : DOMRect) : number {
     var progress : number = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY)
-    var in_bounds : boolean = progress >= 0 && progress <= 1
     if (progress >= 0 && progress <= 1)
         return clamp01(progress * 8) - clamp01((progress - 0.875) * 8)
     else

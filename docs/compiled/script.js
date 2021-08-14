@@ -27,20 +27,11 @@ function handlescroll() {
     repos_rect = repos.getBoundingClientRect();
     credits_rect = credits.getBoundingClientRect();
     // About section
-    {
-        var computed_opacity = calculate_opacity(about_rect);
-        about.style.opacity = computed_opacity.toString();
-    }
+    about.style.opacity = calculate_opacity(about_rect).toString();
     // Repos section
-    {
-        var computed_opacity = calculate_opacity(repos_rect);
-        repos.style.opacity = computed_opacity.toString();
-    }
+    repos.style.opacity = calculate_opacity(repos_rect).toString();
     // Credits section
-    {
-        var computed_opacity = calculate_opacity(credits_rect);
-        credits.style.opacity = computed_opacity.toString();
-    }
+    credits.style.opacity = calculate_opacity(credits_rect).toString();
 }
 //#region helper functions
 // Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
@@ -55,7 +46,6 @@ function getprogress(num, start, stop) {
 }
 function calculate_opacity(bounds) {
     var progress = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY);
-    var in_bounds = progress >= 0 && progress <= 1;
     if (progress >= 0 && progress <= 1)
         return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
     else
