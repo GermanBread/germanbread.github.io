@@ -1,36 +1,28 @@
-var about : HTMLElement, about_content : HTMLElement,
-    repos : HTMLElement, repos_content : HTMLElement
+var about : HTMLElement,
+    repos : HTMLElement,
+    credits : HTMLElement
 var about_rect : DOMRect,
-    repos_rect : DOMRect
+    repos_rect : DOMRect,
+    credits_rect : DOMRect
 
-var transition_offset : number = 40 * (window.innerHeight / 100) * (window.innerWidth / 2500)
-var transition_smoothness : number = 40 * (window.innerHeight / 100);
-var parallax_multiplier : number = 1 * (window.innerHeight / 100);
+var parallax_multiplier : number = 0 * (window.innerHeight / 1000);
 
 var values_initialised : boolean = false
 
 function init() {
+    about = document.getElementById("section-about")
+    repos = document.getElementById("section-repos")
+    credits = document.getElementById("section-credits")
+    
+    document.getElementById("repos-list").innerHTML = ""
+    document.getElementById("contributions-list").innerHTML = ""
+    
     fetchpersonalrepos(document.getElementById("repos-list"))
     fetchcontibutionrepos(document.getElementById("contributions-list"))
-
-    if (!values_initialised) {
-        about = document.getElementById("section-about")
-        about_content = document.getElementById("section-about-content")
-        about_rect = about.getBoundingClientRect()
-        
-        repos = document.getElementById("section-repos")
-        repos_content = document.getElementById("section-repos-content")
-        repos_rect = repos.getBoundingClientRect()
-
-        values_initialised = true
-    }
     
     handlescroll()
 
-    window.addEventListener("scroll", handlescroll)
-
-    document.getElementById("repos-list").innerHTML = ""
-    document.getElementById("contributions-list").innerHTML = ""
+    window.addEventListener("scroll", handlescroll)    
 }
 
 // Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
@@ -41,39 +33,47 @@ function clamp01(num : number) : number {
     return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num))
 }
 
+function getprogress(num : number, start : number, stop : number) : number {
+    return (num - start) / (stop - start)
+}
+
 function handlescroll() {
     function calculate_opacity(bounds : DOMRect) : number {
-        return clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
-            -clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1)
+        var progress : number = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY)
+        var in_bounds : boolean = progress >= 0 && progress <= 1
+        if (progress >= 0 && progress <= 1)
+            return clamp01(progress * 8) - clamp01((progress - 0.875) * 8)
+        else
+            return 0
     }
+    // I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
     function calculate_transform(bounds : DOMRect) : number {
-        return (window.scrollY - bounds.top) / parallax_multiplier
+        return (window.scrollY - bounds.top + window.scrollY) * parallax_multiplier
     }
+
+    about_rect = about.getBoundingClientRect()
+    repos_rect = repos.getBoundingClientRect()
+    credits_rect = credits.getBoundingClientRect()
 
     // About section
     {
         var computed_opacity : number = calculate_opacity(about_rect)
-        var computed_offset : number = calculate_transform(about_rect)
         
         about.style.opacity = computed_opacity.toString()
-        about_content.style.transform = "translateY(" + -computed_offset + "px)"
     }
     
     // Repos section
     {
-        console.log({
-            Y : window.scrollY,
-            top : repos_rect.top,
-            height : repos_rect.height,
-            bottom : repos_rect.bottom,
-            offset : transition_offset
-        })
-        
         var computed_opacity : number = calculate_opacity(repos_rect)
-        var computed_offset : number = calculate_transform(repos_rect)
         
         repos.style.opacity = computed_opacity.toString()
-        repos_content.style.transform = "translateY(" + -computed_offset + "px)"
+    }
+
+    // Credits section
+    {
+        var computed_opacity : number = calculate_opacity(credits_rect)
+        
+        credits.style.opacity = computed_opacity.toString()
     }
 
 }

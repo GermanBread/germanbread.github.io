@@ -1,25 +1,17 @@
-var about, about_content, repos, repos_content;
-var about_rect, repos_rect;
-var transition_offset = 40 * (window.innerHeight / 100) * (window.innerWidth / 2500);
-var transition_smoothness = 40 * (window.innerHeight / 100);
-var parallax_multiplier = 1 * (window.innerHeight / 100);
+var about, repos, credits;
+var about_rect, repos_rect, credits_rect;
+var parallax_multiplier = 0 * (window.innerHeight / 1000);
 var values_initialised = false;
 function init() {
-    fetchpersonalrepos(document.getElementById("repos-list"));
-    fetchcontibutionrepos(document.getElementById("contributions-list"));
-    if (!values_initialised) {
-        about = document.getElementById("section-about");
-        about_content = document.getElementById("section-about-content");
-        about_rect = about.getBoundingClientRect();
-        repos = document.getElementById("section-repos");
-        repos_content = document.getElementById("section-repos-content");
-        repos_rect = repos.getBoundingClientRect();
-        values_initialised = true;
-    }
-    handlescroll();
-    window.addEventListener("scroll", handlescroll);
+    about = document.getElementById("section-about");
+    repos = document.getElementById("section-repos");
+    credits = document.getElementById("section-credits");
     document.getElementById("repos-list").innerHTML = "";
     document.getElementById("contributions-list").innerHTML = "";
+    fetchpersonalrepos(document.getElementById("repos-list"));
+    fetchcontibutionrepos(document.getElementById("contributions-list"));
+    handlescroll();
+    window.addEventListener("scroll", handlescroll);
 }
 // Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
 function clamp(num, min, max) {
@@ -28,34 +20,39 @@ function clamp(num, min, max) {
 function clamp01(num) {
     return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
 }
+function getprogress(num, start, stop) {
+    return (num - start) / (stop - start);
+}
 function handlescroll() {
     function calculate_opacity(bounds) {
-        return clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
-            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
+        var progress = getprogress(window.scrollY + window.innerHeight / 2, bounds.top + window.scrollY, bounds.bottom + window.scrollY);
+        var in_bounds = progress >= 0 && progress <= 1;
+        if (progress >= 0 && progress <= 1)
+            return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
+        else
+            return 0;
     }
+    // I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
     function calculate_transform(bounds) {
-        return (window.scrollY - bounds.top) / parallax_multiplier;
+        return (window.scrollY - bounds.top + window.scrollY) * parallax_multiplier;
     }
+    about_rect = about.getBoundingClientRect();
+    repos_rect = repos.getBoundingClientRect();
+    credits_rect = credits.getBoundingClientRect();
     // About section
     {
         var computed_opacity = calculate_opacity(about_rect);
-        var computed_offset = calculate_transform(about_rect);
         about.style.opacity = computed_opacity.toString();
-        about_content.style.transform = "translateY(" + -computed_offset + "px)";
     }
     // Repos section
     {
-        console.log({
-            Y: window.scrollY,
-            top: repos_rect.top,
-            height: repos_rect.height,
-            bottom: repos_rect.bottom,
-            offset: transition_offset
-        });
         var computed_opacity = calculate_opacity(repos_rect);
-        var computed_offset = calculate_transform(repos_rect);
         repos.style.opacity = computed_opacity.toString();
-        repos_content.style.transform = "translateY(" + -computed_offset + "px)";
+    }
+    // Credits section
+    {
+        var computed_opacity = calculate_opacity(credits_rect);
+        credits.style.opacity = computed_opacity.toString();
     }
 }
 function fetchpersonalrepos(root) {
