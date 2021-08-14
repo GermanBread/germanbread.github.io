@@ -110,10 +110,6 @@
                 }
             }
         }
-
-        @media (max-width: 500px) {
-            display: none;
-        }
     }
 
     #scroll-hint {
@@ -124,5 +120,14 @@
         
         left: calc(50vw - 6ex);
         bottom: 5vh;
+    }
+
+    @media (max-width: 500px) {
+        #logo-captions {
+            display: none;
+        }
+
+        display: grid;
+        place-content: center;
     }
 }
