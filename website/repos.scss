@@ -57,7 +57,7 @@
             padding: 4%;
 
             @media (max-width: 400px) {
-                padding: 2%;
+                padding: 1%;
             }
 
             a {
@@ -83,13 +83,13 @@
                 }
     
                 @media (max-width: 400px) {
-                    padding: 1em;
+                    padding: .25em;
                 }
             }
         }
 
         @media (max-width: 400px) {
-            padding: 2em;
+            padding: .5em;
         }
     }
 }
