@@ -55,6 +55,7 @@
 
         #author {
             display: inline-flex;
+            white-space: nowrap;
 
             font-size: clamp(0px, 3.9vw, 30px);
             
@@ -81,7 +82,7 @@
                 margin-left: 1ex;
             }
 
-            width: 29.5ex;
+            
             border-right: var(--hackertype-text) 1ex solid;
             animation: cursor-blink 1s step-end infinite;
             
