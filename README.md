@@ -10,9 +10,7 @@ The website is deployed to [/docs](docs).
 
 ## Compiling
 
-Run `make`
-
-**Make sure that libsassc and sassc are installed!**
+See [here](website/README.md)
 
 ## Contributing
 

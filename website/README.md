@@ -8,6 +8,7 @@
 
 ### Without Nix
 
+* Make sure you cd'd into the directory where the makefile is located in
 * Install `sassc` and `tsc`
 * Run `make`
 
