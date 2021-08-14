@@ -53,9 +53,6 @@
             padding: 5ex;
             padding-bottom: 2em;
 
-            @media (max-width: 400px) {
-                padding: 2ex;
-            }
         }
 
         #loading {
@@ -79,7 +76,13 @@
         }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
         padding: 2%;
+
+        &-content {
+            div {
+                padding: 1.5em;
+            }
+        }
     }
 }
