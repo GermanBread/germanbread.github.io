@@ -4,6 +4,7 @@ files_ts := $(wildcard *.ts)
 output_ts := $(foreach file,$(files_ts),$(shell basename -s .ts $(file)))
 
 all:
+	rm -rf compiled
 	mkdir -p compiled
 	@echo Compiling scss to css
 	@echo =====================

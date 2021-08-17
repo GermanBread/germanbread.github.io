@@ -8,8 +8,6 @@ var about_rect : DOMRect,
 
 var parallax_multiplier : number = 0 * (window.innerHeight / 1000)
 
-var values_initialised : boolean = false
-
 function init() {
     about = document.getElementById("section-about")
     repos = document.getElementById("section-repos")
@@ -51,7 +49,7 @@ function handlescroll() {
     credits.style.opacity = calculate_opacity(credits_rect).toString()
 }
 
-//#region helper functions
+//#region helpers
 // Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
 function clamp(num : number, min : number, max : number) : number {
     return ((num <= min) ? min : ((num >= max) ? max : num))
@@ -72,8 +70,8 @@ function calculate_opacity(bounds : DOMRect) : number {
         return 0
 }
 // I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
-function calculate_transform(bounds : DOMRect) : number {
-    return (window.scrollY - bounds.top + window.scrollY) * parallax_multiplier
+function calculate_transform(bounds : DOMRect, multiplier : number) : number {
+    return (window.scrollY - bounds.top + window.scrollY) * multiplier
 }
 
 function fetchpersonalrepos(root: HTMLElement) {
