@@ -7,10 +7,12 @@
     --text-dark: #202020;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg);
-
-    scroll-behavior: smooth;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
