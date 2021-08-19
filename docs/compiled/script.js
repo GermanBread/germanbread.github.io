@@ -84,6 +84,7 @@ function fetchcontibutionrepos(root) {
     root.innerHTML = "";
     fetchrepo('https://api.github.com/repos/arch-community/qbot');
     fetchrepo('https://api.github.com/repos/Lightcord/Lightcord');
+    fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux');
 }
 function createpanel(_a) {
     var name = _a.name, description = _a.description, archived = _a.archived, fork = _a.fork, html_url = _a.html_url;
