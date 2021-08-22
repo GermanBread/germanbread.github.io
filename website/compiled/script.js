@@ -25,15 +25,10 @@ function handlescroll() {
     about_rect = about.getBoundingClientRect();
     repos_rect = repos.getBoundingClientRect();
     credits_rect = credits.getBoundingClientRect();
-    // About section
     about.style.opacity = calculate_opacity(about_rect).toString();
-    // Repos section
     repos.style.opacity = calculate_opacity(repos_rect).toString();
-    // Credits section
     credits.style.opacity = calculate_opacity(credits_rect).toString();
 }
-//#region helpers
-// Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
 function clamp(num, min, max) {
     return ((num <= min) ? min : ((num >= max) ? max : num));
 }
@@ -50,44 +45,43 @@ function calculate_opacity(bounds) {
     else
         return 0;
 }
-// I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
 function calculate_transform(bounds, multiplier) {
     return (window.scrollY - bounds.top + window.scrollY) * multiplier;
 }
 function fetchpersonalrepos(root) {
     fetch('https://api.github.com/users/GermanBread/repos')
-        .then(function (response) {
+        .then(response => {
         if (!response.ok) {
             throw "Github responded with " + response.status;
         }
-        response.json().then(function (data) {
+        response.json().then(data => {
             root.innerHTML = "";
-            for (var index = 0; index < data.length; index++) {
-                var json = data[index];
+            for (let index = 0; index < data.length; index++) {
+                const json = data[index];
                 root.appendChild(createpanel(json));
             }
         });
-    })["catch"](function (error) { return root.innerHTML = error; });
+    }).catch(error => root.innerHTML = error);
 }
 function fetchcontibutionrepos(root) {
-    var fetchrepo = function (url) {
+    const fetchrepo = (url) => {
         fetch(url)
-            .then(function (response) {
+            .then(response => {
             if (!response.ok) {
                 throw "Github responded with " + response.status;
             }
-            response.json().then(function (json) {
+            response.json().then(json => {
                 root.appendChild(createpanel(json));
             });
-        })["catch"](function (error) { return root.innerHTML = error; });
+        })
+            .catch(error => root.innerHTML = error);
     };
     root.innerHTML = "";
     fetchrepo('https://api.github.com/repos/arch-community/qbot');
     fetchrepo('https://api.github.com/repos/Lightcord/Lightcord');
     fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux');
 }
-function createpanel(_a) {
-    var name = _a.name, description = _a.description, archived = _a.archived, fork = _a.fork, html_url = _a.html_url;
+function createpanel({ name, description, archived, fork, html_url }) {
     var panel = document.createElement("a");
     var header = document.createElement("h3");
     var content = document.createElement("p");
@@ -100,4 +94,3 @@ function createpanel(_a) {
     panel.appendChild(content);
     return panel;
 }
-//#endregion
