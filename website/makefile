@@ -1,34 +1,28 @@
 files_scss := $(wildcard *.scss)
 output_scss := $(foreach file,$(files_scss),$(shell basename -s .scss $(file)))
-files_ts := $(wildcard *.ts)
-output_ts := $(foreach file,$(files_ts),$(shell basename -s .ts $(file)))
 
 all:
-	rm -rf compiled
-	mkdir -p compiled
-	@echo Compiling scss to css
-	@echo =====================
+	@echo Cleaning compiled files ...
+	@rm -rf compiled
+	@mkdir -p compiled
+	@echo DONE
+	
+	@echo Compiling scss ...
 	@make $(output_scss)
-	@echo =====================
-	@echo Compilation completed
-	@echo Compiling ts to js
-	@echo =====================
-	@make $(output_ts)
-	@echo =====================
-	@echo Compilation completed
+	@echo DONE
+
+	@echo Bundling TypeScipt ...
+	@tsc
+	@echo DONE
 
 $(output_scss):
-	@echo Processing $@
-	sassc -t compressed $@.scss > compiled/$@.css
-
-$(output_ts):
-	@echo Processing $@
-	tsc --outFile compiled/$@.js $@.ts
+	@sassc -t compressed $@.scss > compiled/$@.css
 
 deploy: all
-	# this makefile will be located in /website
-	rm -rf ../docs
-	mkdir -p ../docs
-	cp -r compiled ../docs/compiled
-	cp -r images ../docs/images
-	cp *.html ../docs/
+	@echo Deploying site
+	@rm -rf ../docs
+	@mkdir -p ../docs
+	@cp -r compiled ../docs/compiled
+	@cp -r images ../docs/images
+	@cp *.html ../docs/
+	@echo DONE 🥳
