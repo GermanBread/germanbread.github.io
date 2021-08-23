@@ -11,7 +11,7 @@ all:
 	@make $(output_scss)
 	@echo DONE
 
-	@echo Bundling TypeScipt ...
+	@echo Compiling TypeScipt ...
 	@tsc
 	@echo DONE
 
@@ -19,10 +19,14 @@ $(output_scss):
 	@sassc -t compressed $@.scss > compiled/$@.css
 
 deploy: all
-	@echo Deploying site
+	@echo Deploying site to ../docs 🚀
 	@rm -rf ../docs
 	@mkdir -p ../docs
 	@cp -r compiled ../docs/compiled
 	@cp -r images ../docs/images
+	@cp -r locales ../docs/locales
 	@cp *.html ../docs/
 	@echo DONE 🥳
+
+serve: all
+	@npx serve

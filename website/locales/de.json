@@ -1,0 +1,106 @@
+{
+  "errors" : {
+    "unavailable"   : "Zurzeit night verfügbar",
+    "notranslation" : "Fehler: Konnte keine passende Übersetzung für \"%string%\" finden."
+  },
+  "menu" : {
+    "open"    : "Menü öffnen",
+    "close"   : "Menü schließen",
+    "github"  : "Zurück zu Github!",
+    "logo"    : "Logo",
+    "about"   : "Über mich",
+    "repos"   : "Projekte",
+    "credits" : "Danksagungen"
+  },
+  "logo" : {
+    "captions" : {
+      "bill" : "Der nächste Bill Gates",
+      "best" : "Der beste Programmierer, den die Welt jemals gesehen hat",
+      "bug"  : "Was ist ein Bug?"
+    },
+    "scroll" : "scrolle – runter"
+  },
+  "about" : {
+    "me"    : "Über mich",
+    "caption" : "Ich bin ein 3L33T H4XX0R",
+    "skills"  : {
+      "title" : "Talente",
+      "programming" : {
+        "title" : "Softwareentwicklung",
+        "content" : "C#, C++, GLSL, HTML, TS, SCSS, Bash und Nix"
+      },
+      "ide" : {
+        "title" : "IDE",
+        "content" : "VSCode und Vim"
+      },
+      "other" : {
+        "title" : "Weiteres",
+        "content" : "Sehr gutes Verständnis von Linux (I mag LVM [und Btrfs!])"
+      }
+    },
+    "os" : {
+      "title" : "Betriebssystem",
+      "content" : "Arch Linux / NixOS",
+      "desktop" : {
+        "title" : "Desktop",
+        "content" : "KDE Plasma"
+      }
+    },
+    "story" : {
+      "title" : "Hintergrundgeschichte",
+      "content" : {
+        "paragraph1" : {
+          "line1" : "Ich will jetzt keinen 50seitigen Roman über mein Leben shreiben, aber ich glaube schon, dass ich was zu sagen habe."
+        },
+        "paragraph2" : {
+          "line1" : "Ich wuchs in Hessen auf und bin (zum Zeitpunkt, wo ich das hier schreibe) 17 Jahre alt.",
+          "line2" : "Manche nennen mich einen \"code monkey\"",
+          "line3" : "15 Punkte (von 15) im Informatikunterricht",
+          "line4" : "Und ich verwalte alles bei mir Zuhause alleine"
+        },
+        "paragraph3" : {
+          "line1" : "Als ich in der 7. Klasse war, zeigte mein Bruder mir Python. Ich habe ein paar GUIs zusammengeschustert und es dann auch dabei belassen (mein Bruder installierte sogar Anaconda für mich)",
+          "line2" : "Ich hatte auch ein Praktikum beim Softwareunternehmen Somentech GmbH. Dort wurde ich mit der besten Programmiersprache namens Dataflex konfrontiert.",
+          "line3" : "Ich hatte dennoch viel Spaß und lernte eine wichtige Fähigkeit: debugging!",
+          "line4" : "Ein Softwareentwickler zeigte mir auch noch Scratch. Ich verliebte mich sofort und erschaffte Projekte ohne Ende."
+        },
+        "paragraph4" : {
+          "line1" : "Bedauerlicherweise passierte für ein paar Jahre nichts mehr besonderes."
+        },
+        "paragraph5" : {
+          "line1" : "2019 entscheidete ich mich C# auszuprobieren. Ich spielte mit der Unity Spieleengine herum und konzentrierte mich Anfang 2020 auf besseres.",
+          "line2" : "Befauerlicherweise starb der Bruder meines Vaters zu dieser Zeit an Krebs.",
+          "line3" : "Unglücklicherweise hatte mein Vater sehr viele unsortierte Bilder seines Bruders auf seinem PC. Ich schlug vor ein Programm zu schreiben, welches diese Bilder automatisch sortiert.",
+          "line4" : "Und so wurde mein erstes, großes Projekt, geboren! Es nannte sich \"FileFinderGit\"",
+          "line5" : "Ich lernte mit Bibliotheken umzugehen und verbesserte meine C# Kentnisse rasant während ich die App neu schrieb.",
+          "line6" : "Ich machte währenddessen auch die Windows Partition platt und wechselte komplett zu Linux. (Ich verlor leider auch ein paar Spielstände...)"
+        },
+        "paragraph6" : {
+          "line1" : "Bis zu diesem Zeitpunkt kannte ich mich so gut mit C# aus, dass ich mich bei anderen Programmiersprachen umsah.",
+          "line2" : "Diese Programmiersprache war C++.",
+          "line3" : "Dann kam noch der Informatikunterricht dazu bei dem ich größtenteils HTML und CSS lernte.",
+          "line4" : "Aktuell lernen wir Java (in meinen Augen der kleine Bruder von C#)",
+          "line5" : "Ich arbeite aktuell an meiner eigenen Spieleengine und spiele sehr viel osu! (zudem schaue ich noch Anime)"
+        },
+        "paragraph7" : {
+          "line1" : "Bis heute denke ich noch an das Praktikum und die Menschen, die wie Stützpfeiler, mein Leben veränderten. Ich danke auch denen, die mich stets unterstützten.",
+          "line2" : "Soll mein Onkel in Frieden ruhen und soll es seiner Familie gut gehen."
+        }
+      }
+    }
+  },
+  "repos" : {
+    "personal" : "Meine persönlichen Projekte",
+    "contributions" : "Projekte, bei denen ich meinen Senf dazu gegeben habe",
+    "compat" : "Dieser Teil sieht besser aus, wenn dein Browser css:backdrop-filter unterstützt (die meisten tun das auch). <a href=\"https://stackoverflow.com/a/66554016\">Bei Firefox ist dies standardweise deaktiviert.</a>",
+    "panel" : {
+      "archived" : "archiviert",
+      "forked" : "geforked",
+      "nodescription" : "Keine Beschreibung verfügbar"
+    }
+  },
+  "credits" : {
+    "author" : "Mit viel <div id=\"blinking-heart\"><3</div> von <a href=\"https://github.com/GermanBread\">GermanBread</a> gemacht",
+    "people" : "Coole Leute"
+  }
+}

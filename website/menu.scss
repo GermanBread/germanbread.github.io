@@ -9,8 +9,8 @@
 
 #menu-button {
     position: fixed;
-    left: 1em;
-    top: 1em;
+    left: 2em;
+    top: 2em;
     padding: .75em;
 
     z-index: 4;
@@ -74,6 +74,8 @@
                     background-color .5s ease-in-out;
 
                 font-size: clamp(20px, 2vw, 2rem);
+                overflow: hidden;
+                white-space: nowrap;
                 
                 background-color: var(--menu-accent);
                 box-shadow: var(--menu-accent) 0 0 .2em;

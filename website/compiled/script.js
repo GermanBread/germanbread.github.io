@@ -1,19 +1,44 @@
-var about, repos, credits, scroll_hint;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var logo, menu, about, repos, credits, scroll_hint;
 var about_rect, repos_rect, credits_rect;
+var runlevel;
 var parallax_multiplier = 0 * (window.innerHeight / 1000);
 function init() {
+    logo = document.getElementById("section-logo");
+    menu = document.getElementById("menu-wrapper");
     about = document.getElementById("section-about");
     repos = document.getElementById("section-repos");
     credits = document.getElementById("section-credits");
     scroll_hint = document.getElementById("scroll-hint");
+    runlevel = 0;
     document.getElementById("repos-list").innerHTML = "";
     document.getElementById("contributions-list").innerHTML = "";
-    fetchpersonalrepos(document.getElementById("repos-list"));
-    fetchcontibutionrepos(document.getElementById("contributions-list"));
+    fetchpersonalrepos(document.getElementById("repos-list"))
+        .then(() => ready());
+    fetchcontibutionrepos(document.getElementById("contributions-list"))
+        .then(() => ready());
     handlescroll();
     hidescrollhint();
     window.addEventListener("scroll", handlescroll);
     window.addEventListener("scroll", hidescrollhint);
+    initmenu();
+    ready();
+}
+function ready() {
+    runlevel++;
+    switch (runlevel) {
+        case 3:
+            initlocale();
+            break;
+    }
 }
 function hidescrollhint() {
     if (window.scrollY <= about_rect.top)
@@ -49,37 +74,40 @@ function calculate_transform(bounds, multiplier) {
     return (window.scrollY - bounds.top + window.scrollY) * multiplier;
 }
 function fetchpersonalrepos(root) {
-    fetch('https://api.github.com/users/GermanBread/repos')
-        .then(response => {
+    return __awaiter(this, void 0, void 0, function* () {
+        let url = "https://api.github.com/users/GermanBread/repos";
+        const response = yield fetch(url);
         if (!response.ok) {
-            throw "Github responded with " + response.status;
+            console.log("Github responded with " + response.status + ` (${url})`);
+            root.innerHTML = "{errors.unavailable}";
+            return;
         }
-        response.json().then(data => {
-            root.innerHTML = "";
-            for (let index = 0; index < data.length; index++) {
-                const json = data[index];
-                root.appendChild(createpanel(json));
-            }
-        });
-    }).catch(error => root.innerHTML = error);
+        const json = yield response.json();
+        root.innerHTML = "";
+        for (let index = 0; index < json.length; index++) {
+            root.appendChild(createpanel(json[index]));
+        }
+    });
 }
 function fetchcontibutionrepos(root) {
-    const fetchrepo = (url) => {
-        fetch(url)
-            .then(response => {
-            if (!response.ok) {
-                throw "Github responded with " + response.status;
-            }
-            response.json().then(json => {
+    return __awaiter(this, void 0, void 0, function* () {
+        function fetchrepo(url) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const response = yield fetch(url);
+                if (!response.ok) {
+                    console.log("Github responded with " + response.status + ` (${url})`);
+                    root.innerHTML = "{errors.unavailable}";
+                    return;
+                }
+                const json = yield response.json();
                 root.appendChild(createpanel(json));
             });
-        })
-            .catch(error => root.innerHTML = error);
-    };
-    root.innerHTML = "";
-    fetchrepo('https://api.github.com/repos/arch-community/qbot');
-    fetchrepo('https://api.github.com/repos/Lightcord/Lightcord');
-    fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux');
+        }
+        root.innerHTML = "";
+        yield fetchrepo('https://api.github.com/repos/arch-community/qbot');
+        yield fetchrepo('https://api.github.com/repos/Lightcord/Lightcord');
+        yield fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux');
+    });
 }
 function createpanel({ name, description, archived, fork, html_url }) {
     var panel = document.createElement("a");
@@ -87,8 +115,8 @@ function createpanel({ name, description, archived, fork, html_url }) {
     var content = document.createElement("p");
     panel.href = html_url;
     panel.classList.add("list-panel");
-    header.innerHTML = name + (archived ? " (archived)" : "") + (fork ? " (forked)" : "");
-    content.innerHTML = description !== null && description !== void 0 ? description : "No description provided";
+    header.innerHTML = name + (archived ? " ({repos.panel.archived})" : "") + (fork ? " ({repos.panel.forked})" : "");
+    content.innerHTML = description !== null && description !== void 0 ? description : "{repos.panel.nodescription}";
     panel.appendChild(header);
     panel.appendChild(document.createElement("hr"));
     panel.appendChild(content);
