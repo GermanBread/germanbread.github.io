@@ -22,7 +22,6 @@ function fetchTranslation(country_code) {
         if (response.status != 200) {
             console.warn("Welp, seems like we don't have a translation for you. Falling back to english.");
             locale = "en";
-            response = yield fetch(`/locales/en.json`);
         }
         return response.json();
     });
@@ -30,7 +29,7 @@ function fetchTranslation(country_code) {
 function translateDOM(data) {
     var elements = Array();
     elements.push(document.querySelector("#menu-button"));
-    elements = elements.concat(deconstructToArray(document.querySelector("#list-links").children));
+    elements = elements.concat(deconstructToArray(document.querySelector("#menu-items").children));
     elements = elements.concat(deconstructToArray(document.querySelector("#logo-captions").children));
     elements.push(document.querySelector("#scroll-hint"));
     elements = elements.concat(deconstructToArray(document.querySelector("#section-about-text").children));

@@ -40,7 +40,7 @@
             background-color: var(--panel-bg-lighter);
         }
 
-        div {
+        #section-about-text {
             border: var(--panel-bg-border) 2px solid;
             border-top: none;
             box-shadow: var(--panel-bg-border) 0 0 2px;
@@ -53,6 +53,7 @@
             padding: 5ex;
             padding-bottom: 2em;
 
+            word-wrap: break-word;
         }
 
         #loading {

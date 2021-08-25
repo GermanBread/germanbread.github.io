@@ -12,6 +12,7 @@ html {
 }
 
 body {
+    margin: 0;
     background-color: var(--bg);
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,15 +28,19 @@ body {
             content: 'Hey buddy, that width ... it\'s a bit 🤏 small, don\'t you think?';
         }
         & * {
-            display: none;
+            display: none !important;
         }
     }
 
     &.basicallyhideeverything {
-        transition: opacity 1s ease;
-        opacity: 0;
-        #logo {
-            opacity: 1;
+        #menu, #menu-button {
+            opacity: 0 !important;
+        }
+        #logo-captions, #scroll-hint {
+            opacity: 0 !important;
+        }
+        #section-about, #section-repos, #section-credits {
+            opacity: 0 !important;
         }
     }
 }
