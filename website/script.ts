@@ -42,7 +42,7 @@ function init() {
     ready();
 }
 
-// can be called from anywhere, will increment the counter
+// Can be called from anywhere, will increment the counter
 // 3 "ready" calls in total (init, repos, contibutions)
 // I want my page to load FAST and not break while doing so. Hence the runlevels.
 function ready() {
