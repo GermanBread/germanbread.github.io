@@ -1,5 +1,9 @@
 var locale : string
-var jsonData;
+var translationData : {
+    errors : {
+        notranslation : string
+    }
+};
 
 // Github Pages does not offer shipping localised websites as far as I know
 // So I will have to deal with this (still kind of proud of this code)
@@ -8,7 +12,7 @@ async function initlocale() {
     locale = navigator.language.match("\\w+")[0];
 
     fetchTranslation(locale).then((json) => {
-        jsonData = json;
+        translationData = json;
         translateDOM();
     });
 }
@@ -18,6 +22,7 @@ async function fetchTranslation(country_code : string) : Promise<any> {
     if (response.status != 200) {
         console.warn("Welp, seems like we don't have a translation for you. Falling back to english.")
         locale = "en";
+        response = await fetch(`/locales/${locale}.json`);
     }
     return response.json();
 }
@@ -45,8 +50,7 @@ function translateDOM() {
         if (matches?.length > 0) {
             matches.forEach(match => {
                 var content = element.innerHTML.replace(match, 
-                    getValue(jsonData, match.slice(1, match.length - 1)) ??
-                        jsonData.errors.notranslation.replace("%string%", match));
+                    getTranslation(match.slice(1, match.length - 1)));
                 element.innerHTML = content;
             });
         }
@@ -80,21 +84,16 @@ function translateRepos() {
         if (matches?.length > 0) {
             matches.forEach(match => {
                 var content = element.innerHTML.replace(match, 
-                    getValue(jsonData, match.slice(1, match.length - 1)) ??
-                        jsonData.errors.notranslation.replace("%string%", match));
+                    getTranslation(match.slice(1, match.length - 1)));
                 element.innerHTML = content;
             });
         }
     });
 }
 
-function getValue(json, key : string, fullKey : string = key) : string {
-    const levels = key.split('.');
-    if (json === undefined)
-        return jsonData.errors.notranslation.replace("%string%", fullKey);
-    if (levels.length === 1)
-        return json[key];
-    return getValue(json[levels[0]], levels.slice(1, levels.length).join('.'), key);
+function getTranslation(key : string) : string {
+    return eval("translationData." + key) ??
+        translationData.errors.notranslation.replace("%string%", key);
 }
 
 function deconstructToArray(collection : HTMLCollection) {

@@ -8,12 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var locale;
-var jsonData;
+var translationData;
 function initlocale() {
     return __awaiter(this, void 0, void 0, function* () {
         locale = navigator.language.match("\\w+")[0];
         fetchTranslation(locale).then((json) => {
-            jsonData = json;
+            translationData = json;
             translateDOM();
         });
     });
@@ -24,6 +24,7 @@ function fetchTranslation(country_code) {
         if (response.status != 200) {
             console.warn("Welp, seems like we don't have a translation for you. Falling back to english.");
             locale = "en";
+            response = yield fetch(`/locales/${locale}.json`);
         }
         return response.json();
     });
@@ -40,8 +41,7 @@ function translateDOM() {
         var matches = element.innerHTML.match('{.+?}');
         if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
             matches.forEach(match => {
-                var _a;
-                var content = element.innerHTML.replace(match, (_a = getValue(jsonData, match.slice(1, match.length - 1))) !== null && _a !== void 0 ? _a : jsonData.errors.notranslation.replace("%string%", match));
+                var content = element.innerHTML.replace(match, getTranslation(match.slice(1, match.length - 1)));
                 element.innerHTML = content;
             });
         }
@@ -67,20 +67,15 @@ function translateRepos() {
         var matches = element.innerHTML.match('{.+?}');
         if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
             matches.forEach(match => {
-                var _a;
-                var content = element.innerHTML.replace(match, (_a = getValue(jsonData, match.slice(1, match.length - 1))) !== null && _a !== void 0 ? _a : jsonData.errors.notranslation.replace("%string%", match));
+                var content = element.innerHTML.replace(match, getTranslation(match.slice(1, match.length - 1)));
                 element.innerHTML = content;
             });
         }
     });
 }
-function getValue(json, key, fullKey = key) {
-    const levels = key.split('.');
-    if (json === undefined)
-        return jsonData.errors.notranslation.replace("%string%", fullKey);
-    if (levels.length === 1)
-        return json[key];
-    return getValue(json[levels[0]], levels.slice(1, levels.length).join('.'), key);
+function getTranslation(key) {
+    var _a;
+    return (_a = eval("translationData." + key)) !== null && _a !== void 0 ? _a : translationData.errors.notranslation.replace("%string%", key);
 }
 function deconstructToArray(collection) {
     var array = Array();
