@@ -93,7 +93,7 @@
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 60em) {
         padding: 2.5em;
         
         &-content {
@@ -101,7 +101,7 @@
         }
     }
     
-    @media (max-width: 1800px) {
+    @media (max-width: 115em) {
         &-content {
             div {
                 grid-template-columns: 1fr 1fr;
@@ -117,7 +117,7 @@
         }
     }
     
-    @media (max-width: 1200px) {
+    @media (max-width: 90em) {
         &-content {
             div {
                 display: block;

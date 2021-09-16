@@ -11,6 +11,10 @@
     --red-text-shadow: #b10000;
 }
 
+@mixin double-text($color) {
+    text-shadow: .05em .05em 0 $color;
+}
+
 #section-credits {
     &::before {
         content : "";
@@ -33,7 +37,7 @@
     }
     
     color: var(--hackertype-text);
-    text-shadow: var(--hackertype-shadow) 1px 1px 0px;
+    @include double-text(var(--hackertype-shadow));
     
     padding: 15em;
     
@@ -42,7 +46,7 @@
         padding-left: 5em;
         padding-right: 5em;
 
-        border-top: 5px solid transparent;
+        border-top: .25em solid transparent;
         
         a {
             text-decoration: underline;
@@ -66,7 +70,7 @@
                 animation: heart-blink 1s step-end infinite alternate-reverse;
 
                 color: var(--red-text);
-                text-shadow: var(--red-text-shadow) 1px 1px 0px;
+                @include double-text(var(--red-text-shadow));
 
                 @keyframes heart-blink {
                     0% {
@@ -112,7 +116,7 @@
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 40em) {
         padding: 5em;
         padding-bottom: 15em;
     }
