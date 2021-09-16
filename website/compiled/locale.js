@@ -12,6 +12,7 @@ var translationData;
 function initlocale() {
     return __awaiter(this, void 0, void 0, function* () {
         locale = navigator.language.match("\\w+")[0];
+        locale = "en";
         fetchTranslation(locale).then((json) => {
             translationData = json;
             translateDOM();

@@ -11,6 +11,8 @@
     padding-bottom: clamp(15em, 20%, 100vh); /* cover the cycling text */
     display: grid;
     place-content: center;
+
+    overflow-x: hidden;
     
     #logo {
         position: relative;
@@ -43,14 +45,6 @@
                 var(--logo-shine),    
                 var(--logo-bg)
             );
-
-            &::after {
-                animation-duration: 1.5s;
-                background-image: linear-gradient(.3turn,
-                    var(--logo-shine),    
-                    var(--logo-bg)
-                );
-            }
         }
 
         &::before {
@@ -78,11 +72,12 @@
             top: 7em;
             left: -6em;
             right: -6em;
-            height: 2em;
+            height: .5em;
     
             content: '';
             background-image: inherit;
             background-size: inherit;
+            animation-duration: inherit;
             transform: perspective(1.5em) rotateX(25deg);
             filter: blur(1em);
     
@@ -126,7 +121,6 @@
                     opacity: 0;
                     transform: translateY(.25em);
                 }
-
                 33% {
                     opacity: 0;
                     transform: translateY(-3.25em);
