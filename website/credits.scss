@@ -35,12 +35,12 @@
     color: var(--hackertype-text);
     text-shadow: var(--hackertype-shadow) 1px 1px 0px;
     
-    padding: 15%;
+    padding: 15em;
     
     &-content {
-        padding: 2.5%;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding: 2.5em;
+        padding-left: 5em;
+        padding-right: 5em;
 
         border-top: 5px solid transparent;
         
@@ -57,7 +57,7 @@
             display: inline-flex;
             white-space: nowrap;
 
-            font-size: clamp(12px, calc(1.9vw), 30px);
+            font-size: clamp(1rem, calc(1.9vw), 2rem);
             
             #blinking-heart {
                 margin-left: 1ex;
@@ -113,7 +113,7 @@
     }
 
     @media (max-width: 600px) {
-        padding: 5%;
-        padding-bottom: 15%;
+        padding: 5em;
+        padding-bottom: 15em;
     }
 }

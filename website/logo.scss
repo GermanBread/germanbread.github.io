@@ -7,12 +7,14 @@
 }
 
 #section-logo {
-    padding-top: 20%;
+    padding-top: 20em;
     padding-bottom: clamp(15em, 20%, 100vh); /* cover the cycling text */
     display: grid;
     place-content: center;
     
     #logo {
+        position: relative;
+        
         place-self: center;
         margin-top: 1em;
         margin-bottom: 1em;
@@ -31,14 +33,9 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-size: 200% 100%;
+        text-shadow: 0 0 .25em rgba(255, 255, 255, 0.5);
 
         animation: rainbow-text 5s linear infinite;
-
-        @keyframes rainbow-text {
-            to {
-                background-position: 200% 0;
-            }
-        }
 
         &:hover {
             animation-duration: 1.5s;
@@ -46,6 +43,50 @@
                 var(--logo-shine),    
                 var(--logo-bg)
             );
+
+            &::after {
+                animation-duration: 1.5s;
+                background-image: linear-gradient(.3turn,
+                    var(--logo-shine),    
+                    var(--logo-bg)
+                );
+            }
+        }
+
+        &::before {
+            position: absolute;
+            pointer-events: none;
+            
+            top: -2.5em;
+            left: -2.5em;
+            right: -2.5em;
+            bottom: -2.5em;
+    
+            content: '';
+            background-image: inherit;
+            background-size: inherit;
+            filter: blur(4em);
+            opacity: .2;
+    
+            animation: inherit;
+        }
+
+        &::after {
+            position: absolute;
+            pointer-events: none;
+            
+            top: 7em;
+            left: -6em;
+            right: -6em;
+            height: 2em;
+    
+            content: '';
+            background-image: inherit;
+            background-size: inherit;
+            transform: perspective(1.5em) rotateX(25deg);
+            filter: blur(1em);
+    
+            animation: inherit;
         }
     }
 
@@ -62,6 +103,7 @@
             margin-bottom: 2em;
             
             color: var(--text-dim);
+            text-shadow: 0 0 .05em var(--text-dim);
             transition: color .25s ease;
             text-align: center;
 
@@ -69,7 +111,7 @@
                 color: var(--text);
             }
 
-            animation: scroll-captions 10s ease-out infinite;
+            animation: scroll-captions 16s ease-out infinite;
 
             @keyframes scroll-captions {
                 0% {
@@ -122,6 +164,12 @@
         
         left: calc(50vw - 6ch);
         bottom: 5vh;
+    }
+
+    @keyframes rainbow-text {
+        to {
+            background-position: 200% 0;
+        }
     }
 
     @media (max-width: 450px) {

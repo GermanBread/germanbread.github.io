@@ -1,7 +1,7 @@
 :root {
-    --panel-bg: #202040A0;
-    --panel-bg-lighter: #252550A0;
-    --panel-bg-border: #303060A0;
+    --panel-bg: #202040D0;
+    --panel-bg-lighter: #252550D0;
+    --panel-bg-border: #303060D0;
 
     --bar-colour: #FF0000;
 }
@@ -26,7 +26,7 @@
         pointer-events: none;
     }
 
-    padding: 5%;
+    padding: 5em;
     z-index: 0;
     color: var(--text);
     text-shadow: var(--text) 0 0 .1em;
@@ -39,6 +39,10 @@
         &:hover {
             background-color: var(--panel-bg-lighter);
         }
+
+        /* readability */
+        max-width: 120ch;
+        margin: 0 auto;
 
         #section-about-text {
             border: var(--panel-bg-border) 2px solid;
@@ -78,7 +82,7 @@
     }
 
     @media (max-width: 600px) {
-        padding: 2%;
+        padding: 2em;
 
         &-content {
             div {

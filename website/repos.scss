@@ -28,7 +28,7 @@
         pointer-events: none;
     }
 
-    padding: 10%;
+    padding: 10em;
     z-index: 0;
 
     color: var(--text-dark);
@@ -57,7 +57,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             
-            padding: 3%;
+            padding: 3em;
 
             a {
                 display: block;
@@ -94,7 +94,7 @@
     }
 
     @media (max-width: 600px) {
-        padding: 2.5%;
+        padding: 2.5em;
         
         &-content {
             padding: 2em;
