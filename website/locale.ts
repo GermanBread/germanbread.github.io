@@ -10,7 +10,6 @@ var translationData : {
 
 async function initlocale() {
     locale = navigator.language.match("\\w+")[0];
-    locale = "en";
 
     fetchTranslation(locale).then((json) => {
         translationData = json;
