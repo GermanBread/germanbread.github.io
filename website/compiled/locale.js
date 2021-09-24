@@ -29,6 +29,20 @@ function fetchTranslation(country_code) {
         return response.json();
     });
 }
+function translateElements(elements) {
+    elements.forEach(element => {
+        var matches = element.innerHTML.match('{.+?}');
+        if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
+            matches.forEach(match => {
+                const replacement = getTranslation(match.slice(1, match.length - 1));
+                var content = element.innerHTML.replace(match, replacement[0]);
+                element.innerHTML = content;
+                if (replacement[1])
+                    element.classList.add("translationerror");
+            });
+        }
+    });
+}
 function translateDOM() {
     var elements = Array();
     elements.push(document.querySelector("#menu-button"));
@@ -37,16 +51,8 @@ function translateDOM() {
     elements.push(document.querySelector("#scroll-hint"));
     elements = elements.concat(deconstructToArray(document.querySelector("#section-about-text").children));
     elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
-    elements.forEach(element => {
-        var matches = element.innerHTML.match('{.+?}');
-        if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
-            matches.forEach(match => {
-                var content = element.innerHTML.replace(match, getTranslation(match.slice(1, match.length - 1)));
-                element.innerHTML = content;
-            });
-        }
-    });
-    document.body.classList.remove("basicallyhideeverything");
+    translateElements(elements);
+    ready();
 }
 function translateRepos() {
     var elements = Array();
@@ -63,19 +69,15 @@ function translateRepos() {
     document.querySelectorAll("#section-repos-content div").forEach(element => {
         elements.push(element);
     });
-    elements.forEach(element => {
-        var matches = element.innerHTML.match('{.+?}');
-        if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
-            matches.forEach(match => {
-                var content = element.innerHTML.replace(match, getTranslation(match.slice(1, match.length - 1)));
-                element.innerHTML = content;
-            });
-        }
-    });
+    translateElements(elements);
+    ready();
 }
 function getTranslation(key) {
-    var _a;
-    return (_a = eval("translationData." + key)) !== null && _a !== void 0 ? _a : translationData.errors.notranslation.replace("%string%", key);
+    const result = eval("translationData." + key);
+    return [
+        result !== null && result !== void 0 ? result : translationData.errors.notranslation.replace("%string%", key),
+        !result
+    ];
 }
 function deconstructToArray(collection) {
     var array = Array();
