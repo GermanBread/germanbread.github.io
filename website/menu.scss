@@ -98,6 +98,15 @@
             backdrop-filter: blur(.5em);
         }
     }
+
+    @media (max-width: 32em) {
+        &.hidden {
+            transition-delay: 0s;
+        }
+        &::before {
+            display: none;
+        }
+    }
 }
 
 #menu-button {
