@@ -31,6 +31,8 @@
             font-size: 1.2rem;
             font-weight: 500;
 
+            z-index: 6;
+
             white-space: nowrap;
 
             color: var(--text);
@@ -48,14 +50,25 @@
 
     @media (max-width: 65em) {
         position: fixed;
-        width: clamp(16em, 100vw, 32em);
+        max-width: 32em;
         height: 100vh;
 
-        transition: width 1s ease;
+        $anim-time: 1s;
+        $blur-time: .25s;
+
+        transition: max-width $anim-time ease;
 
         &.hidden {
-            width: 0vw;
+            max-width: 0vw;
             height: 100vh;
+            transition-delay: $blur-time;
+
+            &::before {
+                opacity: 0;
+                pointer-events: none;
+
+                transition-delay: 0s;
+            }
         }
 
         &-items {
@@ -69,13 +82,28 @@
                 padding-bottom: $margin;
             }
         }
+
+        &::before {
+            position: fixed;
+            left: clamp(16em, 100vw, 32em);
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            content: '';
+
+            z-index: 4;
+            opacity: 1;
+            transition: opacity $blur-time $anim-time linear;
+            backdrop-filter: blur(.5em);
+        }
     }
 }
 
 #menu-button {
     position: fixed;
     left: 0em;
-    top: 0em;
+    top: -2.5em;
     padding: .5em;
 
     z-index: 4;
@@ -90,5 +118,13 @@
 
     &:hover {
         background-color: var(--button-bg-hover);
+    }
+
+    animation: button-in 2s 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes button-in {
+    to {
+        top: 0em;
     }
 }

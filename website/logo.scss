@@ -15,6 +15,8 @@
 
     overflow-x: hidden;
 
+    $logo-anim-time: 1.5s;
+
     #logo {
         position: relative;
         
@@ -39,7 +41,7 @@
         text-shadow: 0 0 .25em rgba(255, 255, 255, 0.5);
 
         animation: rainbow-text 5s linear infinite,
-            logo-in 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.2) forwards;
+            logo-in $logo-anim-time cubic-bezier(0.175, 0.885, 0.32, 1.2) forwards;
 
         &:hover {
             animation-duration: 1.5s;
@@ -99,6 +101,7 @@
             display: block;
             margin-bottom: 2em;
             
+            opacity: 0;
             color: var(--text-dim);
             text-shadow: 0 0 .05em var(--text-dim);
             transition: color .25s ease;
@@ -108,7 +111,7 @@
                 color: var(--text);
             }
 
-            animation: scroll-captions 16s ease-out infinite;
+            animation: scroll-captions 16s $logo-anim-time ease-out infinite;
 
             @keyframes scroll-captions {
                 0% {
@@ -154,12 +157,21 @@
 
     #scroll-hint {
         position: fixed;
+        
+        bottom: -2em;
+        width: 100%;
+        z-index: 1;
+        text-align: center;
+        
         color: var(--text-dim);
 
-        z-index: 1;
-        
-        left: calc(50vw - 6ch);
-        bottom: 5vh;
+        animation: scroll-hint-in 2s $logo-anim-time cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+
+    @keyframes scroll-hint-in {
+        to {
+            bottom: 2em;
+        }
     }
 
     @keyframes rainbow-text {
