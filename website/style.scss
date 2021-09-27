@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: clamp(60%, 2vw, 100%);
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    @media (max-width: 20em) {
+    @media (max-width: 20rem) {
         &::before {
             color: var(--text);
     
