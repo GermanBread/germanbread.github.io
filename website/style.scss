@@ -34,14 +34,10 @@ body {
     }
 
     &.basicallyhideeverything {
-        #menu, #menu-button {
-            opacity: 0 !important;
-        }
-        #logo-captions, #scroll-hint {
-            opacity: 0 !important;
-        }
+        #menu, #menu-button,
+        #logo-captions, #scroll-hint,
         #section-about, #section-repos, #section-credits {
-            opacity: 0 !important;
+            display: none;
         }
     }
 }
