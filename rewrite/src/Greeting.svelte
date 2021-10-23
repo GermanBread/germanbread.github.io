@@ -14,14 +14,9 @@
         $colourScheme = selectedPalette;
         $greeting = false;
         setTimeout(() => {
-            window.scroll({
-                top : 0,
-                behavior : "smooth"
-            });
-        }, 500);
+			window.scroll(0, 0);
+		}, 500);
     }
-
-    $: console.log(selectedPalette);
 </script>
 
 <div id="greeting-mount" class="view {selectedPalette}" bind:this="{root}">
