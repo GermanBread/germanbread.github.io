@@ -1,50 +1,54 @@
 <script lang="ts">
-	import SectionSep from "./SectionSep.svelte";
-	import Projects from "./Projects.svelte";
-	import Greeting from "./Greeting.svelte";
-	import Credits from "./Credits.svelte";
-	import About from "./About.svelte";
-	import Repos from "./Repos.svelte";
-	import Logo from "./Logo.svelte";
-	
-	import { colourScheme, colourSchemes, greeting } from "./globals";
-	import { onMount } from "svelte";
+	import Portfolio from "./portfolio/Portfolio.svelte";
+	//import LandingPage from "./main/LandingPage.svelte";
+    import Greeting from "./greeter/Greeter.svelte";
+	//import Memes from "./memes/Memes.svelte";
 
-	$: currentScheme = `
-	    --background : ${colourSchemes[$colourScheme].background};
-		--intense    : ${colourSchemes[$colourScheme].intense};
-		--text       : ${colourSchemes[$colourScheme].text};
-		--primary    : ${colourSchemes[$colourScheme].primary};
-		--secondary  : ${colourSchemes[$colourScheme].secondary};
-	`;
+    import { currentTheme, greeting, page, themes } from "./scripts/globals";
+
+	let appTheme : string;
+
+	page.subscribe((val) => {
+		localStorage.setItem("page", val);
+	});
+	$page = "portfolio";
+
+	//if (Object.keys(themes).indexOf($currentTheme) === -1) {
+	//	$currentTheme = "dark-contrast";
+	//}
+	
+	$: {
+        appTheme = "";
+		Object.keys(themes[$currentTheme]).forEach(key => {
+            appTheme += `--${key}: ${themes[$currentTheme][key]};`
+        });
+    }
 </script>
 
 <main>
-	{#if $greeting}
+    {#if $greeting}
 		<Greeting />
 	{:else}
-		<Logo />
-		<About />
-		<SectionSep />
-		<Projects />
-		<SectionSep />
-		<Repos />
-		<SectionSep />
-		<Credits />
-	{/if}
-	{@html `<style>
+		<!--{#if $page === "memes"}
+			<Memes />
+		{:else if $page === "portfolio"}
+			<Portfolio />
+		{:else}
+			<LandingPage />
+		{/if}-->
+		<Portfolio />
+    {/if}
+
+    {@html `<style>
 		:root {
-			${currentScheme}
+			${appTheme}
 		}
 	</style>`}
 </main>
 
 <style lang="scss">
-	@import './colourschemes.scss';
-
-	:global(body) {
+    :global(body) {
 		padding: 0;
-		overflow-x: hidden;
 		
 		--shadow: #000A;
 		background-color: var(--background);
@@ -57,5 +61,8 @@
 			scroll-behavior: auto;
 		}
 		font-size: clamp(12px, 2vw, 18px);
+		* {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
 	}
 </style>

@@ -1,0 +1,43 @@
+import { writable } from 'svelte/store';
+import type { TranslationData, RepoData } from './types'
+
+export const greeterVer = 2;
+
+// I LOVE this
+export const currentTheme = writable(localStorage.getItem("theme") ?? "dark");
+export const translationData = writable<TranslationData>(null);
+export const projectsData = writable<RepoData>(null);
+export const reposData = writable<RepoData>(null);
+export const greeting = writable(localStorage.getItem("greeter_ver") !== greeterVer.toString());
+export const page = writable(localStorage.getItem("page") ?? "portfolio");
+
+export const themes = {
+    "dark-contrast" : {
+        background : "hsl(0deg,   0%,   0%  )",
+        intense    : "hsl(0deg,   0%,   5%  )",
+        text       : "hsl(100deg, 100%, 50% )",
+        primary    : "hsl(150deg, 25%,  10% )",
+        secondary  : "hsl(150deg, 25%,  10% )"
+    },
+    "light-contrast" : {
+        background : "hsl(0deg,   0%,   100%)",
+        intense    : "hsl(0deg,   0%,   45% )",
+        text       : "hsl(150deg, 100%, 50% )",
+        primary    : "hsl(0deg,   0%,   50% )",
+        secondary  : "hsl(0deg,   0%,   50% )"
+    },
+    "dark" : {
+        background : "hsl(210deg, 15%,  8% )",
+        intense    : "hsl(210deg, 15%,  6%  )",
+        text       : "hsl(210deg, 15%,  95% )",
+        primary    : "hsl(150deg, 100%, 35% )",
+        secondary  : "hsl(170deg, 100%, 35% )"
+    },
+    "light" : {
+        background : "hsl(210deg, 15%,  80% )",
+        intense    : "hsl(210deg, 15%,  75% )",
+        text       : "hsl(210deg, 15%,  20% )",
+        primary    : "hsl(150deg, 100%, 75% )",
+        secondary  : "hsl(170deg, 100%, 70% )"
+    }
+};

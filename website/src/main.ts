@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import { init } from './init';
+import { init } from './scripts/init';
 
 const app = new App({
 	target: document.body

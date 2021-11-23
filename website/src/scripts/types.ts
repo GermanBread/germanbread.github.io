@@ -1,6 +1,7 @@
 export type TranslationData = {
     menu : {
-        github,
+        back,
+        logo,
         about,
         projects,
         repos,
@@ -9,7 +10,9 @@ export type TranslationData = {
     },
     greeting : {
         title,
-        palette,
+        theme,
+        dark,
+        contrast,
         done
     },
     about : {
@@ -48,6 +51,16 @@ export type TranslationData = {
         title,
         framework,
         people
+    },
+    landing : {
+        title,
+        go,
+        main,
+        maindesc,
+        memes,
+        memesdesc,
+        arnix,
+        arnixdesc
     }
 }
 

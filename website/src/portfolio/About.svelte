@@ -1,13 +1,30 @@
 <script lang="ts">
-    import { translationData } from "./globals";
-    import type { TranslationData } from "./Types";
+    import ClickyButton from "../components/ClickyButton.svelte";
+import { translationData } from "../scripts/globals";
+    import type { TranslationData } from "../scripts/types";
 
-    let translation : TranslationData["about"];
+    let translation : TranslationData["about"],
+        mount : HTMLElement;
+    
+    // Grab the prefers reduced media query.
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    
+    function handlescroll() {
+        mount.style.opacity = `${(window.scrollY - mount.getBoundingClientRect().top) / (window.innerHeight / 3)}`;
+        // Check if the media query matches or is not available.
+        if (!mediaQuery || mediaQuery.matches) {
+            mount.style.transform = "none";
+        } else {
+            mount.style.transform = `translateY(${Math.log10(Math.max(window.scrollY - mount.getBoundingClientRect().top, 100) / (window.innerHeight / 2)) * 5}em)`;
+        }
+    }
     
     $: translation = $translationData?.about;
 </script>
 
-<div id="about-mount" class="view">
+<svelte:window on:scroll="{handlescroll}" />
+
+<div id="about-mount" class="view" bind:this="{mount}" style="opacity: 0;">
     <div id="title">
         <h1>{translation?.me}</h1>
         <hr>
@@ -19,11 +36,11 @@
                 <h1>GermanBread</h1>
                 <p>{translation?.skills.short}</p>
                 <div class="social">
-                    <a href="https://github.com/GermanBread">Github</a>
-                    <a href="https://discord.gg/ThMTPkyHmq">Discord</a>
-                    <a href="https://www.reddit.com/user/Mueslikuchen">Reddit</a>
-                    <a href="https://twitter.com/YodaBigbrain">Twitter</a>
-                    <a href="https://osu.ppy.sh/users/11376807">osu!</a>
+                    <ClickyButton clickEvent="{() => { window.open("https://github.com/GermanBread", "_blank");           }}" label="Github" />
+                    <ClickyButton clickEvent="{() => { window.open("https://discord.gg/ThMTPkyHmq", "_blank");            }}" label="Discord" />
+                    <ClickyButton clickEvent="{() => { window.open("https://www.reddit.com/user/Mueslikuchen", "_blank"); }}"label="Reddit" />
+                    <ClickyButton clickEvent="{() => { window.open("https://twitter.com/YodaBigbrain", "_blank");         }}" label="Twitter" />
+                    <ClickyButton clickEvent="{() => { window.open("https://osu.ppy.sh/users/11376807", "_blank");        }}" label="osu!" />
                 </div>
             </div>
         </div>
@@ -52,7 +69,12 @@
 </div>
 
 <style lang="scss">
-    @import 'content.scss';
+    @import '../styles/content.scss';
+
+    .invisible {
+        transform: translateY(1em);
+        opacity: 0;
+    }
 
     .card {
         display: flex;
