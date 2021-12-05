@@ -1,20 +1,22 @@
 <script lang="ts">
     import ClickyButton from "../components/ClickyButton.svelte";
-import { translationData } from "../scripts/globals";
+    import { translationData } from "../scripts/globals";
     import type { TranslationData } from "../scripts/types";
 
     let translation : TranslationData["about"],
         mount : HTMLElement;
     
     // Grab the prefers reduced media query.
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let mediaQueryMatches = window.matchMedia("(prefers-reduced-motion: reduce), (hover: none)");
     
     function handlescroll() {
-        mount.style.opacity = `${(window.scrollY - mount.getBoundingClientRect().top) / (window.innerHeight / 3)}`;
+        
         // Check if the media query matches or is not available.
-        if (!mediaQuery || mediaQuery.matches) {
+        if (!mediaQueryMatches || mediaQueryMatches.matches) {
+            mount.style.opacity = "1";
             mount.style.transform = "none";
         } else {
+            mount.style.opacity = `${(window.scrollY - mount.getBoundingClientRect().top) / (window.innerHeight / 3)}`;
             mount.style.transform = `translateY(${Math.log10(Math.max(window.scrollY - mount.getBoundingClientRect().top, 100) / (window.innerHeight / 2)) * 5}em)`;
         }
     }
