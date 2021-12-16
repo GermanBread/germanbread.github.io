@@ -1,5 +1,5 @@
 <script lang="ts">
-import { greeting, page, translationData } from "../scripts/globals";
+import { greeting, translationData } from "../scripts/globals";
 import type { TranslationData } from "../scripts/types";
     
     let navbarlabels : TranslationData["menu"],
@@ -12,7 +12,7 @@ import type { TranslationData } from "../scripts/types";
 </script>
 
 <svelte:window on:scroll="{() => {
-    scrolled = window.scrollY > (window.innerHeight / 10)
+    scrolled = window.scrollY > (window.innerHeight / 2)
 }}" />
 
 <div id="navbar-mount" class:compact="{!scrolled}">
@@ -49,28 +49,14 @@ import type { TranslationData } from "../scripts/types";
 
             content: '';
             z-index: -1;
-            background-color: transparent;
-            backdrop-filter: blur(1em) grayscale(.5);
+            background-color: var(--background);
 
             transition: background-color .5s ease;
         }
 
-        &:hover >div::after {
-            background-color: var(--background);
-        }
-
         &.compact {
-            margin-inline: clamp(1em, 25vw, 50em);
-            border-radius: 1em;
-
-            >div::after {
-                border-radius: 1em;
-                $padding: -2em;
-                bottom: $padding;
-                right: $padding;
-                left: $padding;
-                top: $padding;
-            }
+            max-width: 120ch;
+            margin-inline: auto;
         }
     }
 

@@ -15,11 +15,19 @@
     "contrast" : "High contrast",
     "done" : "Click me when you're done"
   },
+  "portfolio" : {
+    "buzzwords" : [
+      ".NET", "C#", "Haskell", "C++", "Buzzwords", "OpenGL", "Svelte", "Bash",
+      "Programming", "Node", "Typescript", "Linux", "OOP", "FP", "Agile",
+      "Algorithm", "API", "Application", "Backend", "Browser", "Bug", "Code",
+      "SCSS", "Debugging", "Frontend"
+    ]
+  },
   "about" : {
     "me"    : "About me",
     "skills"  : {
       "title" : "Languages, IDEs and Experience",
-      "programming" : "C#, C++, GLSL, HTML, TS, SCSS, Bash and Nix",
+      "programming" : "C#, C++, Haskell, GLSL, HTML, TS, SCSS, Bash and Nix",
       "ide" : "VSCode and Vim",
       "other" : "Deep understanding of Linux including knowledge in: system administration, maintenance, problem solving and googling.",
       "short" : "17yo, everything is self taught and I like coding. Some even call me a code monkey."

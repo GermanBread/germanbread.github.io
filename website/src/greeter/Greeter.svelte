@@ -56,7 +56,7 @@ import { onMount } from 'svelte';
 </div>
 
 <style lang="scss">
-    @import "../styles/content.scss";
+    @import "../styles/global.scss";
 
     #greeting-mount {
         background-color: var(--background);

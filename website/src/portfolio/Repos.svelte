@@ -37,7 +37,7 @@
 </div>
 
 <style lang="scss">
-    @import '../styles/content.scss';
+    @import '../styles/global.scss';
 
     .panel {
         padding-block: 3em;
@@ -55,30 +55,6 @@
             flex-grow: 1;
 
             background-size: 150%;
-
-            transition: background-position .5s ease;
-
-            >.text {
-                transform-origin: left;
-                @media (hover) {
-                    transform: scale(.75);
-                    filter: blur(.1em);
-                }
-                transition:
-                    transform .5s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-                    filter .5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-                
-                @media (prefers-reduced-motion: reduce), (max-width: 600px) {
-                    transition: none;
-                    transform: none;
-                    filter: none;
-                }
-            }
-
-            &:hover >.text {
-                transform: none;
-                filter: none;
-            }
         }
 
         a {

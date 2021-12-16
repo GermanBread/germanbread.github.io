@@ -7,6 +7,7 @@
         mount : HTMLElement;
     
     // Grab the prefers reduced media query.
+    // Brave Browser ignores (hover: none) on mobile?
     let mediaQueryMatches = window.matchMedia("(prefers-reduced-motion: reduce), (hover: none)");
     
     function handlescroll() {
@@ -71,63 +72,5 @@
 </div>
 
 <style lang="scss">
-    @import '../styles/content.scss';
-
-    .invisible {
-        transform: translateY(1em);
-        opacity: 0;
-    }
-
-    .card {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2em;
-        
-        >img {
-            max-height: 356px;
-            max-width: clamp(0px, 100%, 400px);
-
-            border: .1em dashed var(--text);
-            //box-shadow: 0 0 .5em var(--shadow);
-        }
-
-        >div {
-            flex-basis: 50%;
-            flex-grow: 1;
-        }
-    }
-
-    .social {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-
-        >a {
-            display: flex;
-            align-content: center;
-            justify-content: center;
-
-            flex-basis: 20ch;
-            
-            padding: .5em;
-            border-radius: 5em;
-
-            border: none;
-            //box-shadow: 0 0 .25em var(--shadow);
-
-            font-size: 1.5rem;
-
-            background-color: var(--text);
-            color: var(--background);
-
-            &:hover {
-                text-decoration: none;
-            }
-
-            &:active {
-                background-color: var(--background);
-                color: var(--text);
-            }
-        }
-    }
+    @import '../styles/global.scss';
 </style>
