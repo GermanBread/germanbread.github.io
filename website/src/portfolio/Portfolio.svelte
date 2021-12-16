@@ -24,7 +24,6 @@
                     child.classList.remove("active");
                     if (Math.random() > .75) child.classList.add("active");
                 });
-                console.log("firing!");
             }
             animateBuzzWords();
         }, 1500);
