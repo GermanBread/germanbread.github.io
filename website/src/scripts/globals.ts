@@ -37,7 +37,7 @@ export const themes = {
         background : "hsl(210deg, 0%,   92% )",
         intense    : "hsl(210deg, 0%,   84% )",
         text       : "hsl(210deg, 0%,   0%  )",
-        primary    : "hsl(150deg, 100%, 75% )",
-        secondary  : "hsl(170deg, 100%, 70% )"
+        primary    : "hsl(150deg, 100%, 60% )",
+        secondary  : "hsl(170deg, 100%, 60% )"
     }
 };

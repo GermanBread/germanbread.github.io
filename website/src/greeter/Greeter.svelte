@@ -4,6 +4,7 @@ import Toggle from '../components/Toggle.svelte';
 
 import { translationData, greeting, currentTheme, themes, greeterVer } from "../scripts/globals";
 import type { TranslationData } from "../scripts/types";
+import { fly } from "svelte/transition";
 import { onMount } from 'svelte';
 
     let translation : TranslationData["greeting"],
@@ -40,7 +41,7 @@ import { onMount } from 'svelte';
     }
 </script>
 
-<div id="greeting-mount" class="view {previewTheme}" style="{theme}">
+<div id="greeting-mount" class="view {previewTheme}" style="{theme}" in:fly="{{ duration : 1000, y : -15 }}">
     <div id="title">
         <h1>{translation?.title ?? "..."}</h1>
     </div>
