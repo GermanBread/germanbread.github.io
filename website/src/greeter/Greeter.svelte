@@ -41,7 +41,8 @@ import { onMount } from 'svelte';
     }
 </script>
 
-<div id="greeting-mount" class="view {previewTheme}" style="{theme}" in:fly="{{ duration : 1000, y : -15 }}">
+<div id="greeting-mount" class="view {previewTheme}" style="{theme}"
+    in:fly="{{ duration : 1000, y : -15 }}">
     <div id="title">
         <h1>{translation?.title ?? "..."}</h1>
     </div>

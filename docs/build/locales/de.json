@@ -11,9 +11,9 @@
   "greeting" : {
     "title" : "Hallo",
     "theme" : "Farbschema",
-    "dark" : "Dunkles design",
+    "dark" : "Dunkles Design",
     "contrast" : "Hoher Kontrast",
-    "done" : "Click mich an, wenn du fertig bist"
+    "done" : "Click mich, wenn du fertig bist"
   },
   "portfolio" : {
     "buzzwords" : [
@@ -29,20 +29,17 @@
       "title" : "Programmiersprachen, Entwicklungsumgebungen und Erfahrung",
       "programming" : "C#, C++, Haskell, GLSL, HTML, TS, SCSS, Bash und Nix",
       "ide" : "VSCode und Vim",
-      "other" : "Sehr gutes Verständnis von Linux darunter Erfahrung in: Systemverwaltung, Systemwartung, Problemlösung und Googeln. Natürlich alles genannte auf eigene Faust gelernt.",
+      "other" : "Sehr gutes Verständnis von Linux unteranderem in: Systemverwaltung, Systemwartung, Problemlösung und Googeln. Natürlich alles genannte auf eigene Faust gelernt.",
       "short" : "17-Jahre alt, alles von alleine gelernt und ich liebe es den Computer Dinge machen zu lassen. Manche nennen mich auch einen code monkey."
     },
     "os" : {
-      "title" : "Betriebssystem und Umgebung",
+      "title" : "Betriebssystem und Desktop",
       "content" : "Arch Linux / NixOS",
       "desktop" : "KDE Plasma"
     },
     "story" : {
       "title" : "Hintergrundgeschichte",
       "content" : [
-        [
-          "Ungefähr 2 Minuten Lesezeit"
-        ],
         [
           "Ich wuchs in Hessen auf und bin (zum Zeitpunkt, wo ich das hier schreibe) 17 Jahre alt.",
           "Manche nennen mich einen \"code monkey\"",
@@ -70,12 +67,15 @@
           "Bis zu diesem Zeitpunkt kannte ich mich so gut mit C# aus, dass ich mich bei anderen Programmiersprachen umsah.",
           "Diese Programmiersprache war C++.",
           "Dann kam noch der Informatikunterricht dazu bei dem ich größtenteils HTML und CSS lernte.",
-          "Aktuell lernen wir Java im Unterricht (dank dem Deutschen Staat...)",
+          "Aktuell lernen wir Java im Unterricht (Java ist nicht so mein Ding...)",
           "Ich arbeite aktuell an meiner eigenen Spieleengine und spiele sehr viel osu! (zudem schaue ich noch Anime)"
         ],
         [
           "Bis heute denke ich noch an das Praktikum und die Menschen, die wie Stützpfeiler, mein Leben veränderten. Ich danke auch denen, die mich stets unterstützten.",
           "Soll mein Onkel in Frieden ruhen und soll es seiner Familie gut gehen."
+        ],
+        [
+          "Im November 2021 habe ich den alten PC meiner Großmutter in einen kleinen Server umfunktioniert. Mein Bruder und ich lassen unsere kleinen Projekte darauf laufen und spielen sogar auf dem Minecraft server der da läuft."
         ]
       ]
     }

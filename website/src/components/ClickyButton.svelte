@@ -1,10 +1,9 @@
 <script lang="ts">
     export let label = "Clicky Button";
-    export let visible = true;
     export let clickEvent = () => { };
 </script>
 
-<button on:click="{clickEvent}" class:visible>
+<button on:click="{clickEvent}">
     {label}
 </button>
 
@@ -29,27 +28,7 @@
         height: 2.5em;
 
         transition:
-            background-color .5s ease-in,
-            color .5s .25s ease-in;
-        
-        // Hide the buttons by default and let them fly in later
-        opacity: 0;
-        transform: translateY(1em);
-        pointer-events: none;
-
-        &.visible {
-            pointer-events: all;
-            
-            opacity: 1;
-            transform: translateY(0em);
-        }
-        &:active {
-            transition:
-                background-color .5s .25s ease-in,
-                color .5s ease-in;
-            
-            background-color: var(--background);
-            color: var(--text);
-        }
+            background-color 1s ease-in,
+            color 1s .5s ease-in;
     }
 </style>
