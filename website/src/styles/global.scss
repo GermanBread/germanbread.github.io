@@ -95,7 +95,6 @@
         max-height: 356px;
         max-width: clamp(0px, 100%, 400px);
 
-        border: .1em dashed var(--text);
         //box-shadow: 0 0 .5em var(--shadow);
     }
 
@@ -103,6 +102,10 @@
         flex-basis: 50%;
         flex-grow: 1;
     }
+}
+
+.avatar-border {
+    border: .1em dashed var(--text);
 }
 
 .social {

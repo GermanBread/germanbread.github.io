@@ -20,7 +20,11 @@
                 <h1>{translation?.people}</h1>
             </div>
             <div class="split2">
-                <a href="https://github.com/Reimnop" target="_blank">Reimnop</a>
+                <ul class="cool-people">
+                    <li class="cool-person"><img class="avatar-border" alt="" src="/build/images/user-avatars/Reimnop.webp"><a href="https://github.com/Reimnop"  target="_blank">Reimnop</a></li>
+                    <li class="cool-person"><img class="avatar-border" alt="" src="/build/images/user-avatars/tyoungjr.webp"><a href="https://github.com/tyoungjr" target="_blank">tmoney</a></li>
+                    <li class="cool-person"><img class="avatar-border" alt="" src="/build/images/user-avatars/jakeupz.webp"><a href="https://github.com/jakeupz"  target="_blank">bacon</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -38,6 +42,29 @@
 
         a {
             font-size: 2rem;
+        }
+    }
+
+    .cool-people {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .cool-person {
+        display: flex;
+        gap: 1em;
+
+        list-style: none;
+
+        >img {
+            flex-grow: 0;
+            aspect-ratio: 1;
+            height: 3em;
+        }
+        >a {
+            margin-block: auto;
+            width: auto;
         }
     }
 </style>

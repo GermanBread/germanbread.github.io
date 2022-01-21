@@ -34,7 +34,7 @@
     </div>
     <div class="highlight">
         <div class="card">
-            <img src="/build/images/ghpfp.webp" alt="Github profile pic">
+            <img class="avatar-border" src="/build/images/user-avatars/GermanBread.webp" alt="Github profile pic">
             <div>
                 <h1>GermanBread</h1>
                 <p>{translation?.skills.short}</p>
