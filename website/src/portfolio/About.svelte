@@ -1,33 +1,15 @@
 <script lang="ts">
-    import ClickyButton from "../components/ClickyButton.svelte";
+    import { fly } from "svelte/transition";
     import { translationData } from "../scripts/globals";
     import type { TranslationData } from "../scripts/types";
+    import ClickyButton from "../components/ClickyButton.svelte";
 
-    let translation : TranslationData["about"],
-        mount : HTMLElement;
-    
-    // Grab the prefers reduced media query.
-    // Brave Browser ignores (hover: none) on mobile?
-    let mediaQueryMatches = window.matchMedia("(prefers-reduced-motion: reduce), (hover: none)");
-    
-    function handlescroll() {
-        
-        // Check if the media query matches or is not available.
-        if (!mediaQueryMatches || mediaQueryMatches.matches) {
-            mount.style.opacity = "1";
-            mount.style.transform = "none";
-        } else {
-            mount.style.opacity = `${(window.scrollY - mount.getBoundingClientRect().top) / (window.innerHeight / 3)}`;
-            mount.style.transform = `translateY(${Math.log1p(Math.max(window.scrollY - mount.getBoundingClientRect().top, 0) / (window.innerHeight / 2)) * 4 - 8}em)`;
-        }
-    }
+    let translation : TranslationData["about"];
     
     $: translation = $translationData?.about;
 </script>
 
-<svelte:window on:scroll="{handlescroll}" />
-
-<div id="about-mount" class="view" bind:this="{mount}" style="opacity: 0;">
+<div id="about-mount" class="view" in:fly="{{ y: 50, duration: 2000, delay: 1000 }}">
     <div id="title">
         <h1>{translation?.me}</h1>
         <hr>
