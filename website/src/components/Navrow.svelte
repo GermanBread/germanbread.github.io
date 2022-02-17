@@ -76,6 +76,7 @@ import type { TranslationData } from "../scripts/types";
             flex-grow: 1;
             margin: 0;
             font-size: 1.2rem;
+            padding-block: .25em;
             
             color: var(--text);
             background: none;
