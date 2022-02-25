@@ -9,7 +9,6 @@ export const translationData = writable<TranslationData>(null);
 export const projectsData = writable<RepoData>(null);
 export const reposData = writable<RepoData>(null);
 export const greeting = writable(localStorage.getItem("greeter_ver") !== greeterVer.toString());
-export const page = writable(localStorage.getItem("page") ?? "portfolio");
 
 export const themes = {
     "dark-contrast" : {
