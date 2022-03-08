@@ -14,6 +14,7 @@
         <h1>{translation?.me}</h1>
         <hr>
     </div>
+
     <div class="highlight">
         <div class="card">
             <img class="avatar-border" src="/build/images/user-avatars/GermanBread.webp" alt="Github profile pic">
@@ -30,27 +31,26 @@
             </div>
         </div>
     </div>
-    {#if translation}
-        <div class="panel">
-            <h2>{translation.skills.title}</h2>
-            <p>{translation.skills.programming}</p>
-            <p>{translation.skills.ide}</p>
-            <p>{translation.skills.other}</p>
-            <br>
-            <h2>{translation.os.title}</h2>
-            <p>{translation.os.content}</p>
-            <p>{translation.os.desktop}</p>
-        </div>
-        <div class="panel">
-            <h1>{translation.story.title}</h1>
-            {#each translation.story.content as paragraph}
-                {#each paragraph as line}
-                    <p>{line}</p>
-                {/each}
-                <br>
+    
+    <div class="panel">
+        <h2>{translation?.skills.title}</h2>
+        <p>{translation?.skills.programming}</p>
+        <p>{translation?.skills.ide}</p>
+        <p>{translation?.skills.other}</p>
+        <br>
+        <h2>{translation?.os.title}</h2>
+        <p>{translation?.os.content}</p>
+        <p>{translation?.os.desktop}</p>
+    </div>
+    <div class="panel">
+        <h1>{translation?.story.title}</h1>
+        {#each translation?.story.content ?? [] as paragraph}
+            {#each paragraph as line}
+                <p>{line}</p>
             {/each}
-        </div>
-    {/if}
+            <br>
+        {/each}
+    </div>
 </div>
 
 <style lang="scss">

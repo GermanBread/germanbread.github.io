@@ -40,7 +40,8 @@ export type TranslationData = {
     },
     projects : {
         title: string,
-        loading: string
+        loading: string,
+        open: string
     },
     repos : {
         personal: string,

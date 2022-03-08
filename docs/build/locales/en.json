@@ -88,7 +88,8 @@
   },
   "projects" : {
     "title" : "Projects I'm working on",
-    "loading" : "Loading projects. Hang on tight..."
+    "loading" : "Loading projects. Hang on tight...",
+    "open" : "Open in new tab"
   },
   "repos" : {
     "personal" : "Personal repositories",
