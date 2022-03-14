@@ -12,6 +12,7 @@ import { onMount } from "svelte";
 
     let hiTextAnimationState = TextAnimationState.DeletingEnd,
         animatedTextBackground: HTMLElement,
+        madeHiTextChoice: boolean = false,
         shownHiTextLength: number = 0,
         selectedHiText: string = "",
         hiTextCooldown: number = 0,
@@ -50,6 +51,8 @@ import { onMount } from "svelte";
                     hiTextCooldown = 10;
                     hiTextAnimationState = TextAnimationState.TypingEnd;
                 }
+
+                madeHiTextChoice = false;
                 break;
             case TextAnimationState.Deleting:
                 do {
@@ -65,7 +68,7 @@ import { onMount } from "svelte";
                 if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Deleting;
                 break;
             case TextAnimationState.DeletingEnd:
-                {
+                if (!madeHiTextChoice) {
                     let choice = chooseHiText();
 
                     while (choice == selectedHiText) {
@@ -73,6 +76,8 @@ import { onMount } from "svelte";
                     }
 
                     selectedHiText = choice;
+
+                    madeHiTextChoice = true;
                 }
 
                 hiTextCooldown--;
@@ -129,7 +134,7 @@ import { onMount } from "svelte";
         >span {
             position: relative;
             
-            height: 5.5rem;
+            min-height: 4rem;
             font-size: 4rem;
             text-align: center;
             
