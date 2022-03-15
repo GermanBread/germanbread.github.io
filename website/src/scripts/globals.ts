@@ -40,3 +40,32 @@ export const themes = {
         secondary  : "hsl(170deg, 100%, 60% )"
     }
 };
+
+export const logoschemes = {
+    flags : {
+        "ukraine" : [
+            'background-color: rgb(0,  0,  50);',
+            'background-color: rgb(0,  0,  50);',
+            'background-color: rgb(0,  0,  50);',
+            'background-color: rgb(50, 50, 0 );',
+            'background-color: rgb(50, 50, 0 );',
+            'background-color: rgb(50, 50, 0 );'
+        ],
+        "germany" : [
+            'background-color: rgb(0,  0,  0);',
+            'background-color: rgb(0,  0,  0);',
+            'background-color: rgb(50, 0,  0);',
+            'background-color: rgb(50, 0,  0);',
+            'background-color: rgb(50, 50, 0);',
+            'background-color: rgb(50, 50, 0);'
+        ],
+        "lgbt" : [
+            'background-color: rgb(50, 0,  0 );',
+            'background-color: rgb(50, 25, 0 );',
+            'background-color: rgb(50, 50, 0 );',
+            'background-color: rgb(0,  50, 0 );',
+            'background-color: rgb(0,  0,  50);',
+            'background-color: rgb(50, 0,  50);'
+        ]
+    }
+}
