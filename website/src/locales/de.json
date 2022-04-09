@@ -27,7 +27,7 @@
     "buzzwords" : [
       ".NET", "C#", "Haskell", "C++", "Buzzwords", "OpenGL", "Svelte","Bash",
       "Programmierung", "Node", "Typescript", "Linux", "OOP", "FP", "Agil",
-      "Algorithmen","API", "Application", "Backend", "Browser", "Bug", "Code",
+      "Algorithmen","API", "Anwendung", "Backend", "Browser", "Fehler", "Code",
       "SCSS", "Debuggen", "Frontend"
     ]
   },
