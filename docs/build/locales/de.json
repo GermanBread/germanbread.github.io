@@ -83,7 +83,9 @@
           "Soll mein Onkel in Frieden ruhen und soll es seiner Familie gut gehen."
         ],
         [
-          "Im November 2021 habe ich den alten PC meiner Großmutter in einen kleinen Server umfunktioniert. Mein Bruder und ich lassen unsere kleinen Projekte darauf laufen und spielen sogar auf dem Minecraft server der da läuft."
+          "Im November 2021 habe ich den alten PC meiner Großmutter in einen kleinen Server umfunktioniert. Mein Bruder und ich lassen unsere kleinen Projekte darauf laufen und spielen sogar auf dem Minecraft server der da läuft.",
+          "Der Plan war es NixOS zu installieren. Das Einrichten ging aber schief (keine Sorge, ich weiß mittlerweise warum).",
+          "Auf dem Server läuft gerade Debian. Ich plane igendwann NixOS auf ihm zu installieren."
         ]
       ]
     }
@@ -94,17 +96,17 @@
     "open" : "Öffne Link in neuem Tab"
   },
   "repos" : {
-    "personal" : "Meine persönlichen Code-Repositories",
+    "personal" : "Dinge die ich erschaffen habe",
     "panel" : {
       "archived" : "archiviert",
-      "forked" : "geforked",
+      "forked" : "abzweigung",
       "nodescription" : "Keine Beschreibung verfügbar"
     },
-    "loading" : "Lade Repos. Mach dich bereit..."
+    "loading" : "Auf die Plätze - fertig - LOS!"
   },
   "credits" : {
     "title" : "Danksagungen",
-    "framework" : "Diese Website wurde mithilfe des Svelte Javascript-Frameworks geschaffen.",
+    "framework" : "Diese Website wurde mithilfe von Svelte.js erstellt.",
     "people" : "Coole Leute",
     "ukraine" : "LANG LEBE DIE UKRAINE!"
   }

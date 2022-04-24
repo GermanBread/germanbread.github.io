@@ -81,7 +81,9 @@
           "May my father's brother rest in piece. I wish his family the best."
         ],
         [
-          "In November 2021 I repurposed my grandmas' old PC into a small server. Both my brother and I are running our projects on it and we're also playing on our little Minecraft server."
+          "In November 2021 I repurposed my grandmas' old PC into a small server. Both my brother and I are running our projects on it and we're also playing on our little Minecraft server.",
+          "NixOS was supposed to be installed on that server, however the setup process didn't go as planned (I know where it went wrong).",
+          "My grandmas' PC runs Debian right now. I plan on switching it to NixOS soon."
         ]
       ]
     }
@@ -98,7 +100,7 @@
       "forked" : "forked",
       "nodescription" : "No description available"
     },
-    "loading" : "Loading repos. Hang on tight..."
+    "loading" : "Ready - set - GO!"
   },
   "credits" : {
     "title" : "Credits",
