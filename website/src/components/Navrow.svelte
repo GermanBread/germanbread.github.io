@@ -21,7 +21,7 @@ import type { TranslationData } from "../scripts/types";
             <!--<button on:click="{() => { $page = "main"; }}"      >{navbarlabels?.back}    </button>-->
             <button on:click="{() => { scrollto("logo"); }}"    >{navbarlabels?.logo}    </button>
             <button on:click="{() => { scrollto("about"); }}"   >{navbarlabels?.about}   </button>
-            <button on:click="{() => { scrollto("projects"); }}">{navbarlabels?.projects}</button>
+            <!--<button on:click="{() => { scrollto("projects"); }}">{navbarlabels?.projects}</button>-->
             <button on:click="{() => { scrollto("repos"); }}"   >{navbarlabels?.repos}   </button>
             <button on:click="{() => { scrollto("credits"); }}" >{navbarlabels?.credits} </button>
             <button on:click="{() => { $greeting = true; }}"    >{navbarlabels?.theme}   </button>
