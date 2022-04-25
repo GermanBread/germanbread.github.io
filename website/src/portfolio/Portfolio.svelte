@@ -11,9 +11,12 @@ import Repos from "./Repos.svelte";
 import { onMount } from "svelte";
 
     let hiTextData = {
+            // in milliseconds
+            interval: 80,
+            // int * interval
             deletionEndPause: 0,
-            typingEndPause: 50,
-            interval: 30,
+            typingEndPause: 25,
+            // do not change below
             cooldown: 0,
             state: TextAnimationState.DeletingEnd,
             madeChoice: false,
