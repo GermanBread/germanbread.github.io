@@ -44,28 +44,28 @@ export const themes = {
 export const logoschemes = {
     flags : {
         "ukraine" : [
-            'background-color: rgb(0,  0,  50);',
-            'background-color: rgb(0,  0,  50);',
-            'background-color: rgb(0,  0,  50);',
-            'background-color: rgb(50, 50, 0 );',
-            'background-color: rgb(50, 50, 0 );',
-            'background-color: rgb(50, 50, 0 );'
+            'background-color: rgb(0  ,  0,255); color: rgb(255,255,255);',
+            'background-color: rgb(0  ,  0,255); color: rgb(255,255,255);',
+            'background-color: rgb(0  ,  0,255); color: rgb(255,255,255);',
+            'background-color: rgb(255,255,  0); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,255,  0); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,255,  0); color: rgb(0  ,0  ,0  );'
         ],
         "germany" : [
-            'background-color: rgb(0,  0,  0);',
-            'background-color: rgb(0,  0,  0);',
-            'background-color: rgb(50, 0,  0);',
-            'background-color: rgb(50, 0,  0);',
-            'background-color: rgb(50, 50, 0);',
-            'background-color: rgb(50, 50, 0);'
+            'background-color: rgb(0  ,0  ,0  ); color: rgb(255,255,255);',
+            'background-color: rgb(0  ,0  ,0  ); color: rgb(255,255,255);',
+            'background-color: rgb(255,0  ,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,0  ,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,255,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,255,0  ); color: rgb(0  ,0  ,0  );'
         ],
         "lgbt" : [
-            'background-color: rgb(50, 0,  0 );',
-            'background-color: rgb(50, 25, 0 );',
-            'background-color: rgb(50, 50, 0 );',
-            'background-color: rgb(0,  50, 0 );',
-            'background-color: rgb(0,  0,  50);',
-            'background-color: rgb(50, 0,  50);'
+            'background-color: rgb(255,0  ,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,125,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(255,255,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(0  ,255,0  ); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(0  ,125,255); color: rgb(0  ,0  ,0  );',
+            'background-color: rgb(125,0  ,255); color: rgb(255,255,255);'
         ]
     }
 }
