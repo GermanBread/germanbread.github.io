@@ -49,7 +49,7 @@
 	</style>`}
 </main>
 
-<style lang="scss">
+<style lang=scss>
     @import 'styles/global.scss';
 
 	.overlay {

@@ -42,7 +42,7 @@
     },
     "os" : {
       "title" : "Betriebssystem und Desktop",
-      "content" : "Arch Linux / NixOS",
+      "content" : "NixOS, Bedrock Linux",
       "desktop" : "KDE Plasma"
     },
     "story" : {
@@ -86,6 +86,38 @@
           "Im November 2021 habe ich den alten PC meiner Großmutter in einen kleinen Server umfunktioniert. Mein Bruder und ich lassen unsere kleinen Projekte darauf laufen und spielen sogar auf dem Minecraft server der da läuft.",
           "Der Plan war es NixOS zu installieren. Das Einrichten ging aber schief (keine Sorge, ich weiß mittlerweise warum).",
           "Auf dem Server läuft gerade Debian. Ich plane igendwann NixOS auf ihm zu installieren."
+        ],
+        [
+          "Es ist jetzt auch ordentlich lange her. Ich schreib mal ein bisschen, was bisher passiert ist.",
+          "Das wird jetzt warscheinlich das letzte Mal sein, dass ich diese Website nochmal aktualisiere."
+        ],
+        [
+          "Als erstes begann die Arbeit an einer neuen Homepage (die ursprünglich entlang dieser hier existieren sollte).",
+          "Das design ist sehr simpel, elegant und sehr schick. Ich arbeite seit kürzerem wieder zielstrebig an dem Code und versuche sicherzustellen, dass dieser nicht ein Albtraum wie der von der Github HP wird."
+        ],
+        [
+          "Ich wechselte meinen PC von Arch Linux zu Bedrock Linux und dann zwei Monate später zu NixOS.",
+          "NixOS ist eine Linux Distro, welche mir erlaubt, mit einer configuration.nix mein System auf jedem beliebigen system genau gleich nachzustellen.",
+          "Es gibt immer noch einige kleine Schwierigkeiten, wie das einzigartige Layout des Dateisystems, welches das Ausführen von Anwendungen zum Albtraum macht.",
+          "Glücklicherweise ist das nixpkgs Repositorium riesig und es gibt es ein Programm namens \"distrobox\", mit welchem ich eine Arch Linux installation auf meinem NixOS host laufen lasse. Die \"box\" Integration mit dem Host ist fast natlos.",
+          "Soweit so gut."
+        ],
+        [
+          "Wie schon oben angedeutet wird diese Website nicht lange mehr leben.",
+          "Es gibt Probleme mit der Art und Weise, wie ich Übersetzungen handhabe und es gibt massive Probleme mit der generellen Qualität des Codes."
+        ],
+        [
+          "Mein server hatte über die Somerferien Probleme, eine externe IP-Addresse zu erreichen. Es lang einfach daran, dass Debian keine DHCP-Daemons wie dhcpcd installiert und stattdessen die Netzwerkkonfiguration/DHCP-Konfiguration ifconfig überlässt.",
+          "Ich stellte mir (angesichts der Energiekrise) eine Liste von Computerteilen zusammen, die einen neuen Server ergeben sollen.",
+          "Der Speicher soll wie beim aktuellen Server über LVM verwaltet werden. Eine SSD soll als cache agieren und die anderen Festplatten sind HDDs.",
+          "Ich verwende Uberspace um Projekte wie meine CunnyAPI zu hosten, und ich bin nicht unzufrieden, aber ich würde einen Server im eigenen Haus bevorzugen (ohne dass die Stromrechnung durch die Decke geht)."
+        ],
+        [
+          "Dieses Jahr war aber auch nicht Friede-Freude-Eierkuchen.",
+          "Mein Großvater verlor leider sein Leben. Er war ein sehr liebevoller Mensch, dessen Hobbies u.a. Eisenbahnen und Basteln waren.",
+          "Er war Bastler im Herzen und musste wegen Parkinson sein Hobby vernachlässigen und wir versuchten ihm sein Leben irgendwie zu erleichtern.",
+          "Dann, eines Abends, schlief er ein und wachte nie wieder auf.",
+          "Rest in peace grandpa. We will still love you."
         ]
       ]
     }

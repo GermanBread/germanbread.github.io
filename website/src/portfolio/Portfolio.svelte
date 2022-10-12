@@ -3,12 +3,10 @@ import { TextAnimationState, TranslationData } from "../scripts/types";
 import { translationData } from "../scripts/globals";
 import Navrow from "../components/Navrow.svelte";
 import SectionSep from "./SectionSep.svelte";
-import Projects from "./Projects.svelte";
 import { fly } from "svelte/transition";
 import Credits from "./Credits.svelte";
 import About from "./About.svelte";
 import Repos from "./Repos.svelte";
-import { onMount } from "svelte";
 
     let hiTextData = {
             // in milliseconds
