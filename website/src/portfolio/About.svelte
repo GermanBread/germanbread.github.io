@@ -23,7 +23,7 @@
                 <p>{translation?.skills.short}</p>
                 <div class="social">
                     <ClickyButton clickEvent="{() => { window.open("https://github.com/GermanBread", "_blank");           }}" >Github</ClickyButton>
-                    <ClickyButton clickEvent="{() => { window.open("https://discord.gg/mqEph4zZNy", "_blank");            }}" >Discord</ClickyButton>
+                    <ClickyButton clickEvent="{() => { window.open("https://discord.gg/tMCj6HF99y", "_blank");            }}" >Discord</ClickyButton>
                     <ClickyButton clickEvent="{() => { window.open("https://www.reddit.com/user/Mueslikuchen", "_blank"); }}" >Reddit</ClickyButton>
                     <ClickyButton clickEvent="{() => { window.open("https://twitter.com/YodaBigbrain", "_blank");         }}" >Twitter</ClickyButton>
                     <ClickyButton clickEvent="{() => { window.open("https://osu.ppy.sh/users/11376807", "_blank");        }}" >osu!</ClickyButton>
