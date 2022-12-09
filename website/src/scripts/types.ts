@@ -23,7 +23,10 @@ export type TranslationData = {
         me: string
         skills : {
             title: string,
-            programming: string,
+            programming: {
+                label: string,
+                years_of_experience: number
+            }[],
             ide: string,
             other: string,
             short: string

@@ -3,8 +3,11 @@
     import { translationData } from "../scripts/globals";
     import type { TranslationData } from "../scripts/types";
     import ClickyButton from "../components/ClickyButton.svelte";
+    import ProgressBar from "../components/ProgressBar.svelte";
 
     let translation : TranslationData["about"];
+
+    const maxexperience = () => translation?.skills.programming.reduce((acc, val) => acc.years_of_experience > val.years_of_experience ? acc : val);
     
     $: translation = $translationData?.about;
 </script>
@@ -34,7 +37,9 @@
     
     <div class="panel">
         <h2>{translation?.skills.title}</h2>
-        <p>{translation?.skills.programming}</p>
+        {#each translation?.skills.programming ?? [] as skill}
+        <ProgressBar label="{skill?.label}" max={maxexperience().years_of_experience} value={skill?.years_of_experience}></ProgressBar>
+        {/each}
         <p>{translation?.skills.ide}</p>
         <p>{translation?.skills.other}</p>
         <br>
