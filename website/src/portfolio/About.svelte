@@ -38,7 +38,7 @@
     <div class="panel">
         <h2>{translation?.skills.title}</h2>
         {#each translation?.skills.programming ?? [] as skill}
-        <ProgressBar label="{skill?.label}" max={maxexperience().years_of_experience} value={skill?.years_of_experience}></ProgressBar>
+        <ProgressBar label="{skill?.label}" labelr="{skill.years_of_experience} {translation?.skills.year}" max={maxexperience().years_of_experience} value={skill?.years_of_experience}></ProgressBar>
         {/each}
         <p>{translation?.skills.ide}</p>
         <p>{translation?.skills.other}</p>

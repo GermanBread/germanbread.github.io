@@ -29,7 +29,8 @@ export type TranslationData = {
             }[],
             ide: string,
             other: string,
-            short: string
+            short: string,
+            year: string
         },
         os : {
             title: string,
