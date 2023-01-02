@@ -152,5 +152,9 @@
     "framework" : "Diese Website wurde mithilfe von Svelte.js erstellt.",
     "people" : "Coole Leute",
     "ukraine" : "LANG LEBE DIE UKRAINE!"
+  },
+  "special" : {
+    "title" : "Psst! Ich arbeite an einer neuen Website!",
+    "link" : "Click mich!"
   }
 }

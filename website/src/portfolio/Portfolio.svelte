@@ -5,6 +5,7 @@ import Navrow from "../components/Navrow.svelte";
 import SectionSep from "./SectionSep.svelte";
 import { fly } from "svelte/transition";
 import Credits from "./Credits.svelte";
+import Special from "./Special.svelte";
 import About from "./About.svelte";
 import Repos from "./Repos.svelte";
 
@@ -124,7 +125,7 @@ import Repos from "./Repos.svelte";
         <!--<Projects />
         <SectionSep />-->
         <Repos />
-        <SectionSep />
+        <Special />
         <Credits />
     </div>
 </div>

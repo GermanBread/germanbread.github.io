@@ -61,6 +61,10 @@ export type TranslationData = {
         framework: string,
         people: string,
         ukraine: string
+    },
+    special : {
+        title: string,
+        link: string
     }
 }
 
