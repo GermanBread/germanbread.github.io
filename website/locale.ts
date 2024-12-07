@@ -6,6 +6,7 @@ let jsonData;
 
 function initlocale() {
     locale = navigator.language.match("\\w+")[0];
+
     fetchTranslation(locale).then((json) => {
         jsonData = json;
         translateDOM(json);
@@ -17,7 +18,6 @@ async function fetchTranslation(country_code : string) : Promise<any> {
     if (response.status != 200) {
         console.warn("Welp, seems like we don't have a translation for you. Falling back to english.")
         locale = "en";
-        response = await fetch(`/locales/en.json`);
     }
     return response.json();
 }
@@ -27,7 +27,7 @@ function translateDOM(data) {
     
     // Menu bar
     elements.push(document.querySelector("#menu-button"));
-    elements = elements.concat(deconstructToArray(document.querySelector("#list-links").children));
+    elements = elements.concat(deconstructToArray(document.querySelector("#menu-items").children));
     
     // Logo
     elements = elements.concat(deconstructToArray(document.querySelector("#logo-captions").children));

@@ -6,7 +6,7 @@
   "menu" : {
     "open"    : "Open menu",
     "close"   : "Close menu",
-    "github"  : "Back to Github!",
+    "github"  : "Back to Github",
     "logo"    : "Logo",
     "about"   : "About",
     "repos"   : "Repos",

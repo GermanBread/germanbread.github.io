@@ -98,7 +98,7 @@ function calculate_transform(bounds : DOMRect, multiplier : number) : number {
     return (window.scrollY - bounds.top + window.scrollY) * multiplier;
 }
 
-async function fetchpersonalrepos(root: HTMLElement) {
+async function fetchpersonalrepos(root : HTMLElement) {
     let url = "https://api.github.com/users/GermanBread/repos";
     const response = await fetch(url);
     if (!response.ok) {
@@ -112,8 +112,8 @@ async function fetchpersonalrepos(root: HTMLElement) {
         root.appendChild(createpanel(json[index]));
     }
 }
-async function fetchcontibutionrepos(root: HTMLElement) {
-    async function fetchrepo(url: string) {
+async function fetchcontibutionrepos(root : HTMLElement) {
+    async function fetchrepo(url : string) {
         const response = await fetch(url);
         if (!response.ok) {
             console.log("Github responded with " + response.status + ` (${url})`);
@@ -130,7 +130,7 @@ async function fetchcontibutionrepos(root: HTMLElement) {
     await fetchrepo('https://api.github.com/repos/Lightcord/Lightcord');
     await fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux');
 }
-function createpanel({ name, description, archived, fork, html_url }): HTMLElement {
+function createpanel({ name, description, archived, fork, html_url }) : HTMLElement {
     var panel: HTMLAnchorElement = document.createElement("a");
     var header: HTMLElement = document.createElement("h3");
     var content: HTMLElement = document.createElement("p");
