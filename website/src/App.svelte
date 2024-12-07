@@ -11,7 +11,7 @@
 	let translationLoaded : boolean = false
 	
 	function checkIfTranslationAvailable() {
-        if (!$translationData) translationLoaded = !$translationData;
+        if ($translationData != undefined) translationLoaded = true;
         else requestAnimationFrame(checkIfTranslationAvailable);
     }
 
