@@ -16,7 +16,6 @@
     #logo {
         margin-top: 1em;
         margin-bottom: 1em;
-        margin-left: 11ex;
 
         background-image: linear-gradient(90deg, 
             #FF5555,
@@ -47,10 +46,6 @@
             var(--logo-shine) 15em 20em,
                 var(--logo-bg) 20em 100em,
             );
-        }
-
-        @media (max-width: 400px) {
-            margin-left: 0;
         }
     }
 
@@ -120,7 +115,7 @@
             }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
             display: none;
         }
     }
