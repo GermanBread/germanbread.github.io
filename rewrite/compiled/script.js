@@ -1,10 +1,12 @@
 var about, about_content, repos, repos_content;
 var about_rect, repos_rect;
-var transition_offset = 40 * (window.innerHeight / 100);
+var transition_offset = 40 * (window.innerHeight / 100) * (window.innerWidth / 2500);
 var transition_smoothness = 40 * (window.innerHeight / 100);
 var parallax_multiplier = 1 * (window.innerHeight / 100);
 var values_initialised = false;
 function init() {
+    fetchpersonalrepos(document.getElementById("repos-list"));
+    fetchcontibutionrepos(document.getElementById("contributions-list"));
     if (!values_initialised) {
         about = document.getElementById("section-about");
         about_content = document.getElementById("section-about-content");
@@ -18,33 +20,40 @@ function init() {
     window.addEventListener("scroll", handlescroll);
     document.getElementById("repos-list").innerHTML = "";
     document.getElementById("contributions-list").innerHTML = "";
-    fetchpersonalrepos(document.getElementById("repos-list"));
-    fetchcontibutionrepos(document.getElementById("contributions-list"));
 }
 // Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
 function clamp(num, min, max) {
-    return num <= min
-        ? min
-        : num >= max
-            ? max
-            : num;
+    return ((num <= min) ? min : ((num >= max) ? max : num));
+}
+function clamp01(num) {
+    return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
 }
 function handlescroll() {
+    function calculate_opacity(bounds) {
+        return clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
+            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
+    }
+    function calculate_transform(bounds) {
+        return (window.scrollY - bounds.top) / parallax_multiplier;
+    }
     // About section
     {
-        var bounds = about_rect;
-        var computed_opacity = clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
-            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
-        var computed_offset = (window.scrollY - bounds.top) / parallax_multiplier;
+        var computed_opacity = calculate_opacity(about_rect);
+        var computed_offset = calculate_transform(about_rect);
         about.style.opacity = computed_opacity.toString();
         about_content.style.transform = "translateY(" + -computed_offset + "px)";
     }
     // Repos section
     {
-        var bounds = repos_rect;
-        var computed_opacity = clamp((window.scrollY - bounds.top + transition_offset) / transition_smoothness, 0, 1)
-            - clamp((window.scrollY - bounds.bottom - bounds.top - transition_offset), 0, 1);
-        var computed_offset = (window.scrollY - bounds.top) / parallax_multiplier;
+        console.log({
+            Y: window.scrollY,
+            top: repos_rect.top,
+            height: repos_rect.height,
+            bottom: repos_rect.bottom,
+            offset: transition_offset
+        });
+        var computed_opacity = calculate_opacity(repos_rect);
+        var computed_offset = calculate_transform(repos_rect);
         repos.style.opacity = computed_opacity.toString();
         repos_content.style.transform = "translateY(" + -computed_offset + "px)";
     }
