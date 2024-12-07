@@ -35,19 +35,21 @@ import { onMount } from "svelte";
     })
 </script>
 
-<div id="logo-mount" in:fly="{{ duration: 1000, y: -15 }}">
+<div id="logo-mount" in:fly="{{ duration: 1000, y: -50 }}">
     <div id="hello">
         <span>Hi</span>
     </div>
-    <Navrow />
-    <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: -5, delay: 1000 }}">
+    <div in:fly="{{ y: 50, duration: 2000, delay: 1000 }}">
+        <Navrow />
+    </div>
+    <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
         {#each Array(Math.ceil(window.innerHeight / 150) * Math.ceil(window.innerWidth / 150)) as _, i}
             <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
         {/each}
     </div>
     
     <div>
-        <About />
+        <About/>
         <SectionSep />
         <Projects />
         <SectionSep />
