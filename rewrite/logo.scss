@@ -124,4 +124,14 @@
             display: none;
         }
     }
+
+    #scroll-hint {
+        position: fixed;
+        color: var(--text-dim);
+
+        z-index: 1;
+        
+        left: calc(50vw - 6ex);
+        bottom: 5vh;
+    }
 }
