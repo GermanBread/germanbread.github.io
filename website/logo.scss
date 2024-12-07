@@ -7,13 +7,14 @@
 }
 
 #section-logo {
-    padding-top: 20em;
     padding-bottom: clamp(15em, 20%, 100vh); /* cover the cycling text */
     display: grid;
     place-content: center;
 
+    min-height: 100vh;
+
     overflow-x: hidden;
-    
+
     #logo {
         position: relative;
         
@@ -37,7 +38,8 @@
         background-size: 200% 100%;
         text-shadow: 0 0 .25em rgba(255, 255, 255, 0.5);
 
-        animation: rainbow-text 5s linear infinite;
+        animation: rainbow-text 5s linear infinite,
+            logo-in 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.2) forwards;
 
         &:hover {
             animation-duration: 1.5s;
@@ -51,15 +53,15 @@
             position: absolute;
             pointer-events: none;
             
-            top: -2.5em;
-            left: -2.5em;
-            right: -2.5em;
-            bottom: -2.5em;
+            top: -.5em;
+            left: -.5em;
+            right: -.5em;
+            bottom: -.5em;
     
             content: '';
             background-image: inherit;
             background-size: inherit;
-            filter: blur(4em);
+            filter: blur(5em);
             opacity: .2;
     
             animation: inherit;
@@ -72,7 +74,7 @@
             top: 7em;
             left: -6em;
             right: -6em;
-            height: .5em;
+            height: 2em;
     
             content: '';
             background-image: inherit;
@@ -163,6 +165,12 @@
     @keyframes rainbow-text {
         to {
             background-position: 200% 0;
+        }
+    }
+
+    @keyframes logo-in {
+        0% {
+            transform: scale(.5);
         }
     }
 
