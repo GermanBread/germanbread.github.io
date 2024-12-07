@@ -39,6 +39,8 @@ function ready() {
         case 3:
             translateRepos();
             break;
+        case 4:
+            document.body.classList.remove("basicallyhideeverything");
     }
 }
 function hidescrollhint() {

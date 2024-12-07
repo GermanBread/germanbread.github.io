@@ -27,6 +27,21 @@ async function fetchTranslation(country_code : string) : Promise<any> {
     return response.json();
 }
 
+function translateElements(elements : Array<HTMLElement>) {
+    elements.forEach(element => {
+        var matches = element.innerHTML.match('{.+?}');
+        if (matches?.length > 0) {
+            matches.forEach(match => {
+                const replacement = getTranslation(match.slice(1, match.length - 1));
+                var content = element.innerHTML.replace(match, replacement[0]);
+                element.innerHTML = content;
+                if (replacement[1])
+                    element.classList.add("translationerror");
+            });
+        }
+    });
+}
+
 function translateDOM() {
     var elements = Array<HTMLElement>();
     
@@ -45,19 +60,9 @@ function translateDOM() {
     elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
 
     // Now do the magic part
-    elements.forEach(element => {
-        var matches = element.innerHTML.match('{.+?}');
-        if (matches?.length > 0) {
-            matches.forEach(match => {
-                var content = element.innerHTML.replace(match, 
-                    getTranslation(match.slice(1, match.length - 1)));
-                element.innerHTML = content;
-            });
-        }
-    });
+    translateElements(elements);
 
-    // Reveal the website
-    document.body.classList.remove("basicallyhideeverything");
+    ready();
 }
 
 function translateRepos() {
@@ -79,21 +84,17 @@ function translateRepos() {
     });
     
     // Now do the magic part
-    elements.forEach(element => {
-        var matches = element.innerHTML.match('{.+?}');
-        if (matches?.length > 0) {
-            matches.forEach(match => {
-                var content = element.innerHTML.replace(match, 
-                    getTranslation(match.slice(1, match.length - 1)));
-                element.innerHTML = content;
-            });
-        }
-    });
+    translateElements(elements);
+
+    ready();
 }
 
-function getTranslation(key : string) : string {
-    return eval("translationData." + key) ??
-        translationData.errors.notranslation.replace("%string%", key);
+function getTranslation(key : string) : [content : string, failure : boolean] {
+    const result = eval("translationData." + key);
+    return [
+        result ?? translationData.errors.notranslation.replace("%string%", key),
+        !result
+    ];
 }
 
 function deconstructToArray(collection : HTMLCollection) {

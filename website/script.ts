@@ -52,6 +52,9 @@ function ready() {
         case 3:
             translateRepos();
             break;
+        case 4:
+            // We're ready to display the DOM. Now reveal the website.
+            document.body.classList.remove("basicallyhideeverything");
     }
 }
 
