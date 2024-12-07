@@ -13,6 +13,12 @@
         localStorage.setItem("greeter_ver", "1");
         $colourScheme = selectedPalette;
         $greeting = false;
+        setTimeout(() => {
+            window.scroll({
+                top : 0,
+                behavior : "smooth"
+            });
+        }, 500);
     }
 
     $: console.log(selectedPalette);
