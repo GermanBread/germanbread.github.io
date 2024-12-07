@@ -101,9 +101,7 @@ import { onMount } from "svelte";
     <div id="hello">
         <span>{shownHiText}</span>
     </div>
-    <div in:fly="{{ y: 50, duration: 2000, delay: 1000 }}">
-        <Navrow />
-    </div>
+    <Navrow />
     <div class="background-wrapper">
         <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
             {#each Array(Math.ceil(window.innerHeight / 125) * Math.ceil(window.innerWidth / 125)) as _, i}
