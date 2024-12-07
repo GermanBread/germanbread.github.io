@@ -30,4 +30,12 @@ body {
             display: none;
         }
     }
+
+    &.basicallyhideeverything {
+        transition: opacity 1s ease;
+        opacity: 0;
+        #logo {
+            opacity: 1;
+        }
+    }
 }

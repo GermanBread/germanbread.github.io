@@ -24,7 +24,7 @@
         z-index: -1;
         
         opacity: .5;
-        background: url('../images/matrix.gif') center;
+        background: url('/images/matrix.gif') center;
         filter: blur(.5vw);
         background-size: cover;
         
@@ -79,7 +79,8 @@
             }
             
             a {
-                margin-left: 1ex;
+                margin-left: 1ch;
+                margin-right: 1ch;
             }
 
             

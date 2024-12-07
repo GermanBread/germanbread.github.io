@@ -21,24 +21,27 @@
 
     <noscript>
       <style>
-        #logo-captions, #section-about, #section-repos {
+        #section-about, #section-repos, #section-credits, #logo-captions, #loading, #menu-button, #spacer {
           display: none;
+        }
+        .basicallyhideeverything {
+          opacity: 1 !important;
         }
       </style>
     </noscript>
   </head>
-  <body onload="init(); initmenu(); initlocale()">
+  <body onload="init()" class="basicallyhideeverything">
     <div id="menu-wrapper">
-      <button id="menu-button" onclick="togglemenu()">Menu</button>
+      <button id="menu-button" onclick="togglemenu()">{menu.open}</button>
       <div id="menu-content" class="hidden">
         <div id="vertical-bar" class="top"></div>
         <ul id="list-links">
-          <a onclick="togglemenu()">Close menu</a>
-          <a href="https://github.com/germanbread">Back to github!</a>
-          <a href="#section-logo">Logo</a>
-          <a href="#section-about">About me</a>
-          <a href="#section-repos">Repos</a>
-          <a href="#section-credits">Credits</a>
+          <a onclick="togglemenu()">{menu.close}</a>
+          <a href="https://github.com/germanbread">{menu.github}</a>
+          <a href="#section-logo">{menu.logo}</a>
+          <a href="#section-about">{menu.about}</a>
+          <a href="#section-repos">{menu.repos}</a>
+          <a href="#section-credits">{menu.credits}</a>
         </ul>
         <div id="vertical-bar" class="bottom"></div>
       </div>
@@ -50,86 +53,87 @@
   / __  / ___/ _ \/ __ `/ __  / 
  / /_/ / /  /  __/ /_/ / /_/ /  
 /_____/_/   \___/\__,_/\__,_/
-<noscript>Cool kids enable Javascript</noscript>
+<noscript>I'm sorry Dave, but you can't keep Javascript disabled.</noscript>
+<noscript>(enable it for some really cool stuff)</noscript>
       </pre>
       <div id="logo-captions">
-        <span>The next Bill Gates</span>
-        <span>The best programmer the world has ever seen</span>
-        <span>What's a bug?</span>
+        <span>{logo.captions.bill}</span>
+        <span>{logo.captions.best}</span>
+        <span>{logo.captions.bug}</span>
       </div>
-      <span id="scroll-hint" style="opacity: 0;">scroll – down</span>
+      <span id="scroll-hint" style="opacity: 0;">{logo.scroll}</span>
     </div>
     <div id="section-about" style="opacity: 0;">
       <div id="section-about-content">
         <div id="loading"></div>
-        <div>
-          <h1>About me</h1>
-          <p>I am 3L33T H4XX0R</p>
+        <div id="section-about-text">
+          <h1>{about.me}</h1>
+          <p>{about.caption}</p>
           <hr>
-          <h2>Skills</h2>
-          <h3>Programming</h3>
-          <p>C#, C++, GLSL, HTML, TS, SCSS, Bash and Nix</p>
-          <h3>Other</h3>
-          <p>Deep understanding of Linux (I love LVM [Btrfs too!])</p>
-          <h2>OS</h2>
-          <p>Arch Linux / NixOS</p>
-          <h2>Desktop</h2>
-          <p>KDE Plasma</p>
-          <h2>IDE</h2>
-          <p>VSCode</p>
-          <h2>Background story</h2>
-          <p>Look, I'm not here to tell a 5 page story but I do think that I should tell a bit more about myself.</p>
+          <h2>{about.skills.title}</h2>
+          <h3>{about.skills.programming.title}</h3>
+          <p>{about.skills.programming.content}</p>
+          <h3>{about.skills.ide.title}</h2>
+          <p>{about.skills.ide.title}</p>
+          <h3>{about.skills.other.title}</h3>
+          <p>{about.skills.other.content}</p>
+          <h2>{about.os.title}</h2>
+          <p>{about.os.content}</p>
+          <h3>{about.os.desktop.title}</h3>
+          <p>{about.os.desktop.content}</p>
+          <h2>{about.story.title}</h2>
+          <p>{about.story.content.paragraph1.line1}</p>
           <br>
-          <p>I was raised in Hessen, Germany, am 17 years old (as of writing this)</p>
-          <p>I am what is considered as a "code monkey"</p>
-          <p>A in computer science</p>
-          <p>I manage the entire home network all by myself</p>
+          <p>{about.story.content.paragraph2.line1}</p>
+          <p>{about.story.content.paragraph2.line2}</p>
+          <p>{about.story.content.paragraph2.line3}</p>
+          <p>{about.story.content.paragraph2.line4}</p>
           <br>
-          <p>Before when I was in 7th grade my brother introduced me to python. I hacked together some GUI apps and never touched Python again (he even installed Anaconda for me...)</p>
-          <p>In 7th grade I had an internship at a software company (whose name I will not tell [privacy reasons]). There I was confronted with Dataflex, the loveliest language.</p>
-          <p>I had a lot of fun there and learned a very useful skill, debugging (yay!)</p>
-          <p>An employee there also told me to try out Scratch. I was sceptical at first, but ended up creating a lot of projects (and had a lot of fun of course!)</p>
+          <p>{about.story.content.paragraph3.line1}</p>
+          <p>{about.story.content.paragraph3.line2}</p>
+          <p>{about.story.content.paragraph3.line3}</p>
+          <p>{about.story.content.paragraph3.line4}</p>
           <br>
-          <p>Then a long period of nothing came.</p>
+          <p>{about.story.content.paragraph4.line1}</p>
           <br>
-          <p>In 2019 I decided to pick up C#, went to learn Unity to ditch it in 2020.</p>
-          <p>Unfortunately, in Q2 2020 my father's brother died to cancer.</p>
-          <p>My father had a lot of unsorted images of his brother on his harddrives so I proposed that I would write a small app which would collect and sort said images (a big project for me at the time).</p>
-          <p>And thus my first project, FileFinderGit was born!</p>
-          <p>I learned how to use libraries and rapidly learned C# while rewriting said app.</p>
-          <p>In Q1 2020 I also fully switched to Linux and ditched Windows (losing some savegames in the process, RIP)</p>
+          <p>{about.story.content.paragraph5.line1}</p>
+          <p>{about.story.content.paragraph5.line2}</p>
+          <p>{about.story.content.paragraph5.line3}</p>
+          <p>{about.story.content.paragraph5.line4}</p>
+          <p>{about.story.content.paragraph5.line5}</p>
+          <p>{about.story.content.paragraph5.line6}</p>
           <br>
-          <p>At one point I have gotten so proficient with C# that I decided to try out other languages.</p>
-          <p>This language was C++</p>
-          <p>Then came computer science class, which taught me mainly HTML and CSS.</p>
-          <p>As of now we are learning Java (It's a downgrade compared to C#).</p>
-          <p>I work on my own little game engine and enjoy playing osu! (and of course watching anime).</p>
+          <p>{about.story.content.paragraph6.line1}</p>
+          <p>{about.story.content.paragraph6.line2}</p>
+          <p>{about.story.content.paragraph6.line3}</p>
+          <p>{about.story.content.paragraph6.line4}</p>
+          <p>{about.story.content.paragraph6.line5}</p>
           <br>
-          <p>To this day I think of the internship and of the people that supported me on my journey. I am extremely grateful for the support I've been recieving from my family and friends (both IRL and online)</p>
-          <p>May my father's brother rest in piece. I wish his family the best.</p>
+          <p>{about.story.content.paragraph7.line1}</p>
+          <p>{about.story.content.paragraph7.line2}</p>
         </div>
       </div>
     </div>
     <div id="section-repos" style="opacity: 0;">
       <div id="section-repos-content">
-        <h1>Personal repositories</h1>
+        <h1>{repos.personal}</h1>
         <hr>
         <div id="repos-list">
-
+          
         </div>
-        <h1>Repositories I contribute in</h1>
+        <h1>{repos.contributions}</h1>
         <hr>
         <div id="contributions-list">
           
         </div>
-        <span>This part looks best if your browser supports css:backdrop-filter (which most do). <a href="https://stackoverflow.com/a/66554016">However, on firefox this is disabled by default.</a></span>
+        <span id="browser-compat">{repos.compat}</span>
       </div>
     </div>
     <div id="section-credits" style="opacity: 0;">
       <div id="section-credits-content">
-        <h1 id="author">Made with <div id="blinking-heart"><3</div> by <a href="https://github.com/GermanBread">GermanBread</a></h1>
+        <h1 id="author">{credits.author}</h1>
         <hr>
-        <h2>Cool people</h2>
+        <h2>{credits.people}</h2>
         <a href="https://github.com/Reimnop">Reimnop</a>
       </div>
     </div>
