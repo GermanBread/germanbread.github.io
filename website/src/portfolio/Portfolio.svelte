@@ -10,13 +10,23 @@ import About from "./About.svelte";
 import Repos from "./Repos.svelte";
 import { onMount } from "svelte";
 
-    let hiTextAnimationState = TextAnimationState.DeletingEnd,
-        animatedTextBackground: HTMLElement,
-        madeHiTextChoice: boolean = false,
-        shownHiTextLength: number = 0,
-        selectedHiText: string = "",
-        hiTextCooldown: number = 0,
-        shownHiText: string = "";
+    let hiTextData = {
+            deletionEndPause: 0,
+            typingEndPause: 50,
+            interval: 30,
+            cooldown: 0,
+            state: TextAnimationState.DeletingEnd,
+            madeChoice: false,
+            shown: {
+                length: 0,
+                selected: "",
+                value: ""
+            }
+        },
+        wordBgData = {
+            minlength: 1,
+            element: null
+        };
 
     function pickRandom<T>(array: T[]) {
         if (!array) return undefined;
@@ -25,16 +35,13 @@ import { onMount } from "svelte";
     }
 
     async function animateBuzzWords() {
-        setTimeout(() => {
-            if (animatedTextBackground && window.scrollY < animatedTextBackground?.getBoundingClientRect().height) {
-                const _children = animatedTextBackground.querySelectorAll(".text");
-                _children.forEach((child) => {
-                    child.classList.remove("active");
-                    if (Math.random() > .75) child.classList.add("active");
-                });
-            }
-            animateBuzzWords();
-        }, 1500);
+        if (wordBgData.element && window.scrollY < wordBgData.element?.getBoundingClientRect().height) {
+            const _children = wordBgData.element.querySelectorAll(".text");
+            _children.forEach((child) => {
+                child.classList.remove("active");
+                if (Math.random() > .75) child.classList.add("active");
+            });
+        }
     }
 
     function chooseHiText() {
@@ -42,70 +49,71 @@ import { onMount } from "svelte";
     }
 
     async function animateHiText() {
-        switch (hiTextAnimationState) {
+        switch (hiTextData.state) {
             case TextAnimationState.Typing:
                 do {
-                    shownHiTextLength++;
-                } while (selectedHiText[shownHiTextLength - 1] == ' ');
-                if (shownHiTextLength == selectedHiText.length) {
-                    hiTextCooldown = 10;
-                    hiTextAnimationState = TextAnimationState.TypingEnd;
+                    hiTextData.shown.length++;
+                } while (hiTextData.shown.selected[hiTextData.shown.length - 1] == ' ');
+                if (hiTextData.shown.length == hiTextData.shown.selected.length) {
+                    hiTextData.cooldown = hiTextData.typingEndPause;
+                    hiTextData.state = TextAnimationState.TypingEnd;
                 }
 
-                madeHiTextChoice = false;
+                hiTextData.madeChoice = false;
                 break;
             case TextAnimationState.Deleting:
                 do {
-                    shownHiTextLength--;
-                } while (selectedHiText[shownHiTextLength - 1] == ' ');
-                if (shownHiTextLength == 0) {
-                    hiTextCooldown = 5;
-                    hiTextAnimationState = TextAnimationState.DeletingEnd;
+                    hiTextData.shown.length--;
+                } while (hiTextData.shown.selected[hiTextData.shown.length - 1] == ' ');
+                if (hiTextData.shown.length == 0) {
+                    hiTextData.cooldown = hiTextData.deletionEndPause;
+                    hiTextData.state = TextAnimationState.DeletingEnd;
                 }
                 break;
             case TextAnimationState.TypingEnd:
-                hiTextCooldown--;
-                if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Deleting;
+                hiTextData.cooldown--;
+                if (hiTextData.cooldown <= 0) hiTextData.state = TextAnimationState.Deleting;
                 break;
             case TextAnimationState.DeletingEnd:
-                if (!madeHiTextChoice) {
+                if (!hiTextData.madeChoice) {
                     let choice = chooseHiText();
 
-                    while (choice == selectedHiText) {
+                    while (choice == hiTextData.shown.selected) {
                         choice = chooseHiText();
                     }
 
-                    selectedHiText = choice;
+                    hiTextData.shown.selected = choice;
 
-                    madeHiTextChoice = true;
+                    hiTextData.madeChoice = true;
                 }
 
-                hiTextCooldown--;
-                if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Typing;
+                hiTextData.cooldown--;
+                if (hiTextData.cooldown <= 0) hiTextData.state = TextAnimationState.Typing;
                 break;
         }
 
-        shownHiText = selectedHiText.slice(0, shownHiTextLength);
+        hiTextData.shown.value = hiTextData.shown.selected.slice(0, hiTextData.shown.length);
     }
 
     translationData.subscribe((e) => {
-        if (e != null) setInterval(animateHiText, 100);
+        if (e != null) {
+            setInterval(animateHiText, hiTextData.interval);
+            setInterval(animateBuzzWords, 1500);
+            wordBgData.minlength = e.portfolio.buzzwords.reduce((acc, val) => val.length < acc.length ? val : acc).length;
+            console.log(wordBgData);
+        }
     });
-
-    onMount(() => {
-        animateBuzzWords();
-    })
 </script>
 
 <div id="logo-mount" in:fly="{{ duration: 1000, y: -50 }}">
     <div id="hello">
-        <span>{shownHiText}</span>
+        <span>{hiTextData.shown.value}</span>
     </div>
     <Navrow />
     <div class="background-wrapper">
-        <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
-            {#each Array(Math.ceil(window.innerHeight / 125) * Math.ceil(window.innerWidth / 125)) as _, i}
-                <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
+        <div class="background" bind:this="{wordBgData.element}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
+            {#each Array(Math.ceil(window.innerHeight / 50) * Math.ceil(window.innerWidth / wordBgData.minlength / 50)) as _, i}
+            <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
             {/each}
         </div>
     </div>
@@ -190,12 +198,10 @@ import { onMount } from "svelte";
     }
     
     .background {
-        padding: 2%;
-        gap: 1em;
-
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(3em, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2ch;
+        gap: 2ch;
 
         color: transparent;
         overflow: hidden;
@@ -208,6 +214,8 @@ import { onMount } from "svelte";
             -webkit-background-clip: text;
 
             filter: grayscale(1);
+            flex-shrink: 0;
+            flex-grow: 1;
             
             overflow: hidden;
             font-size: 1.5rem;

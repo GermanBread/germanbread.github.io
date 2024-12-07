@@ -49,11 +49,11 @@ import { onMount } from 'svelte';
     <div class="panel center">
         <h1>{translation?.theme}</h1>
         <div class="left">
-            <Toggle label="{translation?.dark}" bind:on="{darkmode}" />
-            <Toggle label="{translation?.contrast}" bind:on="{highContrastMode}" />
+            <Toggle label="{translation?.dark ?? "..."}" bind:on="{darkmode}" />
+            <Toggle label="{translation?.contrast ?? "..."}" bind:on="{highContrastMode}" />
         </div>
         <hr>
-        <ClickyButton label={translation?.done} clickEvent="{() => { quit(); }}" />
+        <ClickyButton clickEvent="{() => { quit(); }}">{$translationData?.greeting.done ?? "..."}</ClickyButton>
     </div>
 </div>
 
