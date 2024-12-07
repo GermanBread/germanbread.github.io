@@ -11,28 +11,25 @@ function init() {
 }
 
 function handlescroll() {
+    var elements = document.body.getElementsByTagName("window")
     if (window.scrollY > 50) {
         nav.classList.add("attached")
-    } else {
-        nav.classList.remove("attached")
-    }
-}
-
-function hidescrollhint() {
-    if (window.scrollY > 50) {
-        hint.classList.add("hidden")
-        var elements = document.body.getElementsByTagName("window")
         for (let index = 1; index < elements.length; index++) {
             const element = elements[index];
             element.classList.remove("hidden")
         }
-        //window.removeEventListener("scroll", hidescrollhint)
     } else {
-        hint.classList.remove("hidden")
-        var elements = document.body.getElementsByTagName("window")
+        nav.classList.remove("attached")
         for (let index = 1; index < elements.length; index++) {
             const element = elements[index];
             element.classList.add("hidden")
         }
+    }
+}
+function hidescrollhint() {
+    if (window.scrollY > 50) {
+        hint.classList.add("hidden")
+    } else {
+        hint.classList.remove("hidden")
     }
 }
