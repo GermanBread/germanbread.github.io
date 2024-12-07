@@ -17,7 +17,7 @@ body {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    @media (max-width: 300px) {
+    @media (max-width: 20em) {
         &::before {
             color: var(--text);
     
