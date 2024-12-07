@@ -27,7 +27,7 @@
         "https://api.github.com/repos/GermanBread/OpenTkPain",
         "https://api.github.com/repos/GermanBread/germanbread.github.io"
     ]).then((res) => {
-        console.log(JSON.stringify(res));
+        console.warn(JSON.stringify(res));
     });
 
     fetch("https://api.github.com/users/GermanBread/repos").then(async (res) => {
