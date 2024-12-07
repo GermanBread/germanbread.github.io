@@ -57,6 +57,10 @@ import type { TranslationData } from "../scripts/types";
         &.compact {
             max-width: 120ch;
             margin-inline: auto;
+
+            button {
+                border: .25em solid var(--text);
+            }
         }
     }
 
@@ -65,11 +69,12 @@ import type { TranslationData } from "../scripts/types";
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+
+        gap: .25em;
         
         button {
             flex-grow: 1;
             margin: 0;
-            margin-inline: .1em;
             font-size: 1.2rem;
             
             color: var(--text);

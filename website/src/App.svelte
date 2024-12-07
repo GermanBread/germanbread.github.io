@@ -6,7 +6,7 @@
 	// Note: might scrap multi-"page" idea completely
 
     import { currentTheme, greeting, page, themes, translationData } from "./scripts/globals";
-import { onMount } from "svelte";
+	import { onMount } from "svelte";
 
 	let appTheme : string;
 

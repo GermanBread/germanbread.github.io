@@ -18,12 +18,13 @@
 
     function animateBuzzWords() {
         setTimeout(() => {
-            if (animatedTextBackground) {
+            if (animatedTextBackground && window.scrollY < animatedTextBackground?.getBoundingClientRect().height) {
                 const _children = animatedTextBackground.querySelectorAll(".text");
                 _children.forEach((child) => {
                     child.classList.remove("active");
                     if (Math.random() > .75) child.classList.add("active");
                 });
+                console.log("firing!");
             }
             animateBuzzWords();
         }, 1500);
@@ -40,9 +41,9 @@
     </div>
     <Navrow />
     <div class="background" bind:this="{animatedTextBackground}">
-        {#each Array(Math.ceil(window.innerHeight / 25)) as _, i}
+        {#each Array(Math.ceil(window.innerHeight / 30)) as _, i}
             <div class="row">
-                {#each Array(9) as _, j}
+                {#each Array(Math.ceil(window.innerWidth / 150)) as _, j}
                     <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
                 {/each}
             </div>
@@ -65,6 +66,8 @@
         display: grid;
         place-content: center;
         min-height: 50vh;
+
+        user-select: none;
 
         >span {
             position: relative;
