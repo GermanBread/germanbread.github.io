@@ -55,6 +55,7 @@
         padding: .5em;
         height: 1em;
         overflow: hidden;
+        white-space: nowrap;
 
         span {
             display: block;
@@ -123,7 +124,7 @@
         bottom: 5vh;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
         #logo-captions {
             display: none;
         }
