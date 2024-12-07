@@ -7,8 +7,7 @@
             await fetch(repo).then(async (res) => {
                 if (!res.ok)
                     throw res.status;
-                let { name, description, archived, fork, license, html_url } = await res.json();
-                const { spdx_id } = license ?? { spdx_id : null };
+                let { name, description, archived, fork, license: { spdx_id }, html_url } = await res.json();
                 await data.push({ src : repo, name : name, description : description, archived : archived, forked : fork, license : spdx_id, url : html_url })
             }).catch((err) => {
                 console.error(err);
@@ -35,8 +34,7 @@
         const output = [];
         for (const index in json) {
             const repo = json[index];
-            const { name, description, archived, fork, license, html_url } = repo;
-            const { spdx_id } = license ?? { spdx_id : null };
+            const { name, description, archived, fork, license: { spdx_id }, html_url } = repo;
             await output.push({ name : name, description : description, archived : archived, forked : fork, license : spdx_id, url : html_url })
         }
         console.log(JSON.stringify(output));

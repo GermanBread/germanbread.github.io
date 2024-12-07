@@ -22,11 +22,11 @@
                 <h1>GermanBread</h1>
                 <p>{translation?.skills.short}</p>
                 <div class="social">
-                    <ClickyButton clickEvent="{() => { window.open("https://github.com/GermanBread", "_blank");           }}" label="Github" />
-                    <ClickyButton clickEvent="{() => { window.open("https://discord.gg/ThMTPkyHmq", "_blank");            }}" label="Discord" />
-                    <ClickyButton clickEvent="{() => { window.open("https://www.reddit.com/user/Mueslikuchen", "_blank"); }}"label="Reddit" />
-                    <ClickyButton clickEvent="{() => { window.open("https://twitter.com/YodaBigbrain", "_blank");         }}" label="Twitter" />
-                    <ClickyButton clickEvent="{() => { window.open("https://osu.ppy.sh/users/11376807", "_blank");        }}" label="osu!" />
+                    <ClickyButton clickEvent="{() => { window.open("https://github.com/GermanBread", "_blank");           }}" >Github</ClickyButton>
+                    <ClickyButton clickEvent="{() => { window.open("https://discord.gg/mqEph4zZNy", "_blank");            }}" >Discord</ClickyButton>
+                    <ClickyButton clickEvent="{() => { window.open("https://www.reddit.com/user/Mueslikuchen", "_blank"); }}" >Reddit</ClickyButton>
+                    <ClickyButton clickEvent="{() => { window.open("https://twitter.com/YodaBigbrain", "_blank");         }}" >Twitter</ClickyButton>
+                    <ClickyButton clickEvent="{() => { window.open("https://osu.ppy.sh/users/11376807", "_blank");        }}" >osu!</ClickyButton>
                 </div>
             </div>
         </div>

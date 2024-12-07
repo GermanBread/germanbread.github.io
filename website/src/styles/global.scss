@@ -24,19 +24,20 @@
     }
     >hr {
         border-color: var(--text);
+        margin-inline: 0;
     }
 }
 
 .view {
     min-height: 100vh;
-    padding-block: 5em;
+    padding-block: 5rem;
     overflow-x: hidden;
 
     >* {
         max-width: 100ch;
         padding-inline: 5ch;
         margin: auto;
-        margin-block: 5em;
+        margin-block: 5rem;
     }
 }
 
@@ -46,14 +47,13 @@
     background: linear-gradient(45deg, var(--primary), var(--secondary));
     
     max-width: 120ch;
-    padding: 5em;
+    padding: 5rem;
 
     &::after {
         content: '';
-        z-index: -1;
         position: absolute;
 
-        $overhang: -1em;
+        $overhang: -1rem;
         top: $overhang;
         left: $overhang;
         right: $overhang;
@@ -62,15 +62,14 @@
         transition: all .5s ease-in;
         background: inherit;
         pointer-events: none;
-        filter: blur(1em);
-        opacity: .25;
+        filter: blur(.5rem);
+        opacity: .1;
     }
 }
 
 .panel {
     background-color: var(--intense);
-    //box-shadow: 0 0 .5em var(--shadow);
-    padding-block: 2em;
+    padding-block: 2rem;
 
     position: relative;
 
@@ -88,20 +87,18 @@
 }
 
 .invisible {
-    transform: translateY(1em);
+    transform: translateY(1rem);
     opacity: 0;
 }
 
 .card {
     display: flex;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 2rem;
     
     >img {
         max-height: 356px;
         max-width: clamp(0px, 100%, 400px);
-
-        //box-shadow: 0 0 .5em var(--shadow);
     }
 
     >div {
@@ -111,42 +108,6 @@
 }
 
 .avatar-border {
-    border: .1em dashed var(--text);
-}
-
-.social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-
-    >a {
-        // So basically this is a <ClickyButton> component reimplemented in SCSS for the sake of being reimplemented
-        // Gotcha...
-        
-        display: flex;
-        align-content: center;
-        justify-content: center;
-
-        flex-basis: 20ch;
-        
-        padding: .5em;
-        border-radius: 5em;
-
-        border: none;
-        //box-shadow: 0 0 .25em var(--shadow);
-
-        font-size: 1.5rem;
-
-        background-color: var(--text);
-        color: var(--background);
-
-        &:hover {
-            text-decoration: none;
-        }
-
-        &:active {
-            background-color: var(--background);
-            color: var(--text);
-        }
-    }
+    border: .1rem dashed var(--background);
+    box-shadow: 0 0 .5rem var(--shadow);
 }
