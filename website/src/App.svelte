@@ -33,11 +33,11 @@
 
 <main>
 	{#if translationLoaded}
-		{#if $greeting}
-			<Greeting />
-		{:else}
-			<Portfolio />
-		{/if}
+	{#if $greeting}
+	<Greeting />
+	{:else}
+	<Portfolio />
+	{/if}
 	{/if}
 
 	<div class="overlay"></div>

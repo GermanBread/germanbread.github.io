@@ -38,17 +38,18 @@
       "programming" : [ 
         { "label": "C#", "years_of_experience": 5 },
         { "label": "HTML", "years_of_experience": 3 },
-        { "label": "TS", "years_of_experience": 2 },
-        { "label": "SCSS", "years_of_experience": 2 },
-        { "label": "Bash", "years_of_experience": 2 },
-        { "label": "C++", "years_of_experience": 1 },
-        { "label": "GLSL", "years_of_experience": 1 },
+        { "label": "Bash", "years_of_experience": 3 },
+        { "label": "TS", "years_of_experience": 2.5 },
+        { "label": "SCSS", "years_of_experience": 2.5 },
+        { "label": "C++", "years_of_experience": 2 },
+        { "label": "GLSL", "years_of_experience": 2 },
         { "label": "Nix", "years_of_experience": 1 },
         { "label": "Haskell", "years_of_experience": 0.5 }
       ],
       "ide" : "VSCode und Vim",
       "other" : "Sehr gutes Verständnis von Linux unteranderem in: Systemverwaltung, Systemwartung, Problemlösung und Googeln. Natürlich alles genannte auf eigene Faust gelernt.",
-      "short" : "18-Jahre alt, alles von alleine gelernt und ich liebe es den Computer Dinge machen zu lassen. Manche nennen mich auch einen code monkey."
+      "short" : "18-Jahre alt, alles von alleine gelernt und ich liebe es den Computer Dinge machen zu lassen. Manche nennen mich auch einen code monkey.",
+      "year" : "Jahr(e)"
     },
     "os" : {
       "title" : "Betriebssystem und Desktop",

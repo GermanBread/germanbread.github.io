@@ -1,15 +1,28 @@
 <script lang=ts>
     export let label = "",
+        labelr = "",
         value = 5,
         max = 10;
 </script>
 
 <main>
-    <p>{label}</p>
+    <div class="labels">
+        <p>{label}</p>
+        <div class="spacer" />
+        <p>{labelr}</p>
+    </div>
     <progress {value} {max} />
 </main>
 
 <style lang=scss>
+    .labels {
+        display: flex;
+    }
+
+    .spacer {
+        flex-grow: 1;
+    }
+    
     p {
         margin: 0px;
         margin-top: 1rem;
