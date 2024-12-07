@@ -26,7 +26,6 @@ deploy: all
 	@cp -r images ../docs/images
 	@cp -r locales ../docs/locales
 	@cp *.html ../docs/
-	@cp *.ico ../docs/
 	@echo DONE 🥳
 
 serve: all
