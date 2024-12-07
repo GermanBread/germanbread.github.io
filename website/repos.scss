@@ -85,8 +85,8 @@
                 
                 &:hover {
                     background-color: var(--glass-panel-bg);
-                    box-shadow: var(--glass-panel-shadow-light) -5px -5px 15px,
-                        var(--glass-panel-shadow) 5px 5px 15px;
+                    /*box-shadow: var(--glass-panel-shadow-light) -5px -5px 15px,
+                        var(--glass-panel-shadow) 5px 5px 15px;*/
                     transform: scale(105%);
                 }
             }
