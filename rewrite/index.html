@@ -8,8 +8,8 @@
     <meta name="title" content="A homepage of a guy">
     <meta name="description" content="Come on, I know you want to visit me">
 
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="compiled/style.css">
+    <script src="compiled/script.js"></script>
   </head>
   <body onload="init();">
     <nav id="navmenu">
@@ -26,14 +26,19 @@
     </window>
     <div id="scroll-hint">
       <span>scroll</span>
-      <img src="arrow-down-white.webp">
+      <img src="arrow-down-white.webp" style="--order: 0;">
+      <!--<img src="arrow-down-white.webp" style="--order: 1;">
+      <img src="arrow-down-white.webp" style="--order: 2;">-->
     </div>
     <window id="about" class="hidden">
         <h1>About me</h1>
         <p>I am 3L33T H4XX0R</p>
         <hr>
         <h2>Skills</h2>
-        <p>C#, C++, GLSL, HTML, TS, SCSS, BASH, NIX</p>
+        <h3>Programming</h3>
+        <p>C#, C++, GLSL, HTML, TS, SCSS, Bash and Nix</p>
+        <h3>Other</h3>
+        <p>Deep understanding of Linux (I love LVM [Btrfs too!])</p>
         <h2>OS</h2>
         <p>Arch Linux / NixOS</p>
         <h2>Desktop</h2>

@@ -1,17 +1,20 @@
 :root {
-    --bg: #222;
-    --secondary-accent: #444;
-    --primary-accent: #666;
-    
-    --text: #DDD;
-    --text-dim: #999;
+    --bg: #202020;
+    --primary-accent: #606060;
+    --secondary-accent: #404040;
+    --tertiary-accent: #303030;
 
-    --panel-bg: #555;
-    --panel-hl: #666;
+    --window-bg: #404040;
+    
+    --text: #D0D0D0;
+    --text-dim: #909090;
+
+    --panel-bg: #505050;
+    --panel-hl: #555555;
     
     --navbar-bg: #252525;
-    --navbar-element-bg: #333;
-    --navbar-element-hl: #444;
+    --navbar-element-bg: #303030;
+    --navbar-element-hl: #404040;
 }
 
 body {
@@ -28,18 +31,20 @@ window {
     margin: 5%;
     padding: 2.5%;
     display: block;
-    background-color: var(--secondary-accent);
-    border-top: var(--primary-accent) solid .5vw;
+    background-color: var(--window-bg);
+    
+    border-top: var(--primary-accent) solid .2vw;
+    border-bottom: var(--tertiary-accent) solid .2vw;
 
     font-size: clamp(5px, 3vw, 20px);
     color: var(--text);
 
     transition: all ease-out .5s;
 
-    h1, h2, p {
+    h1, h2, h3, p {
         margin: 0px;
     }
-    h1, h2 {
+    h1, h2, h3 {
         margin-top: .5em;
     }
     hr {
@@ -80,7 +85,7 @@ window {
         height: 1.5em;
         padding-top: .5em;
 
-        font-size: clamp(10px, 3vw, 40px);
+        font-size: clamp(10px, 3vw, 30px);
         color: var(--text-dim);
 
         text-align: center;
@@ -114,6 +119,8 @@ window {
     width: min-content;
 
     animation: bounce 2s ease infinite;
+    animation-delay: calc(var(--order) * 50ms);
+    opacity: calc(calc(5 - var(--order)) / 5);
 
     pointer-events: none;
 
@@ -148,22 +155,6 @@ window {
       }
 }
 
-
-#watermark {
-    padding: 5px;
-
-    color: var(--text-dim);
-    font-size: clamp(5px, 2vw, 20px);
-
-    a {
-        color: var(--secondary-accent);
-
-        &:hover {
-            color: var(--primary-accent);
-        }
-    }
-}
-
 #repos-list, #contributions-list {
     .list-panel {
         display: block;
@@ -177,6 +168,9 @@ window {
         background-color: var(--panel-bg);
         transition: background-color ease .25s;
 
+        border-top: var(--primary-accent) solid .2vw;
+        border-bottom: var(--tertiary-accent) solid .2vw;
+
         h3 {
             margin-top: 0;
             margin-bottom: 2%;
@@ -184,6 +178,21 @@ window {
 
         &:hover {
             background-color: var(--panel-hl);
+        }
+    }
+}
+
+#watermark {
+    padding: 5px;
+
+    color: var(--text-dim);
+    font-size: clamp(5px, 2vw, 20px);
+
+    a {
+        color: var(--secondary-accent);
+
+        &:hover {
+            color: var(--primary-accent);
         }
     }
 }
