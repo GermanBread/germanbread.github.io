@@ -1,0 +1,140 @@
+// Random thoughts, please ignore:
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// I totally don't regret not using one global .scss file for common styles...
+// Touhou Hardbass remixes are pretty cool
+// There are ugly OMZ themes out there
+// "Switch to Python bro..." - Oh hell no!
+// Jetbrains Mono is a cool font
+// Github Copilot is overrated
+// FP > OOP
+
+// Code lies below this line
+
+#title {
+    >h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 3rem;
+    }
+    >hr {
+        border-color: var(--text);
+    }
+}
+
+.view {
+    min-height: 100vh;
+    padding-block: 5em;
+    overflow-x: hidden;
+
+    >* {
+        max-width: 100ch;
+        padding-inline: 5ch;
+        margin: auto;
+        margin-block: 5em;
+    }
+}
+
+.highlight {
+    position: relative;
+    
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    
+    max-width: 120ch;
+    padding: 5em;
+
+    &::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+
+        $overhang: -1em;
+        top: $overhang;
+        left: $overhang;
+        right: $overhang;
+        bottom: $overhang;
+
+        transition: all .5s ease-in;
+        background: inherit;
+        pointer-events: none;
+        filter: blur(1em);
+        opacity: .25;
+    }
+}
+
+.panel {
+    background-color: var(--intense);
+    //box-shadow: 0 0 .5em var(--shadow);
+    padding-block: 2em;
+
+    position: relative;
+
+    &::before {
+        position: absolute;
+        
+        top: 0;
+        left: -10ch;
+        bottom: 0;
+        width: 10ch;
+
+        content: '';
+        background: linear-gradient(to right, transparent, var(--intense));
+    }
+}
+
+.invisible {
+    transform: translateY(1em);
+    opacity: 0;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    
+    >img {
+        max-height: 356px;
+        max-width: clamp(0px, 100%, 400px);
+
+        border: .1em dashed var(--text);
+        //box-shadow: 0 0 .5em var(--shadow);
+    }
+
+    >div {
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    >a {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        flex-basis: 20ch;
+        
+        padding: .5em;
+        border-radius: 5em;
+
+        border: none;
+        //box-shadow: 0 0 .25em var(--shadow);
+
+        font-size: 1.5rem;
+
+        background-color: var(--text);
+        color: var(--background);
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:active {
+            background-color: var(--background);
+            color: var(--text);
+        }
+    }
+}

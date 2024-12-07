@@ -21,22 +21,22 @@ export const themes = {
     },
     "light-contrast" : {
         background : "hsl(0deg,   0%,   100%)",
-        intense    : "hsl(0deg,   0%,   45% )",
-        text       : "hsl(150deg, 100%, 50% )",
-        primary    : "hsl(0deg,   0%,   50% )",
-        secondary  : "hsl(0deg,   0%,   50% )"
+        intense    : "hsl(0deg,   0%,   90% )",
+        text       : "hsl(150deg, 0%,   0%  )",
+        primary    : "hsl(150deg, 25%,  80% )",
+        secondary  : "hsl(150deg, 25%,  80% )"
     },
     "dark" : {
-        background : "hsl(210deg, 15%,  8% )",
+        background : "hsl(210deg, 15%,  8%  )",
         intense    : "hsl(210deg, 15%,  6%  )",
-        text       : "hsl(210deg, 15%,  95% )",
+        text       : "hsl(210deg, 15%,  100%)",
         primary    : "hsl(150deg, 100%, 35% )",
         secondary  : "hsl(170deg, 100%, 35% )"
     },
     "light" : {
-        background : "hsl(210deg, 15%,  80% )",
-        intense    : "hsl(210deg, 15%,  75% )",
-        text       : "hsl(210deg, 15%,  20% )",
+        background : "hsl(210deg, 0%,   92% )",
+        intense    : "hsl(210deg, 0%,   84% )",
+        text       : "hsl(210deg, 0%,   0%  )",
         primary    : "hsl(150deg, 100%, 75% )",
         secondary  : "hsl(170deg, 100%, 70% )"
     }

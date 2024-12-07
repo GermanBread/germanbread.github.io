@@ -20,7 +20,7 @@
         <div id="projects" class="panel">
             {#each projects.filter(x => !x.error) as project}
                 <div class="highlight">
-                    <a class="card" href="{project.url}" target="_blank">
+                    <a class="repo-card" href="{project.url}" target="_blank">
                         <div class="split1">
                             <h1>{project.name}</h1>
                             <p>{project.license ?? "-"}</p>
@@ -41,7 +41,7 @@
 </div>
 
 <style lang="scss">
-    @import '../styles/content.scss';
+    @import '../styles/global.scss';
 
     #projects {
         display: flex;
@@ -56,8 +56,10 @@
         padding-inline: 5em;
     }
     
-    .card {
+    .repo-card {
         color: var(--text);
+
+        text-decoration: none;
 
         * {
             margin: 0;
@@ -66,19 +68,7 @@
         h1, p {
             padding-block: .5em;
         }
-        
-        &:hover {
-            text-decoration: none;
 
-            >.split1 >p, >.split2 {
-                transition: opacity .5s ease-out,
-                    transform .5s ease-out;
-                
-                transform: translateX(0em);
-                opacity: 1;
-            }
-        }
-        
         >.split1 {
             h1 {
                 font-size: 2.5rem;
@@ -88,43 +78,15 @@
             }
             p {
                 font-size: 1.5rem;
-                
-                transition: opacity .5s ease-in,
-                    transform .5s ease-in;
-                
-                @media (hover) {
-                    transform: translateX(-1em);
-                    opacity: 0;
-                }
 
                 word-wrap: break-word;
                 overflow-wrap: anywhere;
-
-                @media (prefers-reduced-motion: reduce) {
-                    transition: none;
-                    transform: none;
-                    opacity: 1;
-                }
             }
         }
 
         >.split2 {
-            transition: opacity .5s ease-in,
-                transform .5s ease-in;
-            
-            @media (hover) {
-                transform: translateX(5em);
-                opacity: 0;
-            }
-
             word-wrap: break-word;
             overflow-wrap: anywhere;
-
-            @media (prefers-reduced-motion: reduce) {
-                transition: none;
-                transform: none;
-                opacity: 1;
-            }
         }
     }
 </style>

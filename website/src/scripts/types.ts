@@ -8,6 +8,9 @@ export type TranslationData = {
         credits,
         theme
     },
+    portfolio : {
+        buzzwords : string[]
+    },
     greeting : {
         title,
         theme,

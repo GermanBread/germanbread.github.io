@@ -5,7 +5,8 @@
 	//import Memes from "./memes/Memes.svelte";
 	// Note: might scrap multi-"page" idea completely
 
-    import { currentTheme, greeting, page, themes } from "./scripts/globals";
+    import { currentTheme, greeting, page, themes, translationData } from "./scripts/globals";
+import { onMount } from "svelte";
 
 	let appTheme : string;
 
@@ -13,6 +14,16 @@
 		localStorage.setItem("page", val);
 	});
 	$page = "portfolio";
+
+	let translationLoaded : boolean = false
+	
+	function checkIfTranslationAvailable() {
+        // Slowly fade in, even if the content is already loaded
+        if (!$translationData) setTimeout(() => {
+            translationLoaded = true;
+        }, 100);
+        else requestAnimationFrame(checkIfTranslationAvailable);
+    }
 
 	//if (Object.keys(themes).indexOf($currentTheme) === -1) {
 	//	$currentTheme = "dark-contrast";
@@ -24,10 +35,16 @@
             appTheme += `--${key}: ${themes[$currentTheme][key]};`
         });
     }
+
+	onMount(() => {
+		checkIfTranslationAvailable();
+	});
 </script>
 
 <main>
-    {#if $greeting}
+    <div class="loading-cover" class:visible="{!translationLoaded}"></div>
+	
+	{#if $greeting}
 		<Greeting />
 	{:else}
 		<!--{#if $page === "memes"}
@@ -48,7 +65,9 @@
 </main>
 
 <style lang="scss">
-    :global(body) {
+    @import 'styles/global.scss';
+	
+	:global(body) {
 		padding: 0;
 		
 		--shadow: #000A;
@@ -66,4 +85,21 @@
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		}
 	}
+
+	.loading-cover {
+        position: fixed;
+        
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        pointer-events: none;
+        z-index: 999;
+        transition: background-color 1s;
+
+        &.visible {
+            background-color: var(--background, black);
+        }
+    }
 </style>
