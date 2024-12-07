@@ -61,7 +61,7 @@
             display: inline-flex;
             white-space: nowrap;
 
-            font-size: clamp(1rem, calc(1.9vw), 2rem);
+            font-size: clamp(.5rem, calc(1.9vw), 1rem);
             
             #blinking-heart {
                 margin-left: 1ex;
@@ -116,8 +116,8 @@
         }
     }
 
-    @media (max-width: 40em) {
-        padding: 5em;
+    @media (max-width: 50em) {
+        padding: 2em;
         padding-bottom: 15em;
     }
 }

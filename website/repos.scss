@@ -63,7 +63,7 @@
                 display: block;
                 padding: 2em;
                 border-radius: 2.5em;
-                margin: 1ex;
+                margin: 1em;
 
                 &:nth-child(3n + 1) {
                     grid-column: 1;
@@ -93,14 +93,36 @@
         }
     }
 
+    /* responsive padding */
     @media (max-width: 60em) {
         padding: 2.5em;
         
         &-content {
             padding: 2em;
+
+            border-radius: 3em;
+        }
+    }
+
+    @media (max-width: 45em){
+        padding: 1em;
+
+        &-content {
+            padding: 1em;
+
+            div {
+                padding: .5em;
+
+                border-radius: 1em;
+
+                a {
+                    margin-bottom: 2em;
+                }
+            }
         }
     }
     
+    /* responsive grid */
     @media (max-width: 115em) {
         &-content {
             div {
