@@ -5,8 +5,8 @@ all:
 	@echo Compiling scss to css
 	@echo =====================
 	@make $(output)
-	@echo ====================
-	@echo Compilation complete
+	@echo =====================
+	@echo Compilation completed
 
 $(output):
 	@echo $@.scss to $@.css
