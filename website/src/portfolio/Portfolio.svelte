@@ -10,8 +10,9 @@ import About from "./About.svelte";
 import Repos from "./Repos.svelte";
 import { onMount } from "svelte";
 
-    let animatedTextBackground: HTMLElement,
-        hiTextAnimationState = TextAnimationState.DeletingEnd,
+    let hiTextAnimationState = TextAnimationState.DeletingEnd,
+        animatedTextBackground: HTMLElement,
+        shownHiTextLength: number = 0,
         selectedHiText: string = "",
         hiTextCooldown: number = 0,
         shownHiText: string = "";
@@ -42,15 +43,19 @@ import { onMount } from "svelte";
     async function animateHiText() {
         switch (hiTextAnimationState) {
             case TextAnimationState.Typing:
-                shownHiText = selectedHiText.slice(0, shownHiText.length + 1);
-                if (shownHiText.length == selectedHiText.length) {
+                do {
+                    shownHiTextLength++;
+                } while (selectedHiText[shownHiTextLength - 1] == ' ');
+                if (shownHiTextLength == selectedHiText.length) {
                     hiTextCooldown = 10;
                     hiTextAnimationState = TextAnimationState.TypingEnd;
                 }
                 break;
             case TextAnimationState.Deleting:
-                shownHiText = selectedHiText.slice(0, shownHiText.length - 1);
-                if (shownHiText.length == 0) {
+                do {
+                    shownHiTextLength--;
+                } while (selectedHiText[shownHiTextLength - 1] == ' ');
+                if (shownHiTextLength == 0) {
                     hiTextCooldown = 5;
                     hiTextAnimationState = TextAnimationState.DeletingEnd;
                 }
@@ -62,7 +67,10 @@ import { onMount } from "svelte";
             case TextAnimationState.DeletingEnd:
                 {
                     let choice = chooseHiText();
-                    //while (choice == selectedHiText) choice = chooseHiText();
+
+                    while (choice == selectedHiText) {
+                        choice = chooseHiText();
+                    }
 
                     selectedHiText = choice;
                 }
@@ -71,6 +79,8 @@ import { onMount } from "svelte";
                 if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Typing;
                 break;
         }
+
+        shownHiText = selectedHiText.slice(0, shownHiTextLength);
     }
 
     translationData.subscribe((e) => {
