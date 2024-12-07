@@ -1,73 +1,44 @@
+@import 'popups.css';
+@import 'panels.css';
+@import 'navmenu.css';
+
 body {
     background-color: #050510;
+    scroll-behavior: smooth;
 }
 
-navmenu {
-    width: 100%;
-    
+.flex {
     display: flex;
-    overflow: hidden;
 }
-navmenu navbutton {
-    width: 75%;
-    height: 40px;
-    
-    background-color: #555;
-    color: white;
-    
-    font-family: monospace;
-    font-size: 30px;
-    text-align: center;
-    
-    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-        background-color 0.5s linear;
+.block {
+    display: block;
 }
-navmenu navbutton:hover {
-    width: 80%;
-    
-    background-color: #888;
+.noanim {
+    animation: none;
 }
 
-/* popup boxes */
-.popup-wrapper {
-    margin: auto;
-    margin-top: 15vh;
-    width: max-content;
-    height: max-content;
+#repos {
+    display: flex;
+    flex-wrap: wrap;
+}
 
-    background-color: #112;
-    box-shadow: 0px 0px 5px #151530;
-
-    transition: background-color .2s ease, 
-        box-shadow .2s ease;
-    animation: popup-animate-in 1s ease;
-}
-.popup-wrapper:hover {
-    background-color: #151530;
-    box-shadow: 0px 0px 5px #224;
-}
-@keyframes popup-animate-in {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-}
-.popup-wrapper .top-bar {
+/* fancy glowsticks */
+.top-bar {
     height: 4px;
     width: 0;
 
     animation: bar-blink 2s 1.5s ease-in-out infinite, 
         bar-animate-in 1s .5s ease forwards;
 }
-.popup-wrapper .info {
+.info {
     background-color: #25A;
     box-shadow: 0 0 5px #25A;
 }
-.popup-wrapper .ok {
+.ok {
     background-color: #2A2;
     box-shadow: 0 0 5px #2A2;
 }
-.popup-wrapper .error {
+.error {
     background-color: #A22;
     box-shadow: 0 0 5px #A22;
 }
@@ -77,66 +48,17 @@ navmenu navbutton:hover {
     }
 }
 @keyframes bar-animate-in {
-    0%, 25% {
-        background-color: #FFF;
-        box-shadow: 0 0 5px #FFF;
-    }
     100% {
         width: 100%;
     }
 }
 
-.popup-content {
-    border: 2px #151530 solid;
-    border-top: none;
-
-    padding: 20px;
-}
-.popup-content h1 {
-    margin-top: 0;
-    padding: 10px;
-
-    font-family: monospace;
-    color: white;
-    text-shadow: 0 0 1px white;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-}
-.popup-content p {
-    padding: 5px;
-    margin-left: 20px;
-
-    font-family: monospace;
-    color: white;
-    text-shadow: 0 0 1px white;
-    font-size: 15px;
-    font-weight: 400;
-}
-.popup-content a {
-    padding: 5px;
-    margin-left: 20px;
-
-    font-family: monospace;
-    color: #25A;
-    text-shadow: 0 0 1px #25A;
-    font-size: 15px;
-    font-weight: 400;
-
-    transition: margin-left .5s ease,
-        color .5s ease;
-}
-.popup-content a:hover {
-    margin-left: 25px;
-
-    color: #25C;
-    text-shadow: 0 0 1px #25C;
-}
+/* buttons */
 .button-wrapper {
     margin-left: 20px;
     padding: 5px;
 }
-.button-wrapper button {
+button {
     padding: 5px;
 
     font-family: monospace;
@@ -167,17 +89,4 @@ navmenu navbutton:hover {
 .button-wrapper .green:hover {
     background-color: #2B2;
     box-shadow: #2B2;
-}
-
-/* reactive CSS */
-@media (max-width: 1000px) {
-    .popup-wrapper {
-        width: 75vw;
-        height: max-content;
-    }
-}
-@media (max-height: 500px) {
-    .popup-wrapper {
-        margin-top: 5vh;
-    }
 }

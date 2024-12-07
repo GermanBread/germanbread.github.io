@@ -3,30 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>About me</title>
-    <link rel="stylesheet" href="../base.css">
-    <link rel="stylesheet" href="About.css">
-    <style>
-      body {
-        background-color: #000;
-
-        animation: animate-in 1s;
-      }
-      @keyframes animate-in {
-        from {
-          opacity: 0;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="base.css">
+    <script src="about.js"></script>
   </head>
-  <body>
-    <header>
-      <div class="headerimg"></div>
-      <navmenu>
-        <navbutton href="dum">Dum</navbutton>
-        <navbutton href="dum">Dum</navbutton>
-      </navmenu>
-    </header>
-    <main></main>
-    <footer></footer>
+  <body onload="recreatePanels(); fetchRepos();">
+    <main class="flex"> <!-- The navigation menu will always be on the top-left side -->
+      <div class="navmenu">
+        <a href="#about">About</a>
+        <a href="#repos-collection">Repos</a>
+      </div>
+      <div id="panels">
+        <div class="panel-wrapper noanim" id="about">
+          <div class="top-bar ok"></div>
+          <div class="panel-content">
+            <h1>About me</h1>
+            <div class="flex">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/71450236">
+              <div>
+                <h2>Some stuff about me</h2>
+                <p>
+                  I am a very passionate coder.<br> <!-- No, I will not use <pre> -->
+                  I have yet to "git gud", but I recon that's part of the learning process.<br>
+                  Side node: I adore good and beautiful design.<br>
+                  <br>
+                  I use VSCode as my IDE.<br>
+                </p>
+                <h2>Linux-specific stuff</h2>
+                <p>
+                  As my daily driver OS I use (Arch) Linux.<br>
+                  My favourite shell is zsh and my favourite Desktop Enviroment is KDE plasma.
+                </p>
+                <h2>Favourite languages</h2>
+                <p>C#, Bash, HTML, CSS and Javascript</p>
+                <h2>What language I am currently learning</h2>
+                <p>C++ and Java</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-wrapper noanim" id="repos-collection">
+          <div class="top-bar info"></div>
+          <div class="panel-content">
+            <h1>My repositories</h1>
+            <div id="repos">
+              <!-- Repos go here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

@@ -2,56 +2,56 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title>You are being redirected...</title>
+    <title>Under construction</title>
+    <link rel="stylesheet" href="base.css">
     <style>
-        body {
-            margin: 0;
-            
-            background-color: #050510;
-        }
-        body div {
-            position: absolute;
-            bottom: 40%;
-            left: calc(50% - 120px);
-        }
-        body h1 {
-            position: absolute;
-            text-align: center;
-            top: 40%;
-            width: 100%;
-            
-            font-family: monospace;
-            color: white;
-            text-shadow: 0 0 2px white;
-        }
+      header .stripes {
+        box-shadow: 0 0 5px orange;
+        
+        background: repeating-linear-gradient(
+          45deg,
+        #ffae00,
+        #ffae00 20px,
+        #ff7b00 20px,
+        #ff7b00 40px
+        );
 
-        loading-thingie {
-            width: 40px;
-            height: 40px;
+        background-size: 150%;
+        background-position-x: -10px;
 
-            margin-right: 10px;
+        animation: stripes-animate 1s linear infinite;
+      }
+      @keyframes stripes-animate {
+        from {
+          background-position-x: -66px;
+        }
+      }
+      .stripes h1 {
+        margin: 0;
+        padding: 10px;
 
-            animation: loading-blink 2s linear 0s infinite forwards;
-        }
-        @keyframes loading-blink {
-            10% {
-                box-shadow: 0 0 5px white;
-                background-color: white;
-            }
-        }
+        font-family: monospace;
+        color: white;
+        text-shadow: 0 0 5px white;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+      }
     </style>
-    <script>
-        window.location.replace("wip.html");
-    </script>
   </head>
   <body>
-    <h1>You are being redirected</h1>
-    <div style="display: flex;">
-        <loading-thingie></loading-thingie>
-        <loading-thingie style="animation-delay: .2s;"></loading-thingie>
-        <loading-thingie style="animation-delay: .4s;"></loading-thingie>
-        <loading-thingie style="animation-delay: .6s;"></loading-thingie>
-        <loading-thingie style="animation-delay: .8s;"></loading-thingie>
-    </div>
+    <header><div class="stripes"><h1>Warning</h1></div></header>
+    <main>
+      <div class="popup-wrapper">
+        <div class="top-bar info"></div>
+        <div class="popup-content">
+          <h1>This homepage is currently under heavy development</h1>
+          <div class="button-wrapper">
+            <button onclick="window.location.href = 'about.html'" class="green">Got it</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>
