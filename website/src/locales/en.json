@@ -16,6 +16,12 @@
     "done" : "Click me when you're done"
   },
   "portfolio" : {
+    "greetings" : [
+      "Hi",
+      "Hello",
+      "Good day",
+      "Nice to meet you"
+    ],
     "buzzwords" : [
       ".NET", "C#", "Haskell", "C++", "Buzzwords", "OpenGL", "Svelte", "Bash",
       "Programming", "Node", "Typescript", "Linux", "OOP", "FP", "Agile",

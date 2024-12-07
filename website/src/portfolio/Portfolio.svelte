@@ -1,4 +1,5 @@
 <script lang="ts">
+import { TextAnimationState, TranslationData } from "../scripts/types";
 import { translationData } from "../scripts/globals";
 import Navrow from "../components/Navrow.svelte";
 import SectionSep from "./SectionSep.svelte";
@@ -9,7 +10,11 @@ import About from "./About.svelte";
 import Repos from "./Repos.svelte";
 import { onMount } from "svelte";
 
-    let animatedTextBackground: HTMLElement;
+    let animatedTextBackground: HTMLElement,
+        hiTextAnimationState = TextAnimationState.DeletingEnd,
+        selectedHiText: string = "",
+        hiTextCooldown: number = 0,
+        shownHiText: string = "";
 
     function pickRandom<T>(array: T[]) {
         if (!array) return undefined;
@@ -17,7 +22,7 @@ import { onMount } from "svelte";
         return array[_index];
     }
 
-    function animateBuzzWords() {
+    async function animateBuzzWords() {
         setTimeout(() => {
             if (animatedTextBackground && window.scrollY < animatedTextBackground?.getBoundingClientRect().height) {
                 const _children = animatedTextBackground.querySelectorAll(".text");
@@ -30,6 +35,48 @@ import { onMount } from "svelte";
         }, 1500);
     }
 
+    function chooseHiText() {
+        return $translationData.portfolio.greetings[Math.floor(Math.random() * $translationData.portfolio.greetings.length)];
+    }
+
+    async function animateHiText() {
+        switch (hiTextAnimationState) {
+            case TextAnimationState.Typing:
+                shownHiText = selectedHiText.slice(0, shownHiText.length + 1);
+                if (shownHiText.length == selectedHiText.length) {
+                    hiTextCooldown = 10;
+                    hiTextAnimationState = TextAnimationState.TypingEnd;
+                }
+                break;
+            case TextAnimationState.Deleting:
+                shownHiText = selectedHiText.slice(0, shownHiText.length - 1);
+                if (shownHiText.length == 0) {
+                    hiTextCooldown = 5;
+                    hiTextAnimationState = TextAnimationState.DeletingEnd;
+                }
+                break;
+            case TextAnimationState.TypingEnd:
+                hiTextCooldown--;
+                if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Deleting;
+                break;
+            case TextAnimationState.DeletingEnd:
+                {
+                    let choice = chooseHiText();
+                    //while (choice == selectedHiText) choice = chooseHiText();
+
+                    selectedHiText = choice;
+                }
+
+                hiTextCooldown--;
+                if (hiTextCooldown <= 0) hiTextAnimationState = TextAnimationState.Typing;
+                break;
+        }
+    }
+
+    translationData.subscribe((e) => {
+        if (e != null) setInterval(animateHiText, 100);
+    });
+
     onMount(() => {
         animateBuzzWords();
     })
@@ -37,7 +84,7 @@ import { onMount } from "svelte";
 
 <div id="logo-mount" in:fly="{{ duration: 1000, y: -50 }}">
     <div id="hello">
-        <span>Hi</span>
+        <span>{shownHiText}</span>
     </div>
     <div in:fly="{{ y: 50, duration: 2000, delay: 1000 }}">
         <Navrow />
@@ -72,6 +119,7 @@ import { onMount } from "svelte";
         >span {
             position: relative;
             
+            height: 5.5rem;
             font-size: 4rem;
             text-align: center;
             

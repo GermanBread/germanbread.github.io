@@ -1,60 +1,61 @@
 export type TranslationData = {
     menu : {
-        back,
-        logo,
-        about,
-        projects,
-        repos,
-        credits,
-        theme
+        back: string,
+        logo: string,
+        about: string,
+        projects: string,
+        repos: string,
+        credits: string,
+        theme: string
     },
     portfolio : {
-        buzzwords : string[]
+        greetings: string[],
+        buzzwords: string[]
     },
     greeting : {
-        title,
-        theme,
-        dark,
-        contrast,
-        done
+        title: string,
+        theme: string,
+        dark: string,
+        contrast: string,
+        done: string
     },
     about : {
-        me
+        me: string
         skills : {
-            title,
-            programming,
-            ide,
-            other,
-            short
+            title: string,
+            programming: string,
+            ide: string,
+            other: string,
+            short: string
         },
         os : {
-            title,
-            content,
-            desktop
+            title: string,
+            content: string,
+            desktop: string
         },
         story : {
-            title,
-            content : string[][]
+            title: string,
+            content: string[][]
         }
     },
     projects : {
-        title,
-        loading
+        title: string,
+        loading: string
     },
     repos : {
-        personal,
+        personal: string,
         panel : {
-            archived,
-            forked,
-            nodescription
+            archived: string,
+            forked: string,
+            nodescription: string
         },
-        loading
+        loading: string
     },
     credits : {
-        title,
-        framework,
-        people,
-        ukraine
+        title: string,
+        framework: string,
+        people: string,
+        ukraine: string
     }
 }
 
@@ -70,3 +71,10 @@ export type RepoData = [
         url
     }
 ]
+
+export enum TextAnimationState {
+    Typing,
+    TypingEnd,
+    Deleting,
+    DeletingEnd
+}
