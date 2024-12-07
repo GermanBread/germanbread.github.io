@@ -1,11 +1,5 @@
 body {
-    margin: 0px;
-}
-body .headerimg {
-    height: 200px;
-    width: 100%;
-
-    background-image: url('sources/hallway.jpg');
+    background-color: #050510;
 }
 
 navmenu {
@@ -32,4 +26,120 @@ navmenu navbutton:hover {
     
     background-color: #888;
 }
-  
+
+/* popup boxes */
+.popup-wrapper {
+    margin: auto;
+    margin-top: 15%;
+    width: max-content;
+    height: max-content;
+
+    background-color: #112;
+    box-shadow: 0px 0px 5px #151530;
+
+    transition: background-color .2s ease, box-shadow .2s ease;
+    animation: popup-animate-in 1s ease;
+}
+.popup-wrapper:hover {
+    background-color: #151530;
+    box-shadow: 0px 0px 5px #224;
+}
+@keyframes popup-animate-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+.popup-wrapper .top-bar {
+    height: 4px;
+    width: 0;
+
+    animation: bar-blink 2s 1.5s ease-in-out infinite, bar-animate-in 1s .5s ease forwards;
+}
+.popup-wrapper .info {
+    background-color: #25A;
+    box-shadow: 0 0 5px #25A;
+}
+.popup-wrapper .ok {
+    background-color: #2A2;
+    box-shadow: 0 0 5px #2A2;
+}
+.popup-wrapper .error {
+    background-color: #A22;
+    box-shadow: 0 0 5px #A22;
+}
+@keyframes bar-blink {
+    50% {
+        filter: brightness(150%);
+    }
+}
+@keyframes bar-animate-in {
+    0%, 25% {
+        background-color: #FFF;
+        box-shadow: 0 0 5px #FFF;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.popup-content {
+    border: 2px #151530 solid;
+    border-top: none;
+
+    padding: 20px;
+}
+.popup-content h1 {
+    margin-top: 0;
+    padding: 10px;
+
+    font-family: monospace;
+    color: white;
+    text-shadow: 0 0 1px white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+.popup-content p {
+    padding: 5px;
+    padding-left: 25px;
+
+    font-family: monospace;
+    color: white;
+    text-shadow: 0 0 1px white;
+    font-size: 15px;
+    font-weight: 400;
+}
+.popup-content button {
+    padding: 5px;
+
+    font-family: monospace;
+    color: white;
+    text-shadow: 0 0 1px white;
+    font-size: 15px;
+    font-weight: 400;
+
+    border: 2px solid;
+
+    transition: filter .2s ease;
+}
+.popup-content .red {
+    background-color: #A22;
+    box-shadow: #A22;
+    border-color: #B22;
+}
+.popup-content .red:hover {
+    background-color: #C22;
+    box-shadow: #C22;
+    border-color: #D22;
+}
+.popup-content .green {
+    background-color: #292;
+    box-shadow: #292;
+    border-color: #2A2;
+}
+.popup-content .green:hover {
+    background-color: #2B2;
+    box-shadow: #2B2;
+    border-color: #2C2;
+}
