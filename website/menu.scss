@@ -28,7 +28,10 @@
             padding-left: $margin;
             padding-right: $margin;
 
-            font-size: 1.75rem;
+            font-size: 1.25rem;
+            @media (max-width: 65rem) {
+                font-size: 1.75rem;
+            }
             font-weight: 500;
 
             z-index: 6;
