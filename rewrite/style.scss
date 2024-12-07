@@ -1,198 +1,20 @@
 :root {
-    --bg: #202020;
-    --primary-accent: #606060;
-    --secondary-accent: #404040;
-    --tertiary-accent: #303030;
-
-    --window-bg: #404040;
+    --bg: #101010;
+    --bg-lighter: #202020;
     
-    --text: #D0D0D0;
-    --text-dim: #909090;
-
-    --panel-bg: #505050;
-    --panel-hl: #555555;
-    
-    --navbar-bg: #252525;
-    --navbar-element-bg: #303030;
-    --navbar-element-hl: #404040;
+    --text: #DDDDDD;
+    --text-dim: #A0A0A0;
+    --text-dark: #202020;
 }
+
+@import url('logo.css');
+@import url('about.css');
+@import url('repos.css');
 
 body {
     background-color: var(--bg);
 
-    margin: 0;
-
     scroll-behavior: smooth;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-window {
-    margin: 5%;
-    padding: 2.5%;
-    display: block;
-    background-color: var(--window-bg);
-    
-    border-top: var(--primary-accent) solid .2vw;
-    border-bottom: var(--tertiary-accent) solid .2vw;
-
-    font-size: clamp(5px, 3vw, 20px);
-    color: var(--text);
-
-    transition: all ease-out .5s;
-
-    h1, h2, h3, p {
-        margin: 0px;
-    }
-    h1, h2, h3 {
-        margin-top: .5em;
-    }
-    hr {
-        margin-top: 1%;
-        margin-bottom: 2%;
-    }
-    img {
-        width: clamp(0px, 100%, 400px);
-    }
-
-    &.hidden {
-        @media (min-width: 500px) {
-            opacity: 0;
-            transform: translateY(5vw);
-        }
-    }
-}
-
-#navmenu {
-    background-color: var(--navbar-bg);
-    display: flex;
-    z-index: 1;
-
-    @media (max-width: 500px) {
-        display: none;
-    }
-
-    position: sticky;
-    margin: 0;
-    margin-bottom: 5%;
-    top: 3%;
-
-    transition: all ease-out .25s;
-
-    * {
-        background-color: var(--navbar-element-bg);
-        width: 25%;
-        height: 1.5em;
-        padding-top: .5em;
-
-        font-size: clamp(10px, 3vw, 30px);
-        color: var(--text-dim);
-
-        text-align: center;
-        overflow-x: hidden;
-
-        transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) .25s;
-
-        &:hover {
-            width: 30%;
-
-            background-color: var(--navbar-element-hl);
-            color: var(--text);
-        }
-    }
-
-    &.attached {
-        top: 0;
-
-        opacity: .8;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-}
-
-#scroll-hint {
-    position: fixed;
-    bottom: 3vh;
-    left: calc(50vw - clamp(15px, 1.5vw, 1.5vw));
-    width: min-content;
-
-    animation: bounce 2s ease infinite;
-    animation-delay: calc(var(--order) * 50ms);
-    opacity: calc(calc(5 - var(--order)) / 5);
-
-    pointer-events: none;
-
-    img {
-        width: clamp(30px, 3vw, 60px);
-        height: clamp(20px, 2vw, 40px);
-    }
-
-    span {
-        color: var(--text);
-        padding: clamp(1px, .25vw, 5px);
-        font-size: clamp(12px, 1vw, 24px);
-    }
-
-    &.hidden {
-        transition: all linear .5s;
-        opacity: 0;
-    }
-
-    @media (max-width: 500px) {
-        transition: all linear .5s;
-        opacity: 0;
-    }
-
-    @keyframes bounce {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(1vw);
-        }
-      }
-}
-
-#repos-list, #contributions-list {
-    .list-panel {
-        display: block;
-        padding: 2.5%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        margin-bottom: 1%;
-
-        text-decoration: none;
-        color: var(--text);
-        background-color: var(--panel-bg);
-        transition: background-color ease .25s;
-
-        border-top: var(--primary-accent) solid .2vw;
-        border-bottom: var(--tertiary-accent) solid .2vw;
-
-        h3 {
-            margin-top: 0;
-            margin-bottom: 2%;
-        }
-
-        &:hover {
-            background-color: var(--panel-hl);
-        }
-    }
-}
-
-#watermark {
-    padding: 5px;
-
-    color: var(--text-dim);
-    font-size: clamp(5px, 2vw, 20px);
-
-    a {
-        color: var(--secondary-accent);
-
-        &:hover {
-            color: var(--primary-accent);
-        }
-    }
 }
