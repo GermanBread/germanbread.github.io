@@ -32,6 +32,7 @@ function init() {
     handlescroll();
     hidescrollhint();
 
+    scroll_hint.style.opacity = "1"; // I don't know why but else the scroll hint won't appear
     window.addEventListener("scroll", handlescroll);
     window.addEventListener("scroll", hidescrollhint);
 

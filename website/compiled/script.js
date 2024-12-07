@@ -26,6 +26,7 @@ function init() {
         .then(() => ready());
     handlescroll();
     hidescrollhint();
+    scroll_hint.style.opacity = "1";
     window.addEventListener("scroll", handlescroll);
     window.addEventListener("scroll", hidescrollhint);
     initmenu();
