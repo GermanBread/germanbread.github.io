@@ -96,6 +96,7 @@
   "credits" : {
     "title" : "Danksagungen",
     "framework" : "Diese Website wurde mithilfe des Svelte Javascript-Frameworks geschaffen.",
-    "people" : "Coole Leute"
+    "people" : "Coole Leute",
+    "ukraine" : "An meine Brüder in der Ukraine, schützt eure Identität! #IStandWithUkraine"
   }
 }

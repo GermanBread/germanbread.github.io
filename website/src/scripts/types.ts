@@ -53,17 +53,8 @@ export type TranslationData = {
     credits : {
         title,
         framework,
-        people
-    },
-    landing : {
-        title,
-        go,
-        main,
-        maindesc,
-        memes,
-        memesdesc,
-        arnix,
-        arnixdesc
+        people,
+        ukraine
     }
 }
 

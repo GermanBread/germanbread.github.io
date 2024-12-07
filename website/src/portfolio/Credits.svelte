@@ -28,6 +28,9 @@
             </div>
         </div>
     </div>
+    <div class="panel">
+        <h1>{translation?.ukraine}</h1>
+    </div>
 </div>
 
 <style lang="scss">

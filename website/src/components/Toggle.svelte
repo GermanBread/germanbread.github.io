@@ -18,8 +18,6 @@
         font-size: 1.5rem;
     }
     input {
-        margin: 0;
-        
         position: relative;
         appearance: none;
         border: none;
@@ -42,7 +40,7 @@
             background-color: var(--primary);
         }
         &::after {
-            border: var(--text) solid .1em;
+            border: var(--text) solid .15em;
         }
 
         &:active {

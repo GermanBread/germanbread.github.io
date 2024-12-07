@@ -1,35 +1,23 @@
 <script lang="ts">
 	import Portfolio from "./portfolio/Portfolio.svelte";
-	//import LandingPage from "./main/LandingPage.svelte";
     import Greeting from "./greeter/Greeter.svelte";
-	//import Memes from "./memes/Memes.svelte";
-	// Note: might scrap multi-"page" idea completely
-	// Note2 (from the future): I might use Svelte Kit
 
-    import { currentTheme, greeting, page, themes, translationData } from "./scripts/globals";
+    import { currentTheme, greeting, themes, translationData } from "./scripts/globals";
 	import { onMount } from "svelte";
 
-	// Despite what your linter might tell you, this variable is used
+	// Despite what your linter might tell you, this variable is being used
 	let appTheme : string;
-
-	page.subscribe((val) => {
-		localStorage.setItem("page", val);
-	});
-	$page = "portfolio";
 
 	let translationLoaded : boolean = false
 	
 	function checkIfTranslationAvailable() {
-        // Slowly fade in, even if the content is already loaded
-        if (!$translationData) setTimeout(() => {
-            translationLoaded = true;
-        }, 100);
+        if (!$translationData) translationLoaded = !$translationData;
         else requestAnimationFrame(checkIfTranslationAvailable);
     }
 
-	//if (Object.keys(themes).indexOf($currentTheme) === -1) {
-	//	$currentTheme = "dark-contrast";
-	//}
+	if (Object.keys(themes).indexOf($currentTheme) === -1) {
+		$currentTheme = "dark-contrast";
+	}
 	
 	$: {
         appTheme = "";
@@ -48,16 +36,11 @@
 		{#if $greeting}
 			<Greeting />
 		{:else}
-			<!--{#if $page === "memes"}
-				<Memes />
-			{:else if $page === "portfolio"}
-				<Portfolio />
-			{:else}
-				<LandingPage />
-			{/if}-->
 			<Portfolio />
 		{/if}
 	{/if}
+
+	<div class="overlay"></div>
 
     {@html `<style>
 		:root {
@@ -68,6 +51,26 @@
 
 <style lang="scss">
     @import 'styles/global.scss';
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		opacity: .025;
+		z-index: 999999;
+		background: repeating-linear-gradient(
+			to bottom,
+			white 0px,
+			white 2px,
+			black 2px,
+			black 4px
+		);
+		pointer-events: none;
+		animation: scanline .25s infinite step-end;
+	}
 	
 	:global(body) {
 		padding: 0;
@@ -85,6 +88,12 @@
 		font-size: clamp(12px, 2vw, 18px);
 		* {
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+	}
+
+	@keyframes scanline {
+		50% {
+			transform: translateY(2px);
 		}
 	}
 </style>
