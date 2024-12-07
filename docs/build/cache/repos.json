@@ -1,0 +1,122 @@
+[
+    {
+        "name": "AppimageUpdater",
+        "description": "Makes updating AppImages really simple.",
+        "archived": false,
+        "forked": false,
+        "license": "WTFPL",
+        "url": "https://github.com/GermanBread/AppimageUpdater"
+    },
+    {
+        "name": "Arnix",
+        "description": "A Linux distribution based on Arch Linux which features a generation system",
+        "archived": false,
+        "forked": false,
+        "license": "MIT",
+        "url": "https://github.com/GermanBread/Arnix"
+    },
+    {
+        "name": "Bash-Scripts",
+        "description": "Scripts I use. Cry about it.",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/Bash-Scripts"
+    },
+    {
+        "name": "Breds-brainfuck-interpreter",
+        "description": "A special brainfuck interpreter",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/Breds-brainfuck-interpreter"
+    },
+    {
+        "name": "dice",
+        "description": "It's a dice, what'd you expect?",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/dice"
+    },
+    {
+        "name": "FileFinderGit",
+        "description": "A project intended to make it easy to find files scattered across drives",
+        "archived": false,
+        "forked": false,
+        "license": "AGPL-3.0",
+        "url": "https://github.com/GermanBread/FileFinderGit"
+    },
+    {
+        "name": "Frutti",
+        "description": "A CLI music player with Discord RPC",
+        "archived": false,
+        "forked": false,
+        "license": "GPL-3.0",
+        "url": "https://github.com/GermanBread/Frutti"
+    },
+    {
+        "name": "GermanBread",
+        "description": "Readme for my profile",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/GermanBread"
+    },
+    {
+        "name": "germanbread.github.io",
+        "description": "Homepage for my profile",
+        "archived": false,
+        "forked": false,
+        "license": "MIT",
+        "url": "https://github.com/GermanBread/germanbread.github.io"
+    },
+    {
+        "name": "ImageManipulation",
+        "description": "Written with a wish. Don't expect clean or structured code.",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/ImageManipulation"
+    },
+    {
+        "name": "lily",
+        "description": "1337",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/lily"
+    },
+    {
+        "name": "Mate",
+        "description": "A stupid bot",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/Mate"
+    },
+    {
+        "name": "OpenTkPain",
+        "description": null,
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/OpenTkPain"
+    },
+    {
+        "name": "skid-begone",
+        "description": "Want to backdoor an arrogant, wannabe hacker script kiddie that failed to scare you? This project is perfect for you!",
+        "archived": false,
+        "forked": false,
+        "license": "WTFPL",
+        "url": "https://github.com/GermanBread/skid-begone"
+    },
+    {
+        "name": "Windows-Update",
+        "description": "Purely exists to mock Windows' poor updates",
+        "archived": false,
+        "forked": false,
+        "license": null,
+        "url": "https://github.com/GermanBread/Windows-Update"
+    }
+]

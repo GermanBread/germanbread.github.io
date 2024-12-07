@@ -1,139 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>About me</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="GermanBread">
-    <meta name="title" content="The best looking homepage you have ever seen">
-    <meta name="description" content="I know you want to visit me">
-    
-    <link rel="shortcut icon" type="image/x-icon" href="/images/iusearchbtw.ico">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-    <link rel="stylesheet" href="/compiled/style.css">
-    <link rel="stylesheet" href="/compiled/menu.css">
-    <link rel="stylesheet" href="/compiled/logo.css">
-    <link rel="stylesheet" href="/compiled/about.css">
-    <link rel="stylesheet" href="/compiled/repos.css">
-    <link rel="stylesheet" href="/compiled/credits.css">
-    
-    <script src="/compiled/script.js"></script>
-    <script src="/compiled/locale.js"></script>
-    <script src="/compiled/menulogic.js"></script>
+	<title>GermanBread's awesome homepage</title>
 
-    <noscript>
-      <style>
-        #section-about, #section-repos, #section-credits, #logo-captions, #loading, #menu-button, #spacer {
-          display: none;
-        }
-      </style>
-    </noscript>
-  </head>
-  <body onload="init()" class="basicallyhideeverything">
-    <button id="menu-button" onclick="togglemenu()">{menu.open}</button>
-    <div id="menu" class="hidden">
-      <div id="menu-items">
-        <a onclick="togglemenu()">{menu.close}</a>
-        <a onclick="togglemenu()" href="https://github.com/germanbread">{menu.github}</a>
-        <a onclick="togglemenu()" href="#section-logo">{menu.logo}</a>
-        <a onclick="togglemenu()" href="#section-about">{menu.about}</a>
-        <a onclick="togglemenu()" href="#section-repos">{menu.repos}</a>
-        <a onclick="togglemenu()" href="#section-credits">{menu.credits}</a>
-      </div>
-    </div>
-    <div id="main-content">
-      <div id="section-logo">
-        <pre id="logo">
-    ____                      __
-   / __ )________  ____ _____/ /
-  / __  / ___/ _ \/ __ `/ __  /
- / /_/ / /  /  __/ /_/ / /_/ /
-/_____/_/   \___/\__,_/\__,_/
-  <noscript>I'm sorry Dave, but you can't keep Javascript disabled.</noscript>
-  <noscript>(enable it for some really cool stuff)</noscript>
-        </pre>
-        <div id="logo-captions">
-          <span>{logo.captions.bill}</span>
-          <span>{logo.captions.best}</span>
-          <span>{logo.captions.bug}</span>
-        </div>
-        <span id="scroll-hint" style="opacity: 0;">{logo.scroll}</span>
-      </div>
-      <div id="section-about" style="opacity: 0;">
-        <div id="section-about-content">
-          <div id="loading"></div>
-          <div id="section-about-text">
-            <h1>{about.me}</h1>
-            <p>{about.caption}</p>
-            <hr>
-            <h2>{about.skills.title}</h2>
-            <h3>{about.skills.programming.title}</h3>
-            <p>{about.skills.programming.content}</p>
-            <h3>{about.skills.ide.title}</h2>
-            <p>{about.skills.ide.content}</p>
-            <h3>{about.skills.other.title}</h3>
-            <p>{about.skills.other.content}</p>
-            <h2>{about.os.title}</h2>
-            <p>{about.os.content}</p>
-            <h3>{about.os.desktop.title}</h3>
-            <p>{about.os.desktop.content}</p>
-            <h2>{about.story.title}</h2>
-            <p>{about.story.content.paragraph1.line1}</p>
-            <br>
-            <p>{about.story.content.paragraph2.line1}</p>
-            <p>{about.story.content.paragraph2.line2}</p>
-            <p>{about.story.content.paragraph2.line3}</p>
-            <p>{about.story.content.paragraph2.line4}</p>
-            <br>
-            <p>{about.story.content.paragraph3.line1}</p>
-            <p>{about.story.content.paragraph3.line2}</p>
-            <p>{about.story.content.paragraph3.line3}</p>
-            <p>{about.story.content.paragraph3.line4}</p>
-            <br>
-            <p>{about.story.content.paragraph4.line1}</p>
-            <br>
-            <p>{about.story.content.paragraph5.line1}</p>
-            <p>{about.story.content.paragraph5.line2}</p>
-            <p>{about.story.content.paragraph5.line3}</p>
-            <p>{about.story.content.paragraph5.line4}</p>
-            <p>{about.story.content.paragraph5.line5}</p>
-            <p>{about.story.content.paragraph5.line6}</p>
-            <br>
-            <p>{about.story.content.paragraph6.line1}</p>
-            <p>{about.story.content.paragraph6.line2}</p>
-            <p>{about.story.content.paragraph6.line3}</p>
-            <p>{about.story.content.paragraph6.line4}</p>
-            <p>{about.story.content.paragraph6.line5}</p>
-            <br>
-            <p>{about.story.content.paragraph7.line1}</p>
-            <p>{about.story.content.paragraph7.line2}</p>
-          </div>
-        </div>
-      </div>
-      <div id="section-repos" style="opacity: 0;">
-        <div id="section-repos-content">
-          <h1>{repos.personal}</h1>
-          <hr>
-          <div id="repos-list">
-            
-          </div>
-          <h1>{repos.contributions}</h1>
-          <hr>
-          <div id="contributions-list">
-            
-          </div>
-          <span id="browser-compat">{repos.compat}</span>
-        </div>
-      </div>
-      <div id="section-credits" style="opacity: 0;">
-        <div id="section-credits-content">
-          <h1 id="author">{credits.author}</h1>
-          <hr>
-          <h2>{credits.people}</h2>
-          <a href="https://github.com/Reimnop">Reimnop</a>
-        </div>
-      </div>
-      <div id="spacer" style="margin-bottom: 30vh;"></div>
-    </div>
-  </body>
+	<link rel='icon' type='image/png' href='/iusearchbtw.png'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+</head>
+
+<body>
+</body>
 </html>

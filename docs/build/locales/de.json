@@ -1,0 +1,90 @@
+{
+  "menu" : {
+    "github"   : "Zurück zu Github",
+    "about"    : "Über mich",
+    "projects" : "Projekte",
+    "repos"    : "Repos",
+    "credits"  : "Danksagungen",
+    "theme"    : "Einstellungen"
+  },
+  "greeting" : {
+    "title" : "Hallo",
+    "palette" : "Wähle zunächst dein Farbschema",
+    "done" : "Click mich an wenn du fertig bist"
+  },
+  "about" : {
+    "me"    : "Über mich",
+    "skills"  : {
+      "title" : "Programmiersprachen, Entwicklungsumgebungen und Erfahrung",
+      "programming" : "C#, C++, GLSL, HTML, TS, SCSS, Bash und Nix",
+      "ide" : "VSCode und Vim",
+      "other" : "Sehr gutes Verständnis von Linux darunter Erfahrung in: Systemverwaltung, Systemwartung, Problemlösung und Googeln. Natürlich alles genannte auf eigene Faust gelernt.",
+      "short" : "17-Jahre alt, alles von alleine gelernt und ich liebe es den Computer Dinge machen zu lassen. Manche nennen mich auch einen code monkey."
+    },
+    "os" : {
+      "title" : "Betriebssystem und Umgebung",
+      "content" : "Arch Linux / NixOS",
+      "desktop" : "KDE Plasma"
+    },
+    "story" : {
+      "title" : "Hintergrundgeschichte",
+      "content" : [
+        [
+          "Ungefähr 2 Minuten Lesezeit"
+        ],
+        [
+          "Ich wuchs in Hessen auf und bin (zum Zeitpunkt, wo ich das hier schreibe) 17 Jahre alt.",
+          "Manche nennen mich einen \"code monkey\"",
+          "15 Punkte (von 15) im Informatikunterricht",
+          "Und ich verwalte alles bei mir Zuhause alleine"
+        ],
+        [
+          "Als ich in der 7. Klasse war, zeigte mein Bruder mir Python. Ich habe ein paar GUIs zusammengeschustert und es dann auch dabei belassen (mein Bruder installierte sogar Anaconda für mich)",
+          "Ich hatte auch ein Praktikum beim Softwareunternehmen Somentech GmbH. Dort wurde ich mit der besten Programmiersprache namens Dataflex konfrontiert.",
+          "Ich hatte dennoch viel Spaß und lernte eine wichtige Fähigkeit: debugging!",
+          "Ein Softwareentwickler zeigte mir auch noch Scratch. Ich verliebte mich sofort und erschaffte Projekte ohne Ende."
+        ],
+        [
+          "Bedauerlicherweise passierte für ein paar Jahre nichts mehr besonderes."
+        ],
+        [
+          "2019 entscheidete ich mich C# auszuprobieren. Ich spielte mit der Unity Spieleengine herum und konzentrierte mich Anfang 2020 auf besseres.",
+          "Befauerlicherweise starb der Bruder meines Vaters zu dieser Zeit an Krebs.",
+          "Unglücklicherweise hatte mein Vater sehr viele unsortierte Bilder seines Bruders auf seinem PC. Ich schlug vor ein Programm zu schreiben, welches diese Bilder automatisch sortiert.",
+          "Und so wurde mein erstes, großes Projekt, geboren! Es nannte sich \"FileFinderGit\"",
+          "Ich lernte mit Bibliotheken umzugehen und verbesserte meine C# Kentnisse rasant während ich die App neu schrieb.",
+          "Ich machte währenddessen auch die Windows Partition platt und wechselte komplett zu Linux. (Ich verlor leider auch ein paar Spielstände...)"
+        ],
+        [
+          "Bis zu diesem Zeitpunkt kannte ich mich so gut mit C# aus, dass ich mich bei anderen Programmiersprachen umsah.",
+          "Diese Programmiersprache war C++.",
+          "Dann kam noch der Informatikunterricht dazu bei dem ich größtenteils HTML und CSS lernte.",
+          "Aktuell lernen wir Java im Unterricht (dank dem Deutschen Staat...)",
+          "Ich arbeite aktuell an meiner eigenen Spieleengine und spiele sehr viel osu! (zudem schaue ich noch Anime)"
+        ],
+        [
+          "Bis heute denke ich noch an das Praktikum und die Menschen, die wie Stützpfeiler, mein Leben veränderten. Ich danke auch denen, die mich stets unterstützten.",
+          "Soll mein Onkel in Frieden ruhen und soll es seiner Familie gut gehen."
+        ]
+      ]
+    }
+  },
+  "projects" : {
+    "title" : "Projekte an denen ich arbeite",
+    "loading" : "Lade Projekte. Mach dich bereit..."
+  },
+  "repos" : {
+    "personal" : "Meine persönlichen Code-Repositories",
+    "panel" : {
+      "archived" : "archiviert",
+      "forked" : "geforked",
+      "nodescription" : "Keine Beschreibung verfügbar"
+    },
+    "loading" : "Lade Repos. Mach dich bereit..."
+  },
+  "credits" : {
+    "title" : "Danksagungen",
+    "framework" : "Diese Website wurde mithilfe des Svelte Javascript-Frameworks geschaffen.",
+    "people" : "Coole Leute"
+  }
+}
