@@ -42,10 +42,12 @@ import { onMount } from "svelte";
     <div in:fly="{{ y: 50, duration: 2000, delay: 1000 }}">
         <Navrow />
     </div>
-    <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
-        {#each Array(Math.ceil(window.innerHeight / 150) * Math.ceil(window.innerWidth / 150)) as _, i}
-            <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
-        {/each}
+    <div class="background-wrapper">
+        <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
+            {#each Array(Math.ceil(window.innerHeight / 125) * Math.ceil(window.innerWidth / 125)) as _, i}
+                <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
+            {/each}
+        </div>
     </div>
     
     <div>
@@ -100,7 +102,9 @@ import { onMount } from "svelte";
         }
     }
 
-    .background {
+    .background-wrapper {
+        z-index: -5;
+        
         position: absolute;
 
         top: 0;
@@ -108,8 +112,23 @@ import { onMount } from "svelte";
         right: 0;
         bottom: 0;
 
-        z-index: -5;
+        max-height: 100vh;
+        overflow-y: hidden;
 
+        &::after {
+            content: '';
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 25vh;
+
+            background: linear-gradient(-.5turn, transparent, var(--background));
+        }
+    }
+    
+    .background {
         padding: 2%;
         gap: 1em;
 
@@ -139,18 +158,6 @@ import { onMount } from "svelte";
             &.active {
                 filter: none;
             }
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 10vh;
-
-            background: linear-gradient(-.5turn, transparent, var(--background));
         }
     }
 </style>
