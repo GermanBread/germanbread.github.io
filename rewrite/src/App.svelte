@@ -17,13 +17,6 @@
 		--primary    : ${colourSchemes[$colourScheme].primary};
 		--secondary  : ${colourSchemes[$colourScheme].secondary};
 	`;
-
-	onMount(() => {
-		window.scroll({
-			top : 0,
-			behavior : "smooth"
-		});
-	})
 </script>
 
 <main>
