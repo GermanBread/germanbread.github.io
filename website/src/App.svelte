@@ -3,6 +3,7 @@
 	//import LandingPage from "./main/LandingPage.svelte";
     import Greeting from "./greeter/Greeter.svelte";
 	//import Memes from "./memes/Memes.svelte";
+	// Note: might scrap multi-"page" idea completely
 
     import { currentTheme, greeting, page, themes } from "./scripts/globals";
 
