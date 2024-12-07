@@ -12,5 +12,5 @@ $(output):
 	@echo Processing $@
 	sassc -t compressed $@.scss > $@.css
 
-test:
+test: all
 	chromium --app=file://$(shell pwd)/index.html
