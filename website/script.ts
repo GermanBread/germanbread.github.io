@@ -11,8 +11,6 @@ var logo_rect : DOMRect,
 
 var runlevel : number
 
-var parallax_multiplier : number = 0 * (window.innerHeight / 1000);
-
 function init() {
     logo = document.getElementById("section-logo");
     menu = document.getElementById("menu-wrapper");
@@ -85,12 +83,11 @@ function handlescroll() {
 }
 
 //#region helpers
-// Copied from https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
 function clamp(num : number, min : number, max : number) : number {
-    return ((num <= min) ? min : ((num >= max) ? max : num));
+    return Math.min(Math.max(num, min), max);
 }
 function clamp01(num : number) : number {
-    return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
+    return clamp(num, 0, 1);
 }
 
 function getprogress(num : number, start : number, stop : number) : number {
@@ -103,10 +100,6 @@ function calculate_opacity(bounds : DOMRect) : number {
         return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
     else
         return 0;
-}
-// I decided to ditch this because it caused a lot of issues. Might consider adding it back for a menu of some sort
-function calculate_transform(bounds : DOMRect, multiplier : number) : number {
-    return (window.scrollY - bounds.top + window.scrollY) * multiplier;
 }
 
 async function fetchpersonalrepos(root : HTMLElement) {

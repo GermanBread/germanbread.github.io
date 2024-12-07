@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var logo, menu, about, repos, credits, scroll_hint;
 var logo_rect, about_rect, repos_rect, credits_rect;
 var runlevel;
-var parallax_multiplier = 0 * (window.innerHeight / 1000);
 function init() {
     logo = document.getElementById("section-logo");
     menu = document.getElementById("menu-wrapper");
@@ -60,10 +59,10 @@ function handlescroll() {
     credits.style.opacity = calculate_opacity(credits_rect).toString();
 }
 function clamp(num, min, max) {
-    return ((num <= min) ? min : ((num >= max) ? max : num));
+    return Math.min(Math.max(num, min), max);
 }
 function clamp01(num) {
-    return ((num <= 0) ? 0 : ((num >= 1) ? 1 : num));
+    return clamp(num, 0, 1);
 }
 function getprogress(num, start, stop) {
     return (num - start) / (stop - start);
@@ -74,9 +73,6 @@ function calculate_opacity(bounds) {
         return clamp01(progress * 8) - clamp01((progress - 0.875) * 8);
     else
         return 0;
-}
-function calculate_transform(bounds, multiplier) {
-    return (window.scrollY - bounds.top + window.scrollY) * multiplier;
 }
 function fetchpersonalrepos(root) {
     return __awaiter(this, void 0, void 0, function* () {
