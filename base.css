@@ -1,6 +1,7 @@
 body {
     background-color: #050510;
     scroll-behavior: smooth;
+    
 }
 body::before {
     content : "";
