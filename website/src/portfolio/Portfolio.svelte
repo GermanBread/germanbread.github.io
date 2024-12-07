@@ -112,7 +112,7 @@ import { onMount } from "svelte";
     <Navrow />
     <div class="background-wrapper">
         <div class="background" bind:this="{wordBgData.element}" in:fly="{{ y: 25, duration: 2000, delay: 1000 }}">
-            {#each Array(Math.ceil(window.innerHeight / 50) * Math.ceil(window.innerWidth / wordBgData.minlength / 50)) as _, i}
+            {#each Array(Math.ceil(window.innerHeight / 50) * Math.ceil(window.innerWidth / wordBgData.minlength / 40)) as _, i}
             <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
             {/each}
         </div>
@@ -121,8 +121,8 @@ import { onMount } from "svelte";
     <div>
         <About/>
         <SectionSep />
-        <Projects />
-        <SectionSep />
+        <!--<Projects />
+        <SectionSep />-->
         <Repos />
         <SectionSep />
         <Credits />
