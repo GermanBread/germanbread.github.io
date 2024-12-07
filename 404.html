@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Under construction</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="popups.css">
+    <style>
+      header .stripes {
+        box-shadow: 0 0 5px orange;
+        
+        background: repeating-linear-gradient(
+          45deg,
+        #ffae00,
+        #ffae00 20px,
+        #ff7b00 20px,
+        #ff7b00 40px
+        );
+
+        background-size: 150%;
+        background-position-x: -10px;
+
+        animation: stripes-animate 1s linear infinite;
+      }
+      @keyframes stripes-animate {
+        from {
+          background-position-x: -66px;
+        }
+      }
+      .stripes h1 {
+        margin: 0;
+        padding: 10px;
+
+        font-family: monospace;
+        color: white;
+        text-shadow: 0 0 5px white;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header><div class="stripes"><h1>Warning</h1></div></header>
+    <main>
+      <div class="popup-wrapper">
+        <div class="top-bar error"></div>
+        <div class="popup-content">
+          <h1>404 not found</h1>
+          <div class="button-wrapper">
+            <button onclick="window.history.back()" class="green">Oh no</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
