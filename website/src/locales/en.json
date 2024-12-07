@@ -11,7 +11,7 @@
   "greeting" : {
     "title" : "Greetings",
     "theme" : "Theme",
-    "dark" : "Dark design",
+    "dark" : "Dark theme",
     "contrast" : "High contrast",
     "done" : "Click me when you're done"
   },
@@ -41,10 +41,7 @@
       "title" : "Background story",
       "content" : [
         [
-          "~2 minutes reading time"
-        ],
-        [
-          "I was raised in Hessen, Germany, am 17 years old (as of writing this)",
+          "I was raised in Hessen, Germany, am currently 17 years old (as of writing this)",
           "Some call me a \"code monkey\"",
           "A in computer science",
           "I manage the entire home network all by myself"
@@ -70,12 +67,15 @@
           "At one point I have gotten so proficient with C# that I decided to try out other languages.",
           "This language was C++",
           "Then came computer science class, which taught me mainly HTML and CSS.",
-          "As of now I am learning Java in class (thank the German government).",
-          "I work on my own little game engine and enjoy playing osu! (and of course watching anime)."
+          "As of now I am learning Java in class (I dislike Java).",
+          "I work on my own little game engine and enjoy playing osu! (and of course, watching anime)."
         ],
         [
           "To this day I think of the internship and of the people that supported me on my journey. I am extremely grateful for the support I've been recieving from my family and friends (both IRL and online)",
           "May my father's brother rest in piece. I wish his family the best."
+        ],
+        [
+          "In November 2021 I repurposed my grandmas' old PC into a small server. Both my brother and I are running our projects on it and we're also playing on our little Minecraft server."
         ]
       ]
     }
