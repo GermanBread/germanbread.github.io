@@ -8,6 +8,7 @@
 
 #section-logo {
     padding-top: 20%;
+    padding-bottom: clamp(15em, 20%, 100vh); /* cover the cycling text */
     display: grid;
     place-content: center;
     
