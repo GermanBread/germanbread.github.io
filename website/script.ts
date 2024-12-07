@@ -4,7 +4,8 @@ var logo : HTMLElement,
     repos : HTMLElement,
     credits : HTMLElement,
     scroll_hint : HTMLElement;
-var about_rect : DOMRect,
+var logo_rect : DOMRect,
+    about_rect : DOMRect,
     repos_rect : DOMRect,
     credits_rect : DOMRect;
 
@@ -62,10 +63,14 @@ function hidescrollhint() {
 }
 
 function handlescroll() {
+    logo_rect = logo.getBoundingClientRect();
     about_rect = about.getBoundingClientRect();
     repos_rect = repos.getBoundingClientRect();
     credits_rect = credits.getBoundingClientRect();
 
+    // Logo section
+    logo.style.opacity = calculate_opacity(logo_rect).toString();
+    
     // About section
     about.style.opacity = calculate_opacity(about_rect).toString();
     

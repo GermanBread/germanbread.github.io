@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var logo, menu, about, repos, credits, scroll_hint;
-var about_rect, repos_rect, credits_rect;
+var logo_rect, about_rect, repos_rect, credits_rect;
 var runlevel;
 var parallax_multiplier = 0 * (window.innerHeight / 1000);
 function init() {
@@ -48,9 +48,11 @@ function hidescrollhint() {
         scroll_hint.style.opacity = "0";
 }
 function handlescroll() {
+    logo_rect = logo.getBoundingClientRect();
     about_rect = about.getBoundingClientRect();
     repos_rect = repos.getBoundingClientRect();
     credits_rect = credits.getBoundingClientRect();
+    logo.style.opacity = calculate_opacity(logo_rect).toString();
     about.style.opacity = calculate_opacity(about_rect).toString();
     repos.style.opacity = calculate_opacity(repos_rect).toString();
     credits.style.opacity = calculate_opacity(credits_rect).toString();
