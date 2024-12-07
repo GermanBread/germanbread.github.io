@@ -1,6 +1,7 @@
 {
   "menu" : {
-    "github"   : "Zurück zu Github",
+    "back"     : "Zurück",
+    "logo"     : "Hoch",
     "about"    : "Über mich",
     "projects" : "Projekte",
     "repos"    : "Repos",
@@ -9,8 +10,10 @@
   },
   "greeting" : {
     "title" : "Hallo",
-    "palette" : "Wähle zunächst dein Farbschema",
-    "done" : "Click mich an wenn du fertig bist"
+    "theme" : "Farbschema",
+    "dark" : "Dunkles design",
+    "contrast" : "Hoher Kontrast",
+    "done" : "Click mich an, wenn du fertig bist"
   },
   "about" : {
     "me"    : "Über mich",

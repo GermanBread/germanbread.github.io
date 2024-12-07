@@ -1,5 +1,5 @@
 import { projectsData, reposData, translationData } from './globals';
-import type { TranslationData } from './Types'
+import type { TranslationData } from './types'
 
 export async function init() {
     let data : TranslationData = null;

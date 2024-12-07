@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { projectsData, translationData } from "./globals";
-    import type { RepoData, TranslationData } from "./Types";
+    import { projectsData, translationData } from "../scripts/globals";
+    import type { RepoData, TranslationData } from "../scripts/types";
 
     let translation : TranslationData["projects"],
         projects : RepoData;
-    
+
     $: {
         translation = $translationData?.projects;
         projects = $projectsData;
@@ -17,10 +17,10 @@
         <hr>
     </div>
     {#if projects}
-        <div id="projects">
+        <div id="projects" class="panel">
             {#each projects.filter(x => !x.error) as project}
                 <div class="highlight">
-                    <a href="{project.url}" class="card">
+                    <a class="card" href="{project.url}" target="_blank">
                         <div class="split1">
                             <h1>{project.name}</h1>
                             <p>{project.license ?? "-"}</p>
@@ -41,29 +41,31 @@
 </div>
 
 <style lang="scss">
-    @import 'content.scss';
+    @import '../styles/content.scss';
 
     #projects {
-        max-width: 100ch;
-        background-color: var(--intense);
-        border-radius: .5em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
 
-        padding-block: 1em;
+        padding: 2.5em;
     }
 
     .highlight {
-        margin-block: 2em;
-        padding: 0em;
+        padding-block: 1em;
+        padding-inline: 5em;
     }
     
     .card {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        padding: 1em;
-        padding-inline: 5em;
-
         color: var(--text);
+
+        * {
+            margin: 0;
+        }
+
+        h1, p {
+            padding-block: .5em;
+        }
         
         &:hover {
             text-decoration: none;
@@ -78,12 +80,7 @@
         }
         
         >.split1 {
-            flex-basis: 25%;
-            flex-shrink: 0;
-            flex-grow: 1;
-
             h1 {
-                margin-bottom: .5em;
                 font-size: 2.5rem;
 
                 word-wrap: break-word;
@@ -103,17 +100,13 @@
 
                 @media (prefers-reduced-motion: reduce), (max-width: 600px) {
                     transition: none;
-                    transform: translateX(0em);
+                    transform: none;
                     opacity: 1;
                 }
             }
         }
 
         >.split2 {
-            flex-basis: 75%;
-            flex-shrink: 1;
-            flex-grow: 0;
-
             transition: opacity .5s ease-in,
                 transform .5s ease-in;
             
@@ -125,7 +118,7 @@
 
             @media (prefers-reduced-motion: reduce), (max-width: 600px) {
                 transition: none;
-                transform: translateX(0em);
+                transform: none;
                 opacity: 1;
             }
         }

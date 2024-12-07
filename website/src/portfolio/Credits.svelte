@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { translationData } from "./globals";
-    import type { TranslationData } from "./Types";
+    import { translationData } from "../scripts/globals";
+    import type { TranslationData } from "../scripts/types";
 
     let translation : TranslationData["credits"];
     $: translation = $translationData?.credits;
@@ -12,7 +12,7 @@
         <hr>
     </div>
     <div class="panel">
-        <a href="https://svelte.dev/">{translation?.framework}</a>
+        <a href="https://svelte.dev/" target="_blank">{translation?.framework}</a>
     </div>
     <div class="highlight">
         <div class="card">
@@ -20,14 +20,14 @@
                 <h1>{translation?.people}</h1>
             </div>
             <div class="split2">
-                <a href="https://github.com/Reimnop">Reimnop</a>
+                <a href="https://github.com/Reimnop" target="_blank">Reimnop</a>
             </div>
         </div>
     </div>
 </div>
 
 <style lang="scss">
-    @import 'content.scss';
+    @import '../styles/content.scss';
 
     a {
         color: var(--text);

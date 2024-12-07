@@ -29,14 +29,13 @@
     
     max-width: 120ch;
     padding: 5em;
-    border-radius: .5em;
 
     &::after {
         content: '';
-        position: absolute;
         z-index: -1;
+        position: absolute;
 
-        $overhang: -.5em;
+        $overhang: -1em;
         top: $overhang;
         left: $overhang;
         right: $overhang;
@@ -45,7 +44,8 @@
         transition: all .5s ease-in;
         background: inherit;
         pointer-events: none;
-        filter: blur(.5em) brightness(.5);
+        filter: blur(1em);
+        opacity: .25;
     }
 }
 
@@ -53,5 +53,18 @@
     background-color: var(--intense);
     //box-shadow: 0 0 .5em var(--shadow);
     padding-block: 2em;
-    border-radius: .5em;
+
+    position: relative;
+
+    &::before {
+        position: absolute;
+        
+        top: 0;
+        left: -10ch;
+        bottom: 0;
+        width: 10ch;
+
+        content: '';
+        background: linear-gradient(to right, transparent, var(--intense));
+    }
 }
