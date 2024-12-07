@@ -150,5 +150,9 @@
     "framework" : "This website was created using the Svelte.js framework",
     "people" : "Cool people",
     "ukraine" : "GLORY TO UKRAINE!"
+  },
+  "special" : {
+    "title" : "Psst! I'm working on a new website!",
+    "link" : "Click me!"
   }
 }
