@@ -1,16 +1,16 @@
 var locale : string
-let jsonData;
+var jsonData;
 
 // Github Pages does not offer shipping localised websites as far as I know
 // So I will have to deal with this (still kind of proud of this code)
 
-function initlocale() {
+async function initlocale() {
     locale = navigator.language.match("\\w+")[0];
 
     fetchTranslation(locale).then((json) => {
         jsonData = json;
-        translateDOM(json);
-    })
+        translateDOM();
+    });
 }
 
 async function fetchTranslation(country_code : string) : Promise<any> {
@@ -22,7 +22,7 @@ async function fetchTranslation(country_code : string) : Promise<any> {
     return response.json();
 }
 
-function translateDOM(data) {
+function translateDOM() {
     var elements = Array<HTMLElement>();
     
     // Menu bar
@@ -35,6 +35,29 @@ function translateDOM(data) {
     
     // About
     elements = elements.concat(deconstructToArray(document.querySelector("#section-about-text").children));
+    
+    // Credits
+    elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
+
+    // Now do the magic part
+    elements.forEach(element => {
+        var matches = element.innerHTML.match('{.+?}');
+        if (matches?.length > 0) {
+            matches.forEach(match => {
+                var content = element.innerHTML.replace(match, 
+                    getValue(jsonData, match.slice(1, match.length - 1)) ??
+                        jsonData.errors.notranslation.replace("%string%", match));
+                element.innerHTML = content;
+            });
+        }
+    });
+
+    // Reveal the website
+    document.body.classList.remove("basicallyhideeverything");
+}
+
+function translateRepos() {
+    var elements = Array<HTMLElement>();
     
     // Repos
     document.querySelectorAll("#section-repos-content h1").forEach(element => {
@@ -51,24 +74,18 @@ function translateDOM(data) {
         elements.push(element as HTMLElement);
     });
     
-    // Credits
-    elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
-
     // Now do the magic part
     elements.forEach(element => {
         var matches = element.innerHTML.match('{.+?}');
         if (matches?.length > 0) {
             matches.forEach(match => {
                 var content = element.innerHTML.replace(match, 
-                    getValue(data, match.slice(1, match.length - 1)) ??
-                        data.errors.notranslation.replace("%string%", match));
+                    getValue(jsonData, match.slice(1, match.length - 1)) ??
+                        jsonData.errors.notranslation.replace("%string%", match));
                 element.innerHTML = content;
             });
         }
     });
-
-    // Reveal the website
-    document.body.classList.remove("basicallyhideeverything");
 }
 
 function getValue(json, key : string, fullKey : string = key) : string {

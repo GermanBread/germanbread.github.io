@@ -30,13 +30,14 @@ function init() {
     window.addEventListener("scroll", handlescroll);
     window.addEventListener("scroll", hidescrollhint);
     initmenu();
+    initlocale();
     ready();
 }
 function ready() {
     runlevel++;
     switch (runlevel) {
         case 3:
-            initlocale();
+            translateRepos();
             break;
     }
 }

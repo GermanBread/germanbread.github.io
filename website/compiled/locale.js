@@ -8,12 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var locale;
-let jsonData;
+var jsonData;
 function initlocale() {
-    locale = navigator.language.match("\\w+")[0];
-    fetchTranslation(locale).then((json) => {
-        jsonData = json;
-        translateDOM(json);
+    return __awaiter(this, void 0, void 0, function* () {
+        locale = navigator.language.match("\\w+")[0];
+        fetchTranslation(locale).then((json) => {
+            jsonData = json;
+            translateDOM();
+        });
     });
 }
 function fetchTranslation(country_code) {
@@ -26,13 +28,28 @@ function fetchTranslation(country_code) {
         return response.json();
     });
 }
-function translateDOM(data) {
+function translateDOM() {
     var elements = Array();
     elements.push(document.querySelector("#menu-button"));
     elements = elements.concat(deconstructToArray(document.querySelector("#menu-items").children));
     elements = elements.concat(deconstructToArray(document.querySelector("#logo-captions").children));
     elements.push(document.querySelector("#scroll-hint"));
     elements = elements.concat(deconstructToArray(document.querySelector("#section-about-text").children));
+    elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
+    elements.forEach(element => {
+        var matches = element.innerHTML.match('{.+?}');
+        if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
+            matches.forEach(match => {
+                var _a;
+                var content = element.innerHTML.replace(match, (_a = getValue(jsonData, match.slice(1, match.length - 1))) !== null && _a !== void 0 ? _a : jsonData.errors.notranslation.replace("%string%", match));
+                element.innerHTML = content;
+            });
+        }
+    });
+    document.body.classList.remove("basicallyhideeverything");
+}
+function translateRepos() {
+    var elements = Array();
     document.querySelectorAll("#section-repos-content h1").forEach(element => {
         elements.push(element);
     });
@@ -46,18 +63,16 @@ function translateDOM(data) {
     document.querySelectorAll("#section-repos-content div").forEach(element => {
         elements.push(element);
     });
-    elements = elements.concat(deconstructToArray(document.querySelector("#section-credits-content").children));
     elements.forEach(element => {
         var matches = element.innerHTML.match('{.+?}');
         if ((matches === null || matches === void 0 ? void 0 : matches.length) > 0) {
             matches.forEach(match => {
                 var _a;
-                var content = element.innerHTML.replace(match, (_a = getValue(data, match.slice(1, match.length - 1))) !== null && _a !== void 0 ? _a : data.errors.notranslation.replace("%string%", match));
+                var content = element.innerHTML.replace(match, (_a = getValue(jsonData, match.slice(1, match.length - 1))) !== null && _a !== void 0 ? _a : jsonData.errors.notranslation.replace("%string%", match));
                 element.innerHTML = content;
             });
         }
     });
-    document.body.classList.remove("basicallyhideeverything");
 }
 function getValue(json, key, fullKey = key) {
     const levels = key.split('.');
