@@ -59,9 +59,11 @@
             transition: background-position .5s ease;
 
             >.text {
-                transform: scale(.75);
                 transform-origin: left;
-                filter: blur(.1em);
+                @media (hover) {
+                    transform: scale(.75);
+                    filter: blur(.1em);
+                }
                 transition:
                     transform .5s cubic-bezier(0.785, 0.135, 0.15, 0.86),
                     filter .5s cubic-bezier(0.785, 0.135, 0.15, 0.86);

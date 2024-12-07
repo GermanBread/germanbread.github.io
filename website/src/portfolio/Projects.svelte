@@ -92,13 +92,15 @@
                 transition: opacity .5s ease-in,
                     transform .5s ease-in;
                 
-                transform: translateX(-1em);
-                opacity: 0;
+                @media (hover) {
+                    transform: translateX(-1em);
+                    opacity: 0;
+                }
 
                 word-wrap: break-word;
                 overflow-wrap: anywhere;
 
-                @media (prefers-reduced-motion: reduce), (max-width: 600px) {
+                @media (prefers-reduced-motion: reduce) {
                     transition: none;
                     transform: none;
                     opacity: 1;
@@ -110,13 +112,15 @@
             transition: opacity .5s ease-in,
                 transform .5s ease-in;
             
-            transform: translateX(5em);
-            opacity: 0;
+            @media (hover) {
+                transform: translateX(5em);
+                opacity: 0;
+            }
 
             word-wrap: break-word;
             overflow-wrap: anywhere;
 
-            @media (prefers-reduced-motion: reduce), (max-width: 600px) {
+            @media (prefers-reduced-motion: reduce) {
                 transition: none;
                 transform: none;
                 opacity: 1;

@@ -2,7 +2,8 @@
 import { greeting, page, translationData } from "../scripts/globals";
 import type { TranslationData } from "../scripts/types";
     
-    let navbarlabels : TranslationData["menu"];
+    let navbarlabels : TranslationData["menu"],
+        scrolled : Boolean;
     $: navbarlabels = $translationData?.menu;
 
     function scrollto(sectionMount) {
@@ -10,7 +11,11 @@ import type { TranslationData } from "../scripts/types";
     }
 </script>
 
-<div id="navbar-mount">
+<svelte:window on:scroll="{() => {
+    scrolled = window.scrollY > (window.innerHeight / 10)
+}}" />
+
+<div id="navbar-mount" class:compact="{!scrolled}">
     <div class="bg">
         <div class="buttons">
             <!--<button on:click="{() => { $page = "main"; }}"      >{navbarlabels?.back}    </button>-->
@@ -36,10 +41,11 @@ import type { TranslationData } from "../scripts/types";
         >div::after {
             position: absolute;
 
-            bottom: 0;
-            right: 0;
-            left: 0;
-            top: 0;
+            $padding: 0;
+            bottom: $padding;
+            right: $padding;
+            left: $padding;
+            top: $padding;
 
             content: '';
             z-index: -1;
@@ -51,6 +57,20 @@ import type { TranslationData } from "../scripts/types";
 
         &:hover >div::after {
             background-color: var(--background);
+        }
+
+        &.compact {
+            margin-inline: clamp(1em, 25vw, 50em);
+            border-radius: 1em;
+
+            >div::after {
+                border-radius: 1em;
+                $padding: -2em;
+                bottom: $padding;
+                right: $padding;
+                left: $padding;
+                top: $padding;
+            }
         }
     }
 
