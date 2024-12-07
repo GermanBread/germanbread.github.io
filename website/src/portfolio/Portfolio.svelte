@@ -103,7 +103,6 @@ import { onMount } from "svelte";
             setInterval(animateHiText, hiTextData.interval);
             setInterval(animateBuzzWords, 1500);
             wordBgData.minlength = e.portfolio.buzzwords.reduce((acc, val) => val.length < acc.length ? val : acc).length;
-            console.log(wordBgData);
         }
     });
 </script>

@@ -3,10 +3,16 @@ import type { TranslationData } from './types'
 
 export async function init() {
     let data : TranslationData = null;
+    let lang = navigator.language.match("\\w+")[0];
     try {
-        data = await (await fetch(`/build/locales/${navigator.language.match("\\w+")[0]}.json`)).json();
+        data = await (await fetch(`/build/locales/${lang}.json`)).json();
+        throw "hi";
     } catch (error) {
-        console.log("We don't have a translation for you :(")
+        console.warn(`No translation found for %c"${lang}"%c, falling back to %c"en"`,
+            'color: cyan;',
+            'color: unset;',
+            'color: lightgreen;',
+        )
         data = await (await fetch('/build/locales/en.json')).json();
     }
 
@@ -19,7 +25,6 @@ export async function init() {
         logoscheme = "lgbt";
     }
 
-    // For the mean time
     logoscheme = "ukraine";
 
     console.log(`%c______________________________________________________________
