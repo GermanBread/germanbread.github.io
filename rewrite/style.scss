@@ -10,6 +10,7 @@
 @import url('logo.css');
 @import url('about.css');
 @import url('repos.css');
+@import url('credits.css');
 
 body {
     background-color: var(--bg);
@@ -17,4 +18,19 @@ body {
     scroll-behavior: smooth;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    @media (max-width: 300px) {
+        &::before {
+            color: var(--text);
+    
+            opacity: 1;
+            background: none;
+            animation: none;
+            
+            content: 'Hey buddy, that width ... it\'s a bit 🤏 small, don\'t you think?';
+        }
+        & * {
+            display: none;
+        }
+    }
 }
