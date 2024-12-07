@@ -90,7 +90,8 @@
   },
   "projects" : {
     "title" : "Projekte an denen ich arbeite",
-    "loading" : "Lade Projekte. Mach dich bereit..."
+    "loading" : "Lade Projekte. Mach dich bereit...",
+    "open" : "Öffne Link in neuem Tab"
   },
   "repos" : {
     "personal" : "Meine persönlichen Code-Repositories",
