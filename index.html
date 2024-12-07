@@ -1,1 +1,55 @@
-Hello World
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>You are being redirected...</title>
+    <style>
+        body {
+            margin: 0;
+            
+            background-color: #0A0A20;
+        }
+        body div {
+            position: absolute;
+            bottom: 40%;
+            left: calc(50% - 120px);
+        }
+        body h1 {
+            position: absolute;
+            text-align: center;
+            top: 40%;
+            width: 100%;
+            
+            font-family: monospace;
+            color: white;
+        }
+
+        circle {
+            margin-right: 10px;
+            
+            width: 40px;
+            height: 40px;
+
+            animation: loading-blink 2s linear 0s infinite forwards;
+        }
+        @keyframes loading-blink {
+            10% {
+                background-color: white;
+            }
+        }
+    </style>
+    <script>
+        window.location.replace("wip.html");
+    </script>
+  </head>
+  <body>
+    <h1>You are being redirected</h1>
+    <div style="display: flex;">
+        <circle></circle>
+        <circle style="animation-delay: .2s;"></circle>
+        <circle style="animation-delay: .4s;"></circle>
+        <circle style="animation-delay: .6s;"></circle>
+        <circle style="animation-delay: .8s;"></circle>
+    </div>
+  </body>
+</html>
