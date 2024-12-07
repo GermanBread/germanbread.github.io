@@ -25,6 +25,8 @@ $(output_ts):
 	tsc --outFile compiled/$@.js $@.ts
 
 deploy: all
-	cp -r compiled docs/compiled
-	cp -r resources docs/resources
-	cp *.html docs/
+	# this makefile will be located in /website
+	rm -rf ../docs/*
+	mv compiled ../docs/compiled
+	cp -r images ../docs/images
+	cp *.html ../docs/
