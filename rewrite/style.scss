@@ -1,5 +1,21 @@
+:root {
+    --bg: #222;
+    --secondary-accent: #444;
+    --primary-accent: #666;
+    
+    --text: #DDD;
+    --text-dim: #999;
+
+    --panel-bg: #555;
+    --panel-hl: #666;
+    
+    --navbar-bg: #252525;
+    --navbar-element-bg: #333;
+    --navbar-element-hl: #444;
+}
+
 body {
-    background-color: #222;
+    background-color: var(--bg);
 
     margin: 0;
 
@@ -12,10 +28,11 @@ window {
     margin: 5%;
     padding: 2.5%;
     display: block;
-    background-color: #444;
+    background-color: var(--secondary-accent);
+    border-top: var(--primary-accent) solid .5vw;
 
     font-size: clamp(5px, 3vw, 20px);
-    color: #DDD;
+    color: var(--text);
 
     transition: all ease-out .5s;
 
@@ -42,8 +59,9 @@ window {
 }
 
 #navmenu {
-    background-color: #252525;
+    background-color: var(--navbar-bg);
     display: flex;
+    z-index: 1;
 
     @media (max-width: 500px) {
         display: none;
@@ -57,13 +75,13 @@ window {
     transition: all ease-out .25s;
 
     * {
-        background-color: #333;
+        background-color: var(--navbar-element-bg);
         width: 25%;
         height: 1.5em;
         padding-top: .5em;
 
         font-size: clamp(10px, 3vw, 40px);
-        color: #999;
+        color: var(--text-dim);
 
         text-align: center;
         overflow-x: hidden;
@@ -73,8 +91,8 @@ window {
         &:hover {
             width: 30%;
 
-            background-color: #555;
-            color: #DDD;
+            background-color: var(--navbar-element-hl);
+            color: var(--text);
         }
     }
 
@@ -105,7 +123,7 @@ window {
     }
 
     span {
-        color: #DDD;
+        color: var(--text);
         padding: clamp(1px, .25vw, 5px);
         font-size: clamp(12px, 1vw, 24px);
     }
@@ -119,28 +137,29 @@ window {
         transition: all linear .5s;
         opacity: 0;
     }
+
+    @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(1vw);
+        }
+      }
 }
- 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-}
+
 
 #watermark {
     padding: 5px;
 
-    color: #444;
+    color: var(--text-dim);
     font-size: clamp(5px, 2vw, 20px);
 
     a {
-        color: #444;
+        color: var(--secondary-accent);
 
         &:hover {
-            color: #555;
+            color: var(--primary-accent);
         }
     }
 }
@@ -154,13 +173,17 @@ window {
         margin-bottom: 1%;
 
         text-decoration: none;
-        color: #DDD;
-        background-color: #555;
-        box-shadow: #222 0 0 5%;
+        color: var(--text);
+        background-color: var(--panel-bg);
+        transition: background-color ease .25s;
 
         h3 {
             margin-top: 0;
             margin-bottom: 2%;
+        }
+
+        &:hover {
+            background-color: var(--panel-hl);
         }
     }
 }
