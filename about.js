@@ -64,7 +64,6 @@ function createFakePanel(url, root, index) {
         });
     }).catch(function (message) { error(message + " for " + url, root) });
 }
-
 function createRepoPanel(repo, root, index) {
     var _panel = document.createElement("a");
     _panel.href = repo.html_url;
