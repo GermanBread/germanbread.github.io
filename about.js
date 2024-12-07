@@ -12,6 +12,20 @@ function recreatePanels() {
     }
 }
 
+function rebuildMenu() {
+    var _root = document.getElementsByClassName("navmenu").item(0);
+    var _children = _root.children;
+    
+    for (let index = 0; index < _children.length; index++) {
+        var child = _children.item(index);
+        setTimeout((_root, child) => {
+            child.style.animationDelay = (index / 8) + 's';
+            child.classList.remove("noanim");
+            child.replaceWith(child);
+        }, 0, _root, child);
+    }
+}
+
 // Get all my repos using the GitHub API
 function fetchRepos() {
     var _root = document.getElementById("repos");
@@ -45,10 +59,10 @@ function createFakePanel(url, root, index) {
             throw "Server returned: " + response.status;
         }
         response.json().then(function (json) {
-            console.log(json);
+            //console.log(json);
             createRepoPanel(json, root, index);
         });
-    }).catch(function (message) { error(message, root) });
+    }).catch(function (message) { error(message + " for " + url, root) });
 }
 
 function createRepoPanel(repo, root, index) {
@@ -106,12 +120,12 @@ function createRepoPanel(repo, root, index) {
 function error(message, root) {
     // Something went wrong, log it
     console.log(message);
-    
+
     // Create a fake entry that contains the error
     var _error = document.createElement("div");
     _error.classList.add("panel-element");
     _error.style.width = "90%";
-    _error.style.margin = "auto";
+    _error.style.margin = "20px";
     _error.style.borderRightColor = "#F05050";
     
     var _title = document.createElement("h2");
