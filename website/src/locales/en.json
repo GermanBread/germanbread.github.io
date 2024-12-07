@@ -84,6 +84,38 @@
           "In November 2021 I repurposed my grandmas' old PC into a small server. Both my brother and I are running our projects on it and we're also playing on our little Minecraft server.",
           "NixOS was supposed to be installed on that server, however the setup process didn't go as planned (I know where it went wrong).",
           "My grandmas' PC runs Debian right now. I plan on switching it to NixOS soon."
+        ],
+        [
+          "It's been a while since my last update. Here goes.",
+          "This will probably be the last time I update this website again."
+        ],
+        [
+          "So first of all, I began work on a new homepage (which was supposed to co-exist with this one).",
+          "The design is very simple and elegant. Recently I've been working on it a lot to make sure the code doesn't become an unmaintainable mess like this site."
+        ],
+        [
+          "I switched my main PC from Arch Linux to Bedrock Linux and two months later to NixOS.",
+          "NixOS is a Linux distro that allows me to reproduce my exact system I have on any machine. Only using one config file, \"configuration.nix\".",
+          "There still are some hiccups here and there and the unique filesystem layout makes running applications a nightmare.",
+          "Luckly the nixpkgs repository is huge and there's a program called \"distrobox\", which allows me to install Arch Linux in a container and then cleanly integrate it with my host.",
+          "So far so good."
+        ],
+        [
+          "This homepage won't stay up for long.",
+          "There are issues with the way I do translations and the general code quality."
+        ],
+        [
+          "My home server has had issues regarding networking. It had trouble connecting to the outside world. Turns out that Debian does not ship a dhcp client by default and instead relies on ifconfig.",
+          "Regarding the energy crysis in Europe, I compiled a list of computer parts for a new home server.",
+          "The storage volumes will be managed by LVM (just like on the current server) with one SSD as cache and the rest being HDDs.",
+          "I use Uberspace to host projects like CunnyAPI, and I'm not dissatisfied, but I'd prefer if I could host my projects locally (without a massive power bill)."
+        ],
+        [
+          "This year wasn't all that great either.",
+          "My grandpa lost his life to Parkinson's. He was a very kind person.",
+          "He was a tinkerer at heart and unfortunately had to put his hobbies aside because of the disease. We tried easing his life as muc has we could.",
+          "Then, one day, he went to sleep and never woke up again.",
+          "Rest in peace grandpa. We will still love you."
         ]
       ]
     }

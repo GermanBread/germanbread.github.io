@@ -5,10 +5,11 @@
         for (const index in repos) {
             const repo = repos[index];
             await fetch(repo).then(async (res) => {
-                if (!res.ok)
-                    throw res.status;
-                let { name, description, archived, fork, license: { spdx_id }, html_url } = await res.json();
-                await data.push({ src : repo, name : name, description : description, archived : archived, forked : fork, license : spdx_id, url : html_url })
+                if (!res.ok) throw res.status;
+                const json = await res.json();
+                let { name, description, archived, fork, html_url } = json;
+                const license = json.license?.spdx_id ?? "";
+                data.push({ src : repo, name : name, description : description, archived : archived, forked : fork, license, url : html_url })
             }).catch((err) => {
                 console.error(err);
                 data.push({ src : repo, error : err });
@@ -34,8 +35,8 @@
         const output = [];
         for (const index in json) {
             const repo = json[index];
-            const { name, description, archived, fork, license: { spdx_id }, html_url } = repo;
-            await output.push({ name : name, description : description, archived : archived, forked : fork, license : spdx_id, url : html_url })
+            const { name, description, archived, fork, license, html_url } = repo;
+            await output.push({ name : name, description : description, archived, forked : fork, license : license?.spdx_id, url : html_url })
         }
         console.log(JSON.stringify(output));
     });

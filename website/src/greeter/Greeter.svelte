@@ -45,6 +45,7 @@ import { onMount } from 'svelte';
     in:fly="{{ duration : 1000, y : -15 }}">
     <div id="title">
         <h1>{translation?.title ?? "..."}</h1>
+        <hr>
     </div>
     <div class="panel center">
         <h1>{translation?.theme}</h1>
@@ -52,7 +53,6 @@ import { onMount } from 'svelte';
             <Toggle label="{translation?.dark ?? "..."}" bind:on="{darkmode}" />
             <Toggle label="{translation?.contrast ?? "..."}" bind:on="{highContrastMode}" />
         </div>
-        <hr>
         <ClickyButton clickEvent="{() => { quit(); }}">{$translationData?.greeting.done ?? "..."}</ClickyButton>
     </div>
 </div>
