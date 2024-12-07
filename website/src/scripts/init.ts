@@ -6,7 +6,6 @@ export async function init() {
     let lang = navigator.language.match("\\w+")[0];
     try {
         data = await (await fetch(`/build/locales/${lang}.json`)).json();
-        throw "hi";
     } catch (error) {
         console.warn(`No translation found for %c"${lang}"%c, falling back to %c"en"`,
             'color: cyan;',
