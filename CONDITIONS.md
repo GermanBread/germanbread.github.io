@@ -9,8 +9,8 @@
 
 ## What you can't do
 
-* Claim ownership
-* Not credit the original creator of this website
+* Claim ownership (unless followed n° 3)
+* Not credit the original creator of this website (must be somewhere, not necessary to display it to the end-user)
 * Redeploy this website without signifincantly changing the content of it
 
 Contact:
