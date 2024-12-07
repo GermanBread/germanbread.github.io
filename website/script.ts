@@ -107,6 +107,7 @@ function fetchcontibutionrepos(root: HTMLElement) {
 
     fetchrepo('https://api.github.com/repos/arch-community/qbot')
     fetchrepo('https://api.github.com/repos/Lightcord/Lightcord')
+    fetchrepo('https://api.github.com/repos/Lightcord/lc-installer-linux')
 }
 function createpanel({ name, description, archived, fork, html_url }): HTMLElement {
     var panel: HTMLAnchorElement = document.createElement("a")
