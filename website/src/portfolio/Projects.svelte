@@ -53,7 +53,7 @@
 
     .highlight {
         padding-block: 1em;
-        padding-inline: 5em;
+        padding-inline: 10%;
     }
     
     .repo-card {
