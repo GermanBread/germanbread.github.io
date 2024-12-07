@@ -12,19 +12,6 @@ function recreatePanels() {
     }
 }
 
-// Some basic scrolling stuff, might be used sometime
-/*window.addEventListener("scroll", function handlescrolling() {
-    console.log(window.scrollY);
-    if (window.scrollY >= 50) {
-        var _element = document.getElementById("repos-collection");
-        _element.remove();
-        _element.classList.remove("noanim");
-        var _container = document.getElementById("panels");
-        _container.appendChild(_element);
-        removeEventListener("scroll", handlescrolling, false);
-    }
-}, false);*/
-
 // Get all my repos using the GitHub API
 function fetchRepos() {
     var _root = document.getElementById("repos");

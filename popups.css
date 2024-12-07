@@ -5,16 +5,16 @@
     width: max-content;
     height: max-content;
 
-    background-color: #112;
-    box-shadow: 0px 0px 5px #151530;
+    background-color: #112A;
+    box-shadow: 0px 0px 5px #151530A0;
 
     transition: background-color .2s ease, 
         box-shadow .2s ease;
     animation: popup-animate-in 1s ease;
 }
 .popup-wrapper:hover {
-    background-color: #151530;
-    box-shadow: 0px 0px 5px #224;
+    background-color: #151530A0;
+    box-shadow: 0px 0px 5px #224A;
 }
 @keyframes popup-animate-in {
     from {
@@ -24,7 +24,7 @@
 }
 
 .popup-content {
-    border: 2px #151530 solid;
+    border: 2px #151530A0 solid;
     border-top: none;
 
     padding: 20px;
@@ -55,8 +55,8 @@
     margin-left: 20px;
 
     font-family: monospace;
-    color: #25A;
-    text-shadow: 0 0 1px #25A;
+    color: #25AA;
+    text-shadow: 0 0 1px #25AA;
     font-size: 15px;
     font-weight: 400;
 
@@ -66,8 +66,8 @@
 .popup-content a:hover {
     margin-left: 25px;
 
-    color: #25C;
-    text-shadow: 0 0 1px #25C;
+    color: #25CA;
+    text-shadow: 0 0 1px #25CA;
 }
 
 /* reactive CSS */

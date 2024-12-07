@@ -17,8 +17,8 @@
     padding-right: 15px;
     margin-top: 10px;
     
-    background-color: #112;
-    box-shadow: 0 0 5px #151530;
+    background-color: #112A;
+    box-shadow: 0 0 5px #151530A0;
     color: white;
     
     font-family: monospace;
@@ -31,15 +31,15 @@
 
     border: none;
     border-radius: 0px;
-    border-left: 4px solid #25A;
+    border-left: 4px solid #25AA;
 
     transition: background .2s ease,
         box-shadow .2s ease,
         padding .2s ease;
 }
 .navmenu a:hover {
-    background-color: #224;
-    box-shadow: 0 0 5px #224;
+    background-color: #224A;
+    box-shadow: 0 0 5px #224A;
 }
 .navmenu a:active {   
     padding-left: 15px;
@@ -51,9 +51,9 @@
         transparent
     );
     
-    background-color: #336;
-    box-shadow: 0 0 5px #448;
-    border-left-color: #25C;
+    background-color: #336A;
+    box-shadow: 0 0 5px #448A;
+    border-left-color: #25CA;
 }
 
 @media (max-width: 1250px) {
