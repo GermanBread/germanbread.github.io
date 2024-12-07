@@ -9,7 +9,15 @@
     <meta name="description" content="I know you want to visit me">
 
     <link rel="stylesheet" href="compiled/style.css">
+    <link rel="stylesheet" href="compiled/menu.css">
+    <link rel="stylesheet" href="compiled/logo.css">
+    <link rel="stylesheet" href="compiled/about.css">
+    <link rel="stylesheet" href="compiled/repos.css">
+    <link rel="stylesheet" href="compiled/credits.css">
+    
     <script src="compiled/script.js"></script>
+    <script src="compiled/locale.js"></script>
+    <script src="compiled/menulogic.js"></script>
 
     <noscript>
       <style>
@@ -19,7 +27,22 @@
       </style>
     </noscript>
   </head>
-  <body onload="init();">
+  <body onload="init(); initmenu(); initlocale()">
+    <div id="menu-wrapper">
+      <button id="menu-button" onclick="togglemenu()">Menu</button>
+      <div id="menu-content" class="hidden">
+        <div id="vertical-bar" class="top"></div>
+        <ul id="list-links">
+          <a onclick="togglemenu()">Close menu</a>
+          <a href="https://github.com/germanbread">Back to github!</a>
+          <a href="#section-logo">Logo</a>
+          <a href="#section-about">About me</a>
+          <a href="#section-repos">Repos</a>
+          <a href="#section-credits">Credits</a>
+        </ul>
+        <div id="vertical-bar" class="bottom"></div>
+      </div>
+    </div>
     <div id="section-logo">
       <pre id="logo">
     ____                      __

@@ -1,0 +1,139 @@
+:root {
+    --menu-bg: #303030A0;
+    --menu-accent: #FFFFFF25;
+    --menu-accent-secondary: #FFFFFF50;
+
+    --button-bg: #303030A0;
+    --button-bg-hover: #404040A0;
+}
+
+#menu-button {
+    position: fixed;
+    left: 1em;
+    top: 1em;
+    padding: .75em;
+
+    z-index: 4;
+
+    background-color: var(--button-bg);
+    backdrop-filter: blur(.5em);
+    color: var(--text);
+    border-radius: .5em;
+    border: none;
+
+    &:hover {
+        background-color: var(--button-bg-hover);
+    }
+}
+
+#menu-wrapper {
+    #menu-content {
+        display: grid;
+        
+        position: fixed;
+        top: 1em;
+        left: 0vw;
+        right: 0vw;
+        height: 5em;
+
+        transition: top .5s ease-out;
+
+        z-index: 5;
+
+        #vertical-bar {
+            background-color: var(--menu-accent);
+            box-shadow: var(--menu-accent) 0 0 .2em;
+
+            &.top {
+                grid-row: 1;
+            }
+            &.bottom {
+                grid-row: 10;
+            }
+        }
+
+        background-color: var(--menu-bg);
+        backdrop-filter: blur(.5em);
+
+        ul {
+            display: flex;
+            
+            grid-row-start: 2;
+            grid-row-end: 10;
+
+            padding: 0;
+            margin: 0;
+
+            a {
+                display: grid;
+                place-content: center;
+                margin: .1em;
+                grid-row: 1;
+                width: 100%;
+                transition: width .5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                    background-color .5s ease-in-out;
+
+                font-size: clamp(20px, 2vw, 2rem);
+                
+                background-color: var(--menu-accent);
+                box-shadow: var(--menu-accent) 0 0 .2em;
+                color: var(--text);
+                text-decoration: none;
+
+                &:hover {
+                    width: 150%;
+                    background-color: var(--menu-accent-secondary);
+
+                    transition: width .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+            }
+        }
+        
+        &.hidden {
+            top: -5em;
+            opacity: 0;
+
+            transition: top .5s ease-in,
+                opacity 0s .5s linear;
+
+            ul a:hover {
+                width: 100%;
+                background-color: var(--menu-accent);
+            }
+        }
+
+        @media (max-width: 900px) {
+            top: 0vh;
+            height: 100vh;
+
+            &.hidden {
+                top: -100vh;
+            }
+
+            #vertical-bar {
+                &.top {
+                    grid-row: 1;
+                }
+                &.bottom {
+                    grid-row: 30;
+                }
+            }
+            
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                grid-row-start: 2;
+                grid-row-end: 30;
+
+                a {
+                    height: 100%;
+                    
+                    &:hover {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
