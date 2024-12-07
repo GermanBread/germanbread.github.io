@@ -18,7 +18,7 @@
             mount.style.transform = "none";
         } else {
             mount.style.opacity = `${(window.scrollY - mount.getBoundingClientRect().top) / (window.innerHeight / 3)}`;
-            mount.style.transform = `translateY(${Math.log1p(Math.max(window.scrollY - mount.getBoundingClientRect().top, 0) / (window.innerHeight / 2)) * 10}em)`;
+            mount.style.transform = `translateY(${Math.log1p(Math.max(window.scrollY - mount.getBoundingClientRect().top, 0) / (window.innerHeight / 2)) * 4 - 8}em)`;
         }
     }
     
