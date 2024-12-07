@@ -26,7 +26,8 @@ $(output_ts):
 
 deploy: all
 	# this makefile will be located in /website
-	rm -rf ../docs/*
-	mv compiled ../docs/compiled
+	rm -rf ../docs
+	mkdir -p ../docs
+	cp -r compiled ../docs/compiled
 	cp -r images ../docs/images
 	cp *.html ../docs/
