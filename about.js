@@ -68,6 +68,24 @@ function createRepoPanel(repo, root, index) {
             _panel.style.borderRightColor = "#A22"
             break;
     }
+
+    switch (repo.language) {
+        case "Shell":
+            _panel.classList.add("bash");
+            break;
+        
+        case "C#":
+            _panel.classList.add("cs");
+            break;
+        
+        case "C++":
+            _panel.classList.add("cpp");
+            break;
+    
+        default:
+            _panel.classList.add("unknown");
+            break;
+    }
     
     var _title = document.createElement("h2");
     _title.innerText = repo.name + (repo.archived ? " (archived)" : "") + (repo.fork ? " (forked)" : "");
