@@ -4,13 +4,13 @@ output := $(foreach file,$(files),$(shell basename -s .scss $(file)))
 all:
 	@echo Compiling scss to css
 	@echo =====================
-	@make $(output)
+	make $(output)
 	@echo =====================
 	@echo Compilation completed
 
 $(output):
 	@echo $@.scss to $@.css
-	@sassc -t compressed $@.scss > $@.css
+	sassc -t compressed $@.scss > $@.css
 
 push:
 	make all
@@ -19,3 +19,6 @@ push:
 fetch:
 	git fetch
 	git pull
+
+test:
+	chromium --app=file://$(shell pwd)/index.html
