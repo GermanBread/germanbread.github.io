@@ -4,10 +4,12 @@
     import Greeting from "./greeter/Greeter.svelte";
 	//import Memes from "./memes/Memes.svelte";
 	// Note: might scrap multi-"page" idea completely
+	// Note2 (from the future): I might use Svelte Kit
 
     import { currentTheme, greeting, page, themes, translationData } from "./scripts/globals";
 	import { onMount } from "svelte";
 
+	// Despite what your linter might tell you, this variable is used
 	let appTheme : string;
 
 	page.subscribe((val) => {
@@ -42,20 +44,20 @@
 </script>
 
 <main>
-    <div class="loading-cover" class:visible="{!translationLoaded}"></div>
-	
-	{#if $greeting}
-		<Greeting />
-	{:else}
-		<!--{#if $page === "memes"}
-			<Memes />
-		{:else if $page === "portfolio"}
-			<Portfolio />
+	{#if translationLoaded}
+		{#if $greeting}
+			<Greeting />
 		{:else}
-			<LandingPage />
-		{/if}-->
-		<Portfolio />
-    {/if}
+			<!--{#if $page === "memes"}
+				<Memes />
+			{:else if $page === "portfolio"}
+				<Portfolio />
+			{:else}
+				<LandingPage />
+			{/if}-->
+			<Portfolio />
+		{/if}
+	{/if}
 
     {@html `<style>
 		:root {
@@ -85,21 +87,4 @@
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		}
 	}
-
-	.loading-cover {
-        position: fixed;
-        
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        pointer-events: none;
-        z-index: 999;
-        transition: background-color 1s;
-
-        &.visible {
-            background-color: var(--background, black);
-        }
-    }
 </style>

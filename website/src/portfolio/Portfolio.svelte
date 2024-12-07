@@ -1,16 +1,17 @@
 <script lang="ts">
-    import Navrow from "../components/Navrow.svelte";
-	import SectionSep from "./SectionSep.svelte";
-	import Projects from "./Projects.svelte";
-	import Credits from "./Credits.svelte";
-	import About from "./About.svelte";
-	import Repos from "./Repos.svelte";
-    import { onMount } from "svelte";
-    import { translationData } from "../scripts/globals";
+import { translationData } from "../scripts/globals";
+import Navrow from "../components/Navrow.svelte";
+import SectionSep from "./SectionSep.svelte";
+import Projects from "./Projects.svelte";
+import { fly } from "svelte/transition";
+import Credits from "./Credits.svelte";
+import About from "./About.svelte";
+import Repos from "./Repos.svelte";
+import { onMount } from "svelte";
 
-    let animatedTextBackground : HTMLElement;
+    let animatedTextBackground: HTMLElement;
 
-    function pickRandom<T>(array : T[]) {
+    function pickRandom<T>(array: T[]) {
         if (!array) return undefined;
         const _index = Math.floor(Math.random() * array.length);
         return array[_index];
@@ -34,18 +35,14 @@
     })
 </script>
 
-<div id="logo-mount">
+<div id="logo-mount" in:fly="{{ duration: 1000, y: -15 }}">
     <div id="hello">
         <span>Hi</span>
     </div>
     <Navrow />
-    <div class="background" bind:this="{animatedTextBackground}">
-        {#each Array(Math.ceil(window.innerHeight / 30)) as _, i}
-            <div class="row">
-                {#each Array(Math.ceil(window.innerWidth / 150)) as _, j}
-                    <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
-                {/each}
-            </div>
+    <div class="background" bind:this="{animatedTextBackground}" in:fly="{{ y: -5, delay: 1000 }}">
+        {#each Array(Math.ceil(window.innerHeight / 150) * Math.ceil(window.innerWidth / 150)) as _, i}
+            <div class="text" class:active="{Math.random() > .75}">{pickRandom($translationData?.portfolio.buzzwords) ?? ""}</div>
         {/each}
     </div>
     
@@ -111,18 +108,15 @@
 
         z-index: -5;
 
+        padding: 2%;
+        gap: 1em;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(3em, 1fr));
+
         color: transparent;
         overflow: hidden;
-
-        .row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-            overflow: hidden;
-            
-            max-height: 1.5rem;
-            padding: 1rem;
-            gap: 1rem;
-        }
 
         .text {
             user-select: none;
