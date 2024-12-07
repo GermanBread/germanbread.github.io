@@ -146,3 +146,19 @@ button {
         opacity: 0;
     }
 }
+
+div.heart-blink {
+    animation: heart-blink-anim 2s infinite steps(2);
+    
+    color: #A00;
+    text-shadow: 0 0 3px #A00;
+
+    width: 2ch;
+    margin-left: 1ch;
+}
+@keyframes heart-blink-anim {
+    from {
+        color: #F00;
+        text-shadow: 0 0 3px #F00;
+    }
+}

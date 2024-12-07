@@ -4,7 +4,7 @@ Visit https://germanbread.github.io/ to see the beauty
 
 ## Important
 
-Before making changes, consult [the license file](LICENSE.md).
+Before making changes, consult [the license file](CONDITIONS.md).
 
 ## Compiling
 
